@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  {{ $css := resources.Get "css/main.css" | postCSS }}
+  {{ if hugo.IsProduction }}
+    {{ $css = $css | minify }}
+  {{ end }}
+  {{ $css = $css | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="/vendor/flag-icons/css/flag-icons.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="app-container">
+      {{ partial "nav.html" . }}
+    </div>
+  </header>
+  <main class="site-main app-container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="site-footer app-container">
+    <p>&copy; {{ now.Year }} Sovereign Tech Directory</p>
+    <p>{{ i18n "footer_made_in_eu" }}</p>
+  </footer>
+  <script>
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('details[open]').forEach(function(d) {
+        if (!d.contains(e.target)) d.removeAttribute('open');
+      });
+    });
+  </script>
+</body>
+</html>

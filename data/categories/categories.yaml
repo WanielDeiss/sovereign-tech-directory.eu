@@ -1,0 +1,23 @@
+- id: cloud-storage
+  label: Cloud Storage & File Sync
+
+- id: communication
+  label: Communication & Messaging
+
+- id: analytics
+  label: Analytics & Monitoring
+
+- id: project-management
+  label: Project Management
+
+- id: development
+  label: Development & DevOps
+
+- id: office
+  label: Office & Collaboration
+
+- id: email
+  label: Email & Calendar
+
+- id: social-media
+  label: Social Media & Networking

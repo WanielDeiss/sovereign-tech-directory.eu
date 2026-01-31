@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-h-screen bg-gray-50 font-sans text-gray-900 antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  /* App container */
+  .app-container {
+    @apply max-w-content mx-auto px-4;
+  }
+
+  /* Page shell */
+  .site-header {
+    @apply sticky top-0 z-10 border-b border-border bg-white;
+  }
+  .site-main {
+    @apply py-12;
+  }
+
+  /* Typography */
+  .page-title {
+    @apply text-page-title font-semibold text-gray-900 mt-0 mb-6;
+  }
+  .section-title {
+    @apply text-section font-semibold text-gray-900 mt-0 mb-2;
+  }
+  .page-content {
+    @apply space-y-4;
+  }
+  .page-content h2 {
+    @apply text-section font-medium text-gray-900 mt-6 mb-2;
+  }
+  .page-content h3 {
+    @apply text-body font-medium text-gray-900 mt-4 mb-2;
+  }
+  .page-content p,
+  .page-content ul,
+  .page-content ol {
+    @apply mb-4;
+  }
+
+  /* Navigation */
+  .nav {
+    @apply py-4 flex flex-wrap items-center justify-between gap-4;
+  }
+  .nav-list {
+    @apply flex flex-wrap gap-4 list-none m-0 p-0;
+  }
+  .nav-link {
+    @apply text-gray-900 no-underline hover:text-primary;
+  }
+  .nav-link-active {
+    @apply text-primary;
+  }
+  .logo {
+    @apply font-bold text-primary no-underline hover:text-primary;
+  }
+
+  /* Language Switcher Dropdown */
+  .nav-right {
+    @apply flex items-center gap-6;
+  }
+  .lang-dropdown {
+    @apply relative;
+  }
+  .lang-dropdown-toggle {
+    @apply flex items-center gap-1 px-3 py-1.5 text-small text-gray-700 bg-white border border-border rounded hover:border-gray-400 cursor-pointer list-none;
+  }
+  .lang-dropdown-toggle::-webkit-details-marker {
+    display: none;
+  }
+  .lang-dropdown-icon {
+    @apply transition-transform duration-200;
+  }
+  .lang-dropdown[open] .lang-dropdown-icon {
+    @apply rotate-180;
+  }
+  .lang-dropdown-menu {
+    @apply absolute right-0 top-full mt-1 min-w-32 bg-white border border-border rounded shadow-lg list-none m-0 p-1 z-20;
+  }
+  .lang-dropdown-item {
+    @apply flex items-center gap-2 px-3 py-1.5 text-small text-gray-700 no-underline rounded hover:bg-gray-100 hover:text-primary;
+  }
+  .lang-dropdown-item-active {
+    @apply text-primary font-medium bg-primary/5;
+  }
+
+  /* Card (replaces tool-card, category-card) */
+  .card {
+    @apply bg-white border border-border rounded-card shadow-card p-6 flex flex-col gap-4 transition-shadow transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-gray-300;
+  }
+  .card header {
+    @apply flex flex-wrap items-start justify-between gap-2;
+  }
+  .card header .section-title {
+    @apply mb-0;
+  }
+  .card > .section-title {
+    @apply mb-3;
+  }
+  .card .tool-card-description {
+    @apply text-muted text-small leading-relaxed m-0;
+  }
+  .tool-meta {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-2 m-0;
+  }
+  .meta-item dt {
+    @apply text-small text-muted uppercase tracking-wide m-0;
+  }
+  .meta-item dd {
+    @apply m-0 text-small;
+  }
+  .card footer {
+    @apply mt-auto pt-2 border-none;
+  }
+  .card footer a {
+    @apply text-primary text-small no-underline hover:underline;
+  }
+  .card .category {
+    @apply text-small text-muted bg-gray-100 px-2.5 py-0.5 rounded-full whitespace-nowrap;
+  }
+
+  /* Tools grid */
+  .tools-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 mt-6;
+  }
+
+  /* Button */
+  .button {
+    @apply inline-block px-6 py-3 bg-primary text-white no-underline rounded hover:opacity-90;
+  }
+
+  /* Badges (pill style) */
+  .badge {
+    @apply inline-block px-2.5 py-0.5 rounded-full text-small font-medium;
+  }
+  .badge-neutral {
+    @apply bg-gray-100 text-muted;
+  }
+  .badge-highlight {
+    @apply bg-primary/10 text-primary;
+  }
+
+  /* Categories list */
+  .categories-list {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-6;
+  }
+  .card h2 a {
+    @apply text-gray-900 no-underline hover:text-primary;
+  }
+  .card ul {
+    @apply list-none p-0 m-0 space-y-1;
+  }
+
+  /* Links */
+  .link {
+    @apply text-primary no-underline hover:underline;
+  }
+
+  /* Tool detail page */
+  .tool-detail-hero {
+    @apply mb-8;
+  }
+  .tool-detail-hero .tool-card-description {
+    @apply mb-4;
+  }
+  .tool-detail-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+  .tool-detail-main {
+    @apply space-y-6;
+  }
+  .tool-detail-main ul {
+    @apply list-none p-0 m-0 space-y-1;
+  }
+  .tool-detail-sidebar {
+    @apply md:min-w-0;
+  }
+  .checklist {
+    @apply space-y-3;
+  }
+  .checklist-row {
+    @apply flex flex-wrap justify-between items-center gap-2 py-2 border-b border-border last:border-0;
+  }
+  .checklist-label {
+    @apply text-muted text-small font-normal;
+  }
+  .checklist-value {
+    @apply text-small text-right;
+  }
+
+  /* CTA & Footer */
+  .cta {
+    @apply mt-8 flex flex-wrap gap-4;
+  }
+  .site-footer {
+    @apply border-t border-border py-6 text-muted text-small text-center space-y-1;
+  }
+  .site-footer p {
+    @apply m-0;
+  }
+}

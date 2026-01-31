@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article class="page-content">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{/* Build category lookup map */}}
+  {{ $categories := dict }}
+  {{ range .Site.Data.categories.categories }}
+    {{ $categories = merge $categories (dict .id .label) }}
+  {{ end }}
+
+  {{/* Collect and sort tools by name */}}
+  {{ $tools := slice }}
+  {{ range $filename, $tool := .Site.Data.tools }}
+    {{ $tools = $tools | append $tool }}
+  {{ end }}
+  {{ $tools = sort $tools "name" }}
+
+  <ul class="tools-grid" role="list">
+    {{ range $tools }}
+    {{ partial "tool-card.html" (dict "tool" . "categories" $categories) }}
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

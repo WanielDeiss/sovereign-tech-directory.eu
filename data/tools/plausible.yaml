@@ -1,0 +1,15 @@
+id: plausible
+name: Plausible Analytics
+description: Lightweight, privacy-friendly web analytics. No cookies, fully GDPR compliant, with EU-hosted cloud option or self-hosting capability.
+category: analytics
+countries:
+  - EE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+alternatives_to:
+  - Google Analytics
+  - Adobe Analytics
+website: https://plausible.io
+last_reviewed: 2026-01

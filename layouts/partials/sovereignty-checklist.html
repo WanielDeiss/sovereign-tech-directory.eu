@@ -1,0 +1,33 @@
+<aside class="tool-detail-sidebar">
+  <div class="card">
+    <h2 class="section-title">{{ i18n "label_sovereignty_checklist" }}</h2>
+    <div class="checklist">
+      <div class="checklist-row">
+        <span class="checklist-label">{{ i18n "label_eu_company" }}</span>
+        <span class="checklist-value">{{ if .tool.eu_company }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</span>
+      </div>
+      <div class="checklist-row">
+        <span class="checklist-label">{{ i18n "label_data_residency" }}</span>
+        <span class="checklist-value"><span class="badge badge-neutral">{{ i18n (printf "data_residency_%s" (lower .tool.data_residency)) | default .tool.data_residency }}</span></span>
+      </div>
+      <div class="checklist-row">
+        <span class="checklist-label">{{ i18n "label_open_source" }}</span>
+        <span class="checklist-value">{{ if .tool.open_source }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</span>
+      </div>
+      <div class="checklist-row">
+        <span class="checklist-label">{{ i18n "label_self_hostable" }}</span>
+        <span class="checklist-value">{{ if .tool.self_hostable }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</span>
+      </div>
+      <div class="checklist-row">
+        <span class="checklist-label">{{ i18n "label_countries" }}</span>
+        <span class="checklist-value">{{ delimit .tool.countries ", " }}</span>
+      </div>
+      {{ if .tool.last_reviewed }}
+      <div class="checklist-row">
+        <span class="checklist-label">{{ i18n "label_last_reviewed" }}</span>
+        <span class="checklist-value">{{ .tool.last_reviewed }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</aside>

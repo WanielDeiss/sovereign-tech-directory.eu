@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{ $tool := index .Site.Data.tools .File.BaseFileName }}
+{{ if not $tool }}
+  <p>Tool not found.</p>
+  {{ return }}
+{{ end }}
+
+<article class="page-content">
+  {{/* Title block (hero) */}}
+  <header class="tool-detail-hero">
+    <h1 class="page-title">{{ $tool.name }}</h1>
+    <p class="tool-card-description">{{ $tool.description }}</p>
+    <a href="{{ $tool.website }}" class="button" target="_blank" rel="noopener">{{ i18n "label_website" }}</a>
+  </header>
+
+  {{/* Two columns: main + sidebar */}}
+  <div class="tool-detail-grid">
+    <div class="tool-detail-main">
+      <section>
+        <h2 class="section-title">{{ i18n "label_about" }}</h2>
+        <p>{{ $tool.description }}</p>
+      </section>
+
+      {{ if $tool.alternatives_to }}
+      <section>
+        <h2 class="section-title">{{ i18n "label_alternatives_to" }}</h2>
+        <ul>
+          {{ range $tool.alternatives_to }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </section>
+      {{ end }}
+
+      <section>
+        <h2 class="section-title">{{ i18n "label_links" }}</h2>
+        <a href="{{ $tool.website }}" target="_blank" rel="noopener" class="link">{{ i18n "label_website" }}</a>
+      </section>
+    </div>
+
+    {{ partial "sovereignty-checklist.html" (dict "tool" $tool) }}
+  </div>
+</article>
+{{ end }}

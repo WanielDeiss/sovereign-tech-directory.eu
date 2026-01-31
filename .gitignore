@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Hugo generated files
+public/
+resources/
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+*.swp
+*.swo
+*~

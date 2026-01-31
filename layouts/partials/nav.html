@@ -1,0 +1,12 @@
+<nav class="nav">
+  <a href="{{ "/" | relLangURL }}" class="logo">Sovereign Tech Directory</a>
+  <div class="nav-right">
+    <ul class="nav-list">
+      <li><a href="{{ "/" | relLangURL }}" class="nav-link{{ if .IsHome }} nav-link-active{{ end }}">{{ i18n "nav_home" }}</a></li>
+      <li><a href="{{ "tools/" | relLangURL }}" class="nav-link{{ if eq .Section "tools" }} nav-link-active{{ end }}">{{ i18n "nav_tools" }}</a></li>
+      <li><a href="{{ "categories/" | relLangURL }}" class="nav-link{{ if eq .Section "categories" }} nav-link-active{{ end }}">{{ i18n "nav_categories" }}</a></li>
+      <li><a href="{{ "about/" | relLangURL }}" class="nav-link{{ if in .RelPermalink "/about/" }} nav-link-active{{ end }}">{{ i18n "nav_about" }}</a></li>
+    </ul>
+    {{ partial "language-switcher.html" . }}
+  </div>
+</nav>

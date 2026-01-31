@@ -1,0 +1,21 @@
+---
+description: "Hugo Konventionen und Projektstruktur"
+applyTo: "**/*.html"
+---
+# Hugo Konventionen
+
+Struktur:
+- content/ → Seiten & Section Indexes
+- data/ → Tools & Kategorien (YAML) 
+- layouts/ → Templates (list, single, partials) 
+- assets/ → CSS & optionales JS Konventionen: 
+- Tools werden aus /data/tools/*.yaml gerendert 
+- Keine Themes verwenden 
+- Layouts so einfach wie möglich halten 
+- Semantisches HTML, kein Div-Soup 
+
+URLs: 
+- /tools/ 
+- /tools/<id>/ 
+- /categories/ 
+- /categories/<id>/ 

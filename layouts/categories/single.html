@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ $catId := .File.BaseFileName }}
+
+{{/* Look up category label from data */}}
+{{ $categoryLabel := "" }}
+{{ range .Site.Data.categories.categories }}
+  {{ if eq .id $catId }}{{ $categoryLabel = .label }}{{ end }}
+{{ end }}
+
+{{/* Build category lookup for badges */}}
+{{ $categories := dict }}
+{{ range .Site.Data.categories.categories }}
+  {{ $categories = merge $categories (dict .id .label) }}
+{{ end }}
+
+{{/* Collect tools in this category and sort by name */}}
+{{ $tools := slice }}
+{{ range $filename, $tool := .Site.Data.tools }}
+  {{ if eq $tool.category $catId }}
+    {{ $tools = $tools | append $tool }}
+  {{ end }}
+{{ end }}
+{{ $tools = sort $tools "name" }}
+
+<article class="page-content">
+  <h1 class="page-title">{{ $categoryLabel }}</h1>
+  <p>{{ i18n "tools_in_category" }}</p>
+
+  <ul class="tools-grid" role="list">
+    {{ range $tools }}
+    {{ partial "tool-card.html" (dict "tool" . "categories" $categories) }}
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

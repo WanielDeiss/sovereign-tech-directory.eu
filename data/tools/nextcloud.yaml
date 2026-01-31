@@ -1,0 +1,16 @@
+id: nextcloud
+name: Nextcloud
+description: Self-hosted productivity platform with file sync, collaboration, and communication features. A privacy-focused alternative to Google Workspace and Dropbox.
+category: cloud-storage
+countries:
+  - DE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+alternatives_to:
+  - Google Drive
+  - Dropbox
+  - Microsoft OneDrive
+website: https://nextcloud.com
+last_reviewed: 2026-01

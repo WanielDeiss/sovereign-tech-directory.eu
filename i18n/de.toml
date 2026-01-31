@@ -1,0 +1,76 @@
+# Navigation
+[nav_home]
+other = "Start"
+
+[nav_tools]
+other = "Tools"
+
+[nav_categories]
+other = "Kategorien"
+
+[nav_about]
+other = "Über uns"
+
+# Labels
+[label_eu_company]
+other = "EU-Unternehmen"
+
+[label_countries]
+other = "Länder"
+
+[label_category]
+other = "Kategorie"
+
+[label_data_residency]
+other = "Datenspeicherort"
+
+[label_open_source]
+other = "Open Source"
+
+[label_self_hostable]
+other = "Self-Hosting möglich"
+
+[label_last_reviewed]
+other = "Zuletzt geprüft"
+
+[label_alternatives_to]
+other = "Alternative zu"
+
+[label_about]
+other = "Beschreibung"
+
+[label_links]
+other = "Links"
+
+[label_website]
+other = "Website"
+
+[label_sovereignty_checklist]
+other = "Souveränitäts-Checkliste"
+
+# Badges
+[badge_yes]
+other = "Ja"
+
+[badge_no]
+other = "Nein"
+
+# Data Residency Values
+[data_residency_eu]
+other = "EU"
+
+[data_residency_eea]
+other = "EWR"
+
+[data_residency_global]
+other = "Global"
+
+[data_residency_unknown]
+other = "Unbekannt"
+
+# Other
+[tools_in_category]
+other = "Tools in dieser Kategorie."
+
+[footer_made_in_eu]
+other = "Made in EU"

@@ -1,0 +1,76 @@
+# Navigation
+[nav_home]
+other = "Inicio"
+
+[nav_tools]
+other = "Herramientas"
+
+[nav_categories]
+other = "Categorías"
+
+[nav_about]
+other = "Acerca de"
+
+# Labels
+[label_eu_company]
+other = "Empresa UE"
+
+[label_countries]
+other = "Países"
+
+[label_category]
+other = "Categoría"
+
+[label_data_residency]
+other = "Residencia de datos"
+
+[label_open_source]
+other = "Código abierto"
+
+[label_self_hostable]
+other = "Autoalojable"
+
+[label_last_reviewed]
+other = "Última revisión"
+
+[label_alternatives_to]
+other = "Alternativa a"
+
+[label_about]
+other = "Descripción"
+
+[label_links]
+other = "Enlaces"
+
+[label_website]
+other = "Sitio web"
+
+[label_sovereignty_checklist]
+other = "Lista de soberanía"
+
+# Badges
+[badge_yes]
+other = "Sí"
+
+[badge_no]
+other = "No"
+
+# Data Residency Values
+[data_residency_eu]
+other = "UE"
+
+[data_residency_eea]
+other = "EEE"
+
+[data_residency_global]
+other = "Global"
+
+[data_residency_unknown]
+other = "Desconocido"
+
+# Other
+[tools_in_category]
+other = "Herramientas en esta categoría."
+
+[footer_made_in_eu]
+other = "Hecho en la UE"

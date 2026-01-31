@@ -1,0 +1,17 @@
+id: gitlab
+name: GitLab
+description: Complete DevOps platform with source code management, CI/CD, security scanning, and project planning. Available as SaaS or self-managed installation.
+category: development
+countries:
+  - NL
+  - US
+eu_company: false
+data_residency: Global
+open_source: true
+self_hostable: true
+alternatives_to:
+  - GitHub
+  - Bitbucket
+  - Azure DevOps
+website: https://gitlab.com
+last_reviewed: 2026-01

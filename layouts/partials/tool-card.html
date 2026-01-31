@@ -1,0 +1,31 @@
+<li class="card">
+  <header>
+    <h2 class="section-title">{{ .tool.name }}</h2>
+    <span class="category">{{ index .categories .tool.category }}</span>
+  </header>
+
+  <p class="tool-card-description">{{ .tool.description }}</p>
+
+  <dl class="tool-meta">
+    <div class="meta-item">
+      <dt>{{ i18n "label_countries" }}</dt>
+      <dd>{{ delimit .tool.countries ", " }}</dd>
+    </div>
+    <div class="meta-item">
+      <dt>{{ i18n "label_data_residency" }}</dt>
+      <dd><span class="badge badge-neutral">{{ i18n (printf "data_residency_%s" (lower .tool.data_residency)) | default .tool.data_residency }}</span></dd>
+    </div>
+    <div class="meta-item">
+      <dt>{{ i18n "label_open_source" }}</dt>
+      <dd>{{ if .tool.open_source }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
+    </div>
+    <div class="meta-item">
+      <dt>{{ i18n "label_self_hostable" }}</dt>
+      <dd>{{ if .tool.self_hostable }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
+    </div>
+  </dl>
+
+  <footer>
+    <a href="{{ .tool.website }}" target="_blank" rel="noopener">{{ i18n "label_website" }}</a>
+  </footer>
+</li>

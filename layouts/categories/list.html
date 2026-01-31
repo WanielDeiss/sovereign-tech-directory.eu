@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="page-content">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+
+  <section class="categories-list">
+    {{ range .Site.Data.categories.categories }}
+    {{ partial "category-card.html" (dict "category" . "ctx" $) }}
+    {{ end }}
+  </section>
+</article>
+{{ end }}

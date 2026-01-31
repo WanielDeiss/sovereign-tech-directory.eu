@@ -1,0 +1,32 @@
+# sovereign-tech-directory.eu – Repo-Leitplanken
+
+## Projektübersicht
+Kuratiertes Verzeichnis für digitale Souveränität in Europa.
+Statischer Build mit Hugo (SSG), keine Datenbank, keine User-Accounts.
+
+## Kernprinzipien
+- Daten sind Source of Truth (YAML in /data)
+- Git + PRs sind der Workflow
+- Lesbarkeit und Transparenz vor Feature-Vielfalt
+- Progressive Enhancement statt JS-Abhängigkeiten
+
+## Technische Leitplanken
+- Hugo SSG ohne Theme
+- Semantisches HTML
+- Minimales CSS ohne Framework
+- Vanilla JS nur optional
+
+## Datenmodell
+- Tools: /data/tools/*.yaml
+- Kategorien: /data/categories/*.yaml
+- IDs: lowercase-kebab-case
+
+## Nicht-Ziele (Phase 1)
+- Authentifizierung, Kommentare, Ratings
+- Backend-APIs oder Datenbanken
+- Tracking oder Cookie-Banner
+
+## Bei Unsicherheit
+- Einfachste Lösung bevorzugen
+- Annahmen explizit dokumentieren
+- Bestehende .cursor/rules/*.mdc konsultieren

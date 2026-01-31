@@ -1,0 +1,25 @@
+---
+description: "Globaler Projektkontext für sovereign-tech-directory.eu"
+applyTo: "**/*"
+---
+
+# Projekt: sovereign-tech-directory.eu
+
+Ziel:
+Ein kuratiertes, datengetriebenes Verzeichnis für digitale Souveränität in Europa.
+Statischer Build mit Hugo (SSG), keine Datenbank, keine User-Accounts.
+
+Primärprinzipien:
+- Daten sind Source of Truth (YAML in /data)
+- Git + PRs sind der Workflow
+- Lesbarkeit und Transparenz vor Feature-Vielfalt
+- Progressive Enhancement statt JS-Abhängigkeiten
+
+Nicht-Ziele (Phase 1):
+- Authentifizierung, Kommentare, Ratings
+- Backend-APIs oder Datenbanken
+- Tracking oder Cookie-Banner
+
+Wenn du unsicher bist:
+- Bevorzuge die einfachste Lösung
+- Dokumentiere Annahmen explizit

@@ -1,0 +1,15 @@
+id: mastodon
+name: Mastodon
+description: Decentralized social network based on the ActivityPub protocol. Users can join existing instances or host their own server for full control.
+category: social-media
+countries:
+  - DE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+alternatives_to:
+  - Twitter
+  - X
+website: https://joinmastodon.org
+last_reviewed: 2026-01

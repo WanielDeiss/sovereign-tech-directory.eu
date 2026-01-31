@@ -1,0 +1,24 @@
+---
+description: "Datenmodell und Validierungsregeln" 
+applyTo: "data/**/*.yaml" 
+--- 
+
+# Datenmodell-Regeln
+
+Pflichtfelder für Tools:
+- id (slug, eindeutig)
+- name
+- description
+- category (muss in categories existieren)
+- countries (ISO Codes)
+- eu_company (bool)
+- data_residency (EU | EWR | Unknown | Global)
+- open_source (bool)
+- self_hostable (bool)
+- website
+- last_reviewed (YYYY-MM)
+
+Regeln:
+- Keine freien Textkategorien
+- IDs sind lowercase-kebab-case
+- last_reviewed immer aktuell halten

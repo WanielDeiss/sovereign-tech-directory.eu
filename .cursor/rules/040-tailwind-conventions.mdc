@@ -1,0 +1,98 @@
+---
+description: "Tailwind CSS Konventionen fuer sovereign-tech-directory.eu"
+applyTo: "**/*"
+---
+
+# Tailwind Konventionen
+
+Ziel:
+Tailwind wird als **Design-System und Token-Layer** genutzt, nicht als Utility-Salat im HTML.
+
+## Grundregeln
+
+- Keine langen Utility-Ketten im HTML.
+- Bevorzuge **semantische Klassen** statt direkter Utilities.
+- Semantische Klassen werden in `assets/css/main.css` mit `@apply` definiert.
+- Tailwind Utilities duerfen im HTML nur fuer:
+  - Layout Glue (zB `grid`, `flex`, `hidden`, `md:grid-cols-2`)
+  - responsive Umschaltung
+  - sehr einfache, einmalige Anpassungen
+
+## Erlaubt im HTML
+
+Beispiele:
+- `grid`, `flex`, `items-center`, `justify-between`
+- `md:grid-cols-2`, `lg:grid-cols-3`
+- `hidden`, `block`, `md:hidden`
+- max 3 bis 4 Utility Klassen pro Element
+
+## Nicht erlaubt im HTML
+
+- Lange Klassenketten fuer Spacing, Farbe, Border, Shadow
+- Wiederholte Utility Kombinationen auf mehreren Seiten
+- Inline Styles
+- Utility Klassen fuer Design Tokens (Farben, Radius, Shadow)
+
+Schlechtes Beispiel:
+```html
+<div class="p-6 bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col gap-4">
+```
+
+**Gutes Beispiel:**
+
+```html
+<div class="card">
+```
+
+## Design Tokens
+
+Farben, Radius, Shadow und Typografie werden in `tailwind.config.js` definiert.
+
+Komponenten-Patterns werden in `assets/css/main.css` ueber `@apply` gebaut.
+
+Tailwind Default Tokens duerfen erweitert werden, aber nicht beliebig uebersteuert.
+
+## Komponenten-Regeln
+
+**Bevorzugte semantische Klassen:**
+
+- `.app-container`
+- `.page-title`
+- `.section-title`
+- `.card`
+- `.card-header`
+- `.badge`
+- `.badge-strong`
+- `.button`
+- `.button-secondary`
+- `.nav`
+- `.nav-link`
+- `.nav-link-active`
+
+**Wenn eine dieser Klassen fehlt:**
+
+1. erst in `main.css` anlegen  
+2. dann im HTML verwenden  
+
+## Refactoring Regel
+
+Wenn du im HTML mehr als **4 Utility Klassen** brauchst:
+
+1. Stop  
+2. Erkenne das Pattern  
+3. Extrahiere eine semantische Klasse in `main.css`  
+4. Ersetze die Utilities durch diese Klasse  
+
+## Review Check
+
+Vor Abschluss einer UI Aenderung pruefen:
+
+- Wurde Utility-Duplikation reduziert?
+- Sind semantische Klassen wiederverwendet?
+- Sind Design Tokens konsistent?
+- Bleibt das HTML lesbar?
+
+---
+
+Tailwind ist ein Werkzeug.  
+**Lesbarkeit, Konsistenz und Wartbarkeit haben Vorrang.**

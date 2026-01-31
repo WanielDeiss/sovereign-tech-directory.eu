@@ -1,0 +1,29 @@
+{{- $langToCountry := dict "en" "gb" "de" "de" "fr" "fr" "es" "es" "it" "it" "pl" "pl" -}}
+{{- $currentCountry := index $langToCountry .Site.Language.Lang | default .Site.Language.Lang -}}
+<details class="lang-dropdown">
+  <summary class="lang-dropdown-toggle">
+    <span class="fi fi-{{ $currentCountry }}"></span>
+    {{ upper .Site.Language.Lang }}
+    <svg class="lang-dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </summary>
+  <ul class="lang-dropdown-menu">
+    {{ range site.Languages }}
+      {{ $lang := .Lang }}
+      {{ $country := index $langToCountry $lang | default $lang }}
+      {{ $isCurrent := eq $lang $.Language.Lang }}
+      {{ $translation := index (where $.Translations "Language.Lang" $lang) 0 }}
+      {{ $url := cond (ne $translation nil) $translation.RelPermalink (printf "/%s/" $lang) }}
+      <li>
+        <a href="{{ $url }}"
+           class="lang-dropdown-item{{ if $isCurrent }} lang-dropdown-item-active{{ end }}"
+           {{ if $isCurrent }}aria-current="true"{{ end }}
+           hreflang="{{ .Lang }}">
+          <span class="fi fi-{{ $country }}"></span>
+          {{ .LanguageName }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</details>

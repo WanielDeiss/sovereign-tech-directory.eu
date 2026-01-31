@@ -1,0 +1,16 @@
+id: element
+name: Element (Matrix)
+description: Secure messaging and collaboration app built on the Matrix protocol. Offers end-to-end encryption and can be self-hosted for complete data sovereignty.
+category: communication
+countries:
+  - GB
+eu_company: false
+data_residency: EU
+open_source: true
+self_hostable: true
+alternatives_to:
+  - Slack
+  - Microsoft Teams
+  - Discord
+website: https://element.io
+last_reviewed: 2026-01

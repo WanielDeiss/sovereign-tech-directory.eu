@@ -1,0 +1,24 @@
+---
+description: "Code- und Qualitätsregeln"
+applyTo: "**/*"
+---
+
+# Qualitätsregeln
+
+HTML:
+- Semantische Elemente bevorzugen
+- Keine Inline-Styles
+
+CSS:
+- Minimal
+- Kein Framework
+- Verständliche Klassennamen
+
+JavaScript:
+- Nur Vanilla JS
+- Optional
+- Progressive Enhancement
+
+Output-Regeln:
+- Bei Dateiänderungen immer vollständigen Inhalt ausgeben
+- Geänderte Dateien am Ende auflisten 

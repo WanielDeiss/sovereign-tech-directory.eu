@@ -1,0 +1,87 @@
+---
+description: "Design Language und UI Konventionen fuer sovereign-tech-directory.eu"
+applyTo: "layouts/**/*.html"
+---
+
+# Design Language
+
+Ziel: modernes, ruhiges, serioeses Directory Design. Content first. Keine Spielereien.
+
+## Stilrichtung
+
+Keywords:
+- modern SaaS directory
+- soft borders, subtle shadows
+- generous spacing
+- typography forward
+- content first
+
+Nicht:
+- knallige Farben
+- harte Schatten
+- zu viele Icons
+- zu viele verschiedene Badge Styles
+- Animationen als Selbstzweck
+
+## Design Tokens
+
+Farben:
+- Primary: eine kuehle, serioese Farbe (sparsam einsetzen, zB Links, Buttons)
+- Accent: eine zweite Farbe fuer Highlights (sehr sparsam)
+- Neutrals: Grautoene fuer Text, Border, Background
+
+Abstaende:
+- Nutze konsistente Spacing Stufen.
+- Lieber mehr Luft als zu eng.
+- Headings haben klar mehr Abstand nach unten.
+
+Ecken und Schatten:
+- Radius: modern, eher gross.
+- Shadow: weich und subtil, nicht tief.
+
+Typografie:
+- Headings klar und nicht zu gross.
+- Body gut lesbar, ausreichend line height.
+- Keine extremen Font Weights.
+
+## Komponenten Patterns
+
+Diese semantischen Klassen sollen bevorzugt werden, statt Utility Explosion:
+
+- .app-container: Seitenbreite und horizontal padding
+- .page-title: Page Heading
+- .section-title: Section Headings
+- .card: Standard Card Wrapper
+- .card-header: Header Block in Cards
+- .badge: Pill Badge, neutral default
+- .badge-strong: fuer wichtige Values sparsam
+- .button: primary button
+- .button-secondary: secondary button
+- .nav, .nav-link, .nav-link-active: Navigation
+
+Regeln:
+- HTML soll wenige Klassen haben, bevorzugt semantische Klassen.
+- Semantische Klassen werden in assets/css/main.css via @apply gebaut.
+
+## Layout Regeln
+
+- Jede Seite nutzt .app-container fuer konsistente Breite.
+- Cards sind der Standard fuer Tool Eintraege und Checklist.
+- Meta Informationen (Land, Lizenz, Flags) sind sekundar und kompakt.
+- Detailseiten nutzen ein 2 Spalten Layout auf Desktop, 1 Spalte auf Mobile.
+
+## Accessibility und UX
+
+- Kontrast beachten, Text nie zu hell.
+- Fokus States fuer Links und Buttons nicht entfernen.
+- Hover States dezent, aber vorhanden.
+- Interaktionen ohne JS muessen nutzbar bleiben.
+
+## Review Check
+
+Wenn du UI aenderst, pruefe:
+- Ist Spacing konsistent?
+- Sind Cards einheitlich?
+- Sind Badges einheitlich?
+- Hat jede Seite klare Typografie Hierarchie?
+- Sind Primary Color und Accent sparsam eingesetzt?

@@ -1,0 +1,44 @@
+---
+description: "Commit Message Konventionen"
+applyTo: "**/*"
+---
+
+# Commit Message Regeln
+
+Dieses Repo nutzt Conventional Commits.
+
+## Erlaubte Typen
+
+- feat: neue Features
+- fix: Bugfixes
+- docs: Dokumentation (README, ADR, Architektur)
+- style: reine Styling Aenderungen (CSS, Layout, keine Logik)
+- refactor: Code Umstrukturierung ohne Feature Aenderung
+- chore: Wartung, Tooling, Meta
+- build: Build System, Dependencies
+- ci: CI und GitHub Actions
+
+## Format
+
+```
+<type>: <kurze beschreibung>
+```
+
+Regeln:
+- subject lowercase
+- max 72 Zeichen
+- kein Punkt am Ende
+- kein Ticket Prefix
+- kein Emoji
+
+## Beispiele
+
+Gute Commits:
+- feat: add multilingual content structure
+- docs: add adr for routing
+- style: refine tool card layout
+
+Schlechte Commits:
+- Update stuff
+- Added new feature
+- FIX: BUG
