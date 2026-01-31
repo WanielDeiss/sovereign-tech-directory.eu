@@ -53,3 +53,7 @@ defaultContentLanguageInSubdir = true
     title = "Sovereign Tech Directory"
     [languages.pl.params]
       description = "Kuratorowany katalog suwerenności cyfrowej w Europie"
+
+[module]
+  [[module.imports]]
+    path = "github.com/gohugoio/hugo-mod-heroicons"

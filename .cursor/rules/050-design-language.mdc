@@ -23,6 +23,18 @@ Nicht:
 - zu viele verschiedene Badge Styles
 - Animationen als Selbstzweck
 
+## Icons
+
+Standard-Iconset: **Heroicons** (via hugo-mod-heroicons).
+
+Regeln:
+- Icons nur wo sie echten Mehrwert bieten (Navigation, Buttons, Status)
+- Keine dekorativen Icons ohne Funktion
+- Einheitliche Groesse und Stil innerhalb eines Kontexts
+- Styling ueber semantische CSS-Klassen in main.css
+
+Verwendung: siehe 010-hugo-conventions.mdc
+
 ## Design Tokens
 
 Farben:

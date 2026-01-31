@@ -1,0 +1,31 @@
+{{- /*
+  Icon Partial - Renders a Heroicon SVG
+  
+  Parameters:
+    name   - Icon name (required), e.g. "chevron-down"
+    style  - "outline" or "solid" (default: "outline")
+    size   - 16, 20, or 24 (default: 24)
+    class  - Additional CSS classes (optional)
+  
+  Usage:
+    {{ partial "icon.html" (dict "name" "chevron-down" "class" "my-icon") }}
+    {{ partial "icon.html" (dict "name" "check" "style" "solid" "size" 20) }}
+*/ -}}
+{{- $name := .name -}}
+{{- $style := .style | default "outline" -}}
+{{- $size := .size | default 24 -}}
+{{- $class := .class | default "" -}}
+
+{{- $path := printf "svg/heroicons/%d/%s/%s.svg" $size $style $name -}}
+{{- $icon := resources.Get $path -}}
+
+{{- if $icon -}}
+  {{- $svg := $icon.Content -}}
+  {{- /* Add class attribute to SVG if provided */ -}}
+  {{- if $class -}}
+    {{- $svg = replace $svg "<svg" (printf "<svg class=\"%s\"" $class) -}}
+  {{- end -}}
+  {{- $svg | safeHTML -}}
+{{- else -}}
+  {{- warnf "Icon not found: %s" $path -}}
+{{- end -}}

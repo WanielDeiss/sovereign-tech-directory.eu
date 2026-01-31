@@ -8,11 +8,35 @@ Struktur:
 - content/ → Seiten & Section Indexes
 - data/ → Tools & Kategorien (YAML) 
 - layouts/ → Templates (list, single, partials) 
-- assets/ → CSS & optionales JS Konventionen: 
+- assets/ → CSS & optionales JS
+- assets/svg/heroicons/ → UI-Icons via Hugo-Modul (siehe unten)
+
+Konventionen: 
 - Tools werden aus /data/tools/*.yaml gerendert 
 - Keine Themes verwenden 
 - Layouts so einfach wie möglich halten 
-- Semantisches HTML, kein Div-Soup 
+- Semantisches HTML, kein Div-Soup
+
+## Icons (Heroicons)
+
+UI-Icons werden ueber das Hugo-Modul `hugo-mod-heroicons` bereitgestellt.
+
+Verwendung im Template:
+```html
+{{ partial "icon.html" (dict "name" "chevron-down" "class" "my-icon") }}
+{{ partial "icon.html" (dict "name" "check" "style" "solid" "size" 20) }}
+```
+
+Parameter:
+- name: Icon-Name (z.B. "chevron-down", "check")
+- style: "outline" (default) oder "solid"
+- size: 16, 20 oder 24 (default: 24)
+- class: CSS-Klasse fuer Styling
+
+Regeln:
+- Icons sparsam einsetzen (siehe Design Language)
+- Styling ueber semantische CSS-Klassen, nicht inline
+- Bevorzugt 24/outline fuer UI-Elemente 
 
 URLs: 
 - /tools/ 

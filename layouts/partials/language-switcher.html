@@ -4,9 +4,7 @@
   <summary class="lang-dropdown-toggle">
     <span class="fi fi-{{ $currentCountry }}"></span>
     {{ upper .Site.Language.Lang }}
-    <svg class="lang-dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    {{- partial "icon.html" (dict "name" "chevron-down" "style" "outline" "size" 24 "class" "lang-dropdown-icon") -}}
   </summary>
   <ul class="lang-dropdown-menu">
     {{ range site.Languages }}

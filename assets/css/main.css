@@ -77,7 +77,7 @@
     display: none;
   }
   .lang-dropdown-icon {
-    @apply transition-transform duration-200;
+    @apply w-3 h-3 transition-transform duration-200;
   }
   .lang-dropdown[open] .lang-dropdown-icon {
     @apply rotate-180;
