@@ -25,6 +25,7 @@ Dieses Repo nutzt Conventional Commits.
 ```
 
 Regeln:
+- **english only** (keine deutschen Commit Messages)
 - subject lowercase
 - max 72 Zeichen
 - kein Punkt am Ende
