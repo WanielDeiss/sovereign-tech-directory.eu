@@ -11,9 +11,9 @@ Statischer Build mit Hugo (SSG), keine Datenbank, keine User-Accounts.
 - Progressive Enhancement statt JS-Abhängigkeiten
 
 ## Technische Leitplanken
-- Hugo SSG ohne Theme
+- Hugo SSG mit Docsy Theme (als Hugo-Modul)
 - Semantisches HTML
-- Minimales CSS ohne Framework
+- Tailwind CSS + Bootstrap (via Docsy) parallel
 - Vanilla JS nur optional
 
 ## Datenmodell

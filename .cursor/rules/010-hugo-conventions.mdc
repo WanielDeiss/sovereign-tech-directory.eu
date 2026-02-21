@@ -11,9 +11,17 @@ Struktur:
 - assets/ → CSS & optionales JS
 - assets/svg/heroicons/ → UI-Icons via Hugo-Modul (siehe unten)
 
+## Theme: Docsy
+
+Das Projekt nutzt das Docsy-Theme als Hugo-Modul:
+- Docsy bietet Base-Layout, Navbar, Footer, Multilingual Support
+- Eigene Layouts (tools/, categories/) ueberschreiben Theme-Layouts
+- Tailwind CSS wird parallel zu Bootstrap via `hooks/head-end.html` geladen
+- Docsy-Params werden in hugo.toml unter [params] konfiguriert
+
 Konventionen: 
 - Tools werden aus /data/tools/*.yaml gerendert 
-- Keine Themes verwenden 
+- Eigene Section-Layouts fuer tools/ und categories/ beibehalten
 - Layouts so einfach wie möglich halten 
 - Semantisches HTML, kein Div-Soup
 
