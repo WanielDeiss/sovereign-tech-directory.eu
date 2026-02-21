@@ -11,32 +11,28 @@ menu:
 
 Information according to Section 5 German Telemedia Act (TMG):
 
-- Legal entity name: **[INSERT LEGAL ENTITY NAME]**
-- Legal form: **[INSERT LEGAL FORM, for example GmbH, UG, e.V., sole proprietor]**
-- Represented by: **[INSERT NAME OF AUTHORIZED REPRESENTATIVE]**
-- Registered address: **[INSERT FULL POSTAL ADDRESS]**
+- Name: **Daniel Weiß**
+- Legal form: **Private individual**
+- Registered address: **Haglweg 6, 84174 Haunwang, Germany**
 
 ## Contact
 
-- Email: **[INSERT CONTACT EMAIL]**
-- Phone: **[INSERT PHONE NUMBER, optional but recommended]**
+- Email: **wanieldeiss@gmail.com**
 
 ## Register Entry (if applicable)
 
-- Register court: **[INSERT REGISTER COURT]**
-- Register number: **[INSERT REGISTER NUMBER]**
+No commercial register entry.
 
 ## VAT Information (if applicable)
 
-- VAT identification number according to Section 27a German VAT Act:
-  **[INSERT VAT ID]**
+No VAT identification number according to Section 27a German VAT Act.
 
 ## Responsible for Content
 
 Responsible for journalistic-editorial content according to Section 18 paragraph 2 MStV:
 
-- Name: **[INSERT RESPONSIBLE PERSON NAME]**
-- Address: **[INSERT RESPONSIBLE PERSON ADDRESS]**
+- Name: **Daniel Weiß**
+- Address: **Haglweg 6, 84174 Haunwang, Germany**
 
 ## Dispute Resolution
 
