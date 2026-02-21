@@ -1,19 +1,10 @@
 {{ define "main" }}
-{{- $lang := .Site.Language.Lang -}}
-{{- $homeSection := false -}}
-{{- range .Sites -}}
-  {{- range .Sections -}}
-    {{- if eq .Section $lang -}}
-      {{- $homeSection = . -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
 <article class="home page-content">
-  <h1 class="page-title">{{ with $homeSection }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}</h1>
-  {{ with $homeSection }}{{ .Content }}{{ end }}
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
   <section class="cta">
-    <a href="{{ "tools/" | relLangURL }}" class="button">{{ i18n "nav_tools" }}</a>
-    <a href="{{ "categories/" | relLangURL }}" class="button">{{ i18n "nav_categories" }}</a>
+    <a href="{{ "tools/" | relURL }}" class="button">{{ i18n "nav_tools" }}</a>
+    <a href="{{ "categories/" | relURL }}" class="button">{{ i18n "nav_categories" }}</a>
   </section>
 </article>
 {{ end }}

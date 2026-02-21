@@ -63,35 +63,6 @@
     @apply font-bold text-primary no-underline hover:text-primary;
   }
 
-  /* Language Switcher Dropdown */
-  .nav-right {
-    @apply flex items-center gap-6;
-  }
-  .lang-dropdown {
-    @apply relative;
-  }
-  .lang-dropdown-toggle {
-    @apply flex items-center gap-1 px-3 py-1.5 text-small text-gray-700 bg-white border border-border rounded hover:border-gray-400 cursor-pointer list-none;
-  }
-  .lang-dropdown-toggle::-webkit-details-marker {
-    display: none;
-  }
-  .lang-dropdown-icon {
-    @apply w-3 h-3 transition-transform duration-200;
-  }
-  .lang-dropdown[open] .lang-dropdown-icon {
-    @apply rotate-180;
-  }
-  .lang-dropdown-menu {
-    @apply absolute right-0 top-full mt-1 min-w-32 bg-white border border-border rounded shadow-lg list-none m-0 p-1 z-20;
-  }
-  .lang-dropdown-item {
-    @apply flex items-center gap-2 px-3 py-1.5 text-small text-gray-700 no-underline rounded hover:bg-gray-100 hover:text-primary;
-  }
-  .lang-dropdown-item-active {
-    @apply text-primary font-medium bg-primary/5;
-  }
-
   /* Card (replaces tool-card, category-card) */
   .card {
     @apply bg-white border border-border rounded-card shadow-card p-6 flex flex-col gap-4 transition-shadow transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-gray-300;

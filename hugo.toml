@@ -1,58 +1,11 @@
 baseURL = "https://sovereign-tech-directory.eu/"
 title = "Sovereign Tech Directory"
-
+languageCode = "en-GB"
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
+contentDir = "content/en"
 
-[languages]
-
-  [languages.en]
-    languageCode = "en-GB"
-    languageName = "English"
-    weight = 1
-    title = "Sovereign Tech Directory"
-    [languages.en.params]
-      description = "A curated directory for digital sovereignty in Europe"
-
-  [languages.de]
-    languageCode = "de-DE"
-    languageName = "Deutsch"
-    weight = 2
-    title = "Sovereign Tech Directory"
-    [languages.de.params]
-      description = "Ein kuratiertes Verzeichnis für digitale Souveränität in Europa"
-
-  [languages.fr]
-    languageCode = "fr-FR"
-    languageName = "Français"
-    weight = 3
-    title = "Sovereign Tech Directory"
-    [languages.fr.params]
-      description = "Un répertoire sélectionné pour la souveraineté numérique en Europe"
-
-  [languages.es]
-    languageCode = "es-ES"
-    languageName = "Español"
-    weight = 4
-    title = "Sovereign Tech Directory"
-    [languages.es.params]
-      description = "Un directorio curado para la soberanía digital en Europa"
-
-  [languages.it]
-    languageCode = "it-IT"
-    languageName = "Italiano"
-    weight = 5
-    title = "Sovereign Tech Directory"
-    [languages.it.params]
-      description = "Una directory curata per la sovranità digitale in Europa"
-
-  [languages.pl]
-    languageCode = "pl-PL"
-    languageName = "Polski"
-    weight = 6
-    title = "Sovereign Tech Directory"
-    [languages.pl.params]
-      description = "Kuratorowany katalog suwerenności cyfrowej w Europie"
+[params]
+  description = "A curated directory for digital sovereignty in Europe"
 
 [module]
   [[module.imports]]
