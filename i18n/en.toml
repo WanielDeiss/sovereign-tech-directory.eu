@@ -11,6 +11,9 @@ other = "Categories"
 [nav_about]
 other = "About"
 
+[nav_imprint]
+other = "Imprint"
+
 # Labels
 [label_eu_company]
 other = "EU Company"
