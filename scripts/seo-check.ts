@@ -11,11 +11,16 @@ import { join } from "node:path";
 const PUBLIC_DIR = process.env.PUBLIC_DIR || join(process.cwd(), "public");
 
 const EMPTY_TITLE_PATTERN = /<title>\s*\|\s*Sovereign Tech Directory<\/title>|<title>\s*<\/title>/i;
-const CANONICAL_PATTERN = /<link\s+rel="canonical"\s+href="[^"]+">/i;
-const ROBOTS_NOINDEX = /<meta\s+name="robots"\s+content="noindex,follow">/i;
-const OG_TITLE = /<meta\s+property="og:title"\s+content="[^"]+">/i;
-const TWITTER_CARD = /<meta\s+name="twitter:card"\s+content="[^"]+">/i;
 const TITLE_TAG = /<title>([^<]*)<\/title>/i;
+
+/** Match canonical link; minified HTML may use unquoted attributes (rel=canonical href=...) */
+const CANONICAL_PATTERN = /<link\s+rel=["']?canonical["']?\s+href=/i;
+/** Match noindex,follow; minified may use name=robots and optional space after comma */
+const ROBOTS_NOINDEX = /<meta\s+name=["']?robots["']?\s+content=["']?noindex\s*,\s*follow["']?/i;
+/** Match og:title meta; minified may use unquoted attribute names */
+const OG_TITLE = /<meta\s+property=["']?og:title["']?\s+content=/i;
+/** Match twitter:card meta; minified may use name=twitter:card */
+const TWITTER_CARD = /<meta\s+name=["']?twitter:card["']?\s+content=/i;
 
 const INDEXABLE_PAGES = [
   "index.html",
@@ -58,7 +63,7 @@ function checkEmptyTitle(html: string, page: string): void {
 }
 
 function checkCanonical(html: string, page: string): void {
-  const count = (html.match(/<link\s+rel="canonical"/gi) || []).length;
+  const count = (html.match(new RegExp(CANONICAL_PATTERN.source, "gi")) || []).length;
   if (count !== 1) {
     console.error(`[FAIL] ${page}: expected exactly one canonical link, found ${count}`);
     hasHardFailure = true;

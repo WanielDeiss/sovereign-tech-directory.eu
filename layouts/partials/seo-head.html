@@ -1,19 +1,26 @@
-{{/* Resolve title and description by page type. Used for <title>, meta description, OG, Twitter. */}}
+{{/* Resolve title and description by page type. Used for <title>, meta description, OG, Twitter. Titles target 45–60 chars for SEO. */}}
 {{ $title := "" }}
 {{ $description := "" }}
 {{ $siteTitle := .Site.Title }}
 {{ $siteDesc := .Site.Params.description | default "" }}
+{{ $suffixShort := " | Sovereign Tech Directory" }}
+{{ $suffixLong := " | Sovereign Tech Directory – Digital Sovereignty" }}
 
 {{ if .IsHome }}
-  {{ $title = $siteTitle }}
+  {{ $title = "Sovereign Tech Directory – Curated Tools for Sovereignty" }}
   {{ $description = .Site.Params.description | default "" }}
 {{ else if and (eq .Section "tools") .IsPage }}
   {{ $tool := index .Site.Data.tools .File.BaseFileName }}
   {{ if $tool }}
-    {{ $title = printf "%s | %s" $tool.name $siteTitle }}
+    {{ $candidate := printf "%s%s" $tool.name $suffixShort }}
+    {{ if lt (len $candidate) 45 }}
+      {{ $title = printf "%s%s" $tool.name $suffixLong }}
+    {{ else }}
+      {{ $title = $candidate }}
+    {{ end }}
     {{ $description = $tool.description | default $siteDesc }}
   {{ else }}
-    {{ $title = printf "%s | %s" .Title $siteTitle }}
+    {{ $title = printf "%s%s" .Title $suffixShort }}
     {{ $description = .Description | default $siteDesc }}
   {{ end }}
 {{ else if and (eq .Section "categories") .IsPage }}
@@ -26,16 +33,25 @@
       {{ $categoryDesc = .description | default "" }}
     {{ end }}
   {{ end }}
-  {{ $title = printf "%s | %s" $categoryLabel $siteTitle }}
+  {{ $catCandidate := printf "%s%s" $categoryLabel $suffixShort }}
+  {{ if lt (len $catCandidate) 45 }}
+    {{ $title = printf "%s%s" $categoryLabel $suffixLong }}
+  {{ else }}
+    {{ $title = $catCandidate }}
+  {{ end }}
   {{ $description = $categoryDesc }}
   {{ if not $description }}
     {{ $description = $siteDesc }}
   {{ end }}
 {{ else }}
   {{ if .Title }}
-    {{ $title = printf "%s | %s" .Title $siteTitle }}
+    {{ if eq .Title "Sovereignty Score" }}
+      {{ $title = "Sovereignty Score | Sovereign Tech Directory – EU" }}
+    {{ else }}
+      {{ $title = printf "%s%s" .Title $suffixLong }}
+    {{ end }}
   {{ else }}
-    {{ $title = $siteTitle }}
+    {{ $title = "Sovereign Tech Directory – Curated Tools for Digital Sovereignty" }}
   {{ end }}
   {{ $description = .Description | default $siteDesc }}
 {{ end }}
