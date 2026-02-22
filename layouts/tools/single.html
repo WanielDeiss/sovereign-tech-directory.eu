@@ -4,11 +4,19 @@
   <p>Tool not found.</p>
   {{ return }}
 {{ end }}
+{{ $score := index (index (index .Site.Data "generated" | default dict) "scores" | default dict) $tool.id }}
 
 <article class="page-content">
   {{/* Title block (hero) */}}
   <header class="tool-detail-hero">
     <h1 class="page-title">{{ $tool.name }}</h1>
+    {{ with $score }}
+    {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
+    <a href="{{ "/sovereignty-score/" | relURL }}" class="score-badge score-badge-hero score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}" title="{{ i18n "label_sovereignty_score" }}: {{ .sovereignty_score }}/10 ({{ .score_confidence }} confidence)">
+      <span class="score-badge-value">{{ .sovereignty_score }}</span>
+      <span class="score-badge-label">{{ i18n "label_sovereignty_score" }}</span>
+    </a>
+    {{ end }}
     <p class="tool-card-description">{{ $tool.description }}</p>
     <a href="{{ $tool.website }}" class="button" target="_blank" rel="noopener">{{ i18n "label_website" }}</a>
   </header>
@@ -38,7 +46,7 @@
       </section>
     </div>
 
-    {{ partial "sovereignty-checklist.html" (dict "tool" $tool) }}
+    {{ partial "sovereignty-checklist.html" (dict "tool" $tool "score" $score) }}
   </div>
 </article>
 {{ end }}

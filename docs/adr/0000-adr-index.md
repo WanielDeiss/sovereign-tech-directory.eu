@@ -15,3 +15,4 @@ Konvention:
 - [0003 Progressive Enhancement statt JS Pflicht](0003-progressive-enhancement.md)
 - [0004 Routing fuer Tool Detailseiten](0004-routing-tools.md)
 - [0005 Heroicons via Hugo Module](0005-heroicons-via-hugo-module.md)
+- [0006 Sovereignty Score v1.0](0006-sovereignty-score.md)

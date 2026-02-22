@@ -6,6 +6,10 @@ public/
 resources/
 .hugo_build.lock
 
+# Sovereignty score and tool export (generated at build time)
+data/generated/
+dist/
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -17,8 +17,9 @@
   {{ $tools = sort $tools "name" }}
 
   <ul class="tools-grid" role="list">
+    {{ $scores := index (index .Site.Data "generated" | default dict) "scores" | default dict }}
     {{ range $tools }}
-    {{ partial "tool-card.html" (dict "tool" . "categories" $categories) }}
+    {{ partial "tool-card.html" (dict "tool" . "categories" $categories "score" (index $scores .id)) }}
     {{ end }}
   </ul>
 </article>

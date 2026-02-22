@@ -2,17 +2,25 @@
   "name": "sovereign-tech-directory",
   "private": true,
   "scripts": {
-    "dev": "hugo server",
-    "build": "hugo",
+    "dev": "tsx scripts/dev.ts",
+    "build": "tsx scripts/score-tools.ts && hugo",
+    "score": "tsx scripts/score-tools.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.0",
     "@commitlint/config-conventional": "^20.4.0",
+    "@types/node": "^22",
     "autoprefixer": "^10.4",
     "husky": "^9.1.7",
     "postcss": "^8.4",
     "postcss-cli": "^11.0",
-    "tailwindcss": "^3.4"
+    "tailwindcss": "^3.4",
+    "tsx": "^4.19",
+    "typescript": "^5.7",
+    "vitest": "^3.0",
+    "yaml": "^2.7"
   }
 }

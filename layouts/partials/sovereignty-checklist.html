@@ -1,4 +1,25 @@
 <aside class="tool-detail-sidebar">
+  {{ with .score }}
+  {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
+  <div class="card score-card">
+    <h2 class="section-title">{{ i18n "label_sovereignty_score" }}</h2>
+    <a href="{{ "/sovereignty-score/" | relURL }}" class="score-badge score-badge-sidebar score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}">
+      <span class="score-badge-value">{{ .sovereignty_score }}</span>
+      <span class="score-badge-label">/ 10</span>
+    </a>
+    <p class="score-confidence-hint text-small text-muted">{{ .score_confidence }} confidence</p>
+    <details class="score-breakdown">
+      <summary class="text-small">{{ i18n "label_sovereignty_checklist" }} (breakdown)</summary>
+      <ul class="score-breakdown-list text-small">
+        <li>Legal jurisdiction: {{ .sovereignty_breakdown.legal_jurisdiction }}</li>
+        <li>Data control: {{ .sovereignty_breakdown.data_control }}</li>
+        <li>Openness: {{ .sovereignty_breakdown.openness }}</li>
+        <li>Lock-in: {{ .sovereignty_breakdown.lock_in }}</li>
+        <li>Operational autonomy: {{ .sovereignty_breakdown.operational_autonomy }}</li>
+      </ul>
+    </details>
+  </div>
+  {{ end }}
   <div class="card">
     <h2 class="section-title">{{ i18n "label_sovereignty_checklist" }}</h2>
     <div class="checklist">

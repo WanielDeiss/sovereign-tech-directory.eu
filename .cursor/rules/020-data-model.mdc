@@ -12,13 +12,22 @@ Pflichtfelder für Tools:
 - category (muss in categories existieren)
 - countries (ISO Codes)
 - eu_company (bool)
-- data_residency (EU | EWR | Unknown | Global)
+- data_residency (EU | EEA | NON_EU | UNKNOWN)
 - open_source (bool)
 - self_hostable (bool)
 - website
 - last_reviewed (YYYY-MM)
 
+Optionale Felder (Sovereignty Score v1.0, Defaults konservativ):
+- open_standards (bool): Nutzt/implementiert offene Standards oder Protokolle
+- data_portability (full | partial | none | unknown): Exportierbarkeit der Nutzerdaten
+
 Regeln:
 - Keine freien Textkategorien
 - IDs sind lowercase-kebab-case
 - last_reviewed immer aktuell halten
+
+Generierte Ausgaben (nicht in YAML, Build-Zeit):
+- data/generated/scores.json: Map tool-id -> ScoreResult (fuer Hugo, z.B. .Site.Data.generated.scores)
+- dist/tools.json: Alle Tools inkl. sovereignty_score, sovereignty_breakdown, score_confidence (gitignored)
+- Berechnung: npm run score bzw. automatisch vor build/dev (siehe docs/sovereignty-score-v1.md, ADR 0006)

@@ -1,7 +1,16 @@
 <li class="card">
   <header>
     <h2 class="section-title">{{ .tool.name }}</h2>
-    <span class="category">{{ index .categories .tool.category }}</span>
+    <div class="card-header-badges">
+      {{ with .score }}
+      {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
+      <a href="{{ "/sovereignty-score/" | relURL }}" class="score-badge score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}" title="{{ i18n "label_sovereignty_score" }}: {{ .sovereignty_score }}/10 ({{ .score_confidence }} confidence)">
+        <span class="score-badge-value">{{ .sovereignty_score }}</span>
+        <span class="score-badge-label">{{ i18n "label_sovereignty_score" }}</span>
+      </a>
+      {{ end }}
+      <span class="category">{{ index .categories .tool.category }}</span>
+    </div>
   </header>
 
   <p class="tool-card-description">{{ .tool.description }}</p>

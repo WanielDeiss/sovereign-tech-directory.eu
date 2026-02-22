@@ -1,7 +1,14 @@
 module.exports = {
   content: [
     './layouts/**/*.html',
-    './content/**/*.md'
+    './content/**/*.md',
+    './assets/css/main.css'
+  ],
+  safelist: [
+    'score-badge-range-low',
+    'score-badge-range-limited',
+    'score-badge-range-good',
+    'score-badge-range-high'
   ],
   theme: {
     extend: {

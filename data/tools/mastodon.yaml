@@ -8,6 +8,8 @@ eu_company: true
 data_residency: EU
 open_source: true
 self_hostable: true
+open_standards: true
+data_portability: full
 alternatives_to:
   - Twitter
   - X

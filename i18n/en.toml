@@ -8,6 +8,9 @@ other = "Tools"
 [nav_categories]
 other = "Categories"
 
+[nav_sovereignty_score]
+other = "Sovereignty Score"
+
 [nav_about]
 other = "About"
 
@@ -51,6 +54,9 @@ other = "Website"
 [label_sovereignty_checklist]
 other = "Sovereignty Checklist"
 
+[label_sovereignty_score]
+other = "Sovereignty Score"
+
 # Badges
 [badge_yes]
 other = "Yes"
@@ -68,6 +74,9 @@ other = "EEA"
 [data_residency_global]
 other = "Global"
 
+[data_residency_non_eu]
+other = "Non-EU"
+
 [data_residency_unknown]
 other = "Unknown"
 
@@ -76,4 +85,4 @@ other = "Unknown"
 other = "Tools in this category."
 
 [footer_made_in_eu]
-other = "Made in EU"
+other = "Made in Germany for digital sovereignty in Europe"
