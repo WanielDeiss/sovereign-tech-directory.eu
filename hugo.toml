@@ -3,6 +3,10 @@ title = "Sovereign Tech Directory"
 languageCode = "en-GB"
 defaultContentLanguage = "en"
 contentDir = "content/en"
+enableRobotsTXT = true
+
+[taxonomies]
+  category = "categories"
 
 [caches]
   [caches.images]
@@ -10,6 +14,8 @@ contentDir = "content/en"
 
 [params]
   description = "A curated directory for digital sovereignty in Europe"
+  ogImage = "/images/social/og-default.png"
+  ogImageAlt = "Sovereign Tech Directory"
 
 [outputFormats.searchindex]
   mediaType = "application/json"

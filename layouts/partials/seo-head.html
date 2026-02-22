@@ -1,0 +1,67 @@
+{{/* Resolve title and description by page type. Used for <title>, meta description, OG, Twitter. */}}
+{{ $title := "" }}
+{{ $description := "" }}
+{{ $siteTitle := .Site.Title }}
+{{ $siteDesc := .Site.Params.description | default "" }}
+
+{{ if .IsHome }}
+  {{ $title = $siteTitle }}
+  {{ $description = .Site.Params.description | default "" }}
+{{ else if and (eq .Section "tools") .IsPage }}
+  {{ $tool := index .Site.Data.tools .File.BaseFileName }}
+  {{ if $tool }}
+    {{ $title = printf "%s | %s" $tool.name $siteTitle }}
+    {{ $description = $tool.description | default $siteDesc }}
+  {{ else }}
+    {{ $title = printf "%s | %s" .Title $siteTitle }}
+    {{ $description = .Description | default $siteDesc }}
+  {{ end }}
+{{ else if and (eq .Section "categories") .IsPage }}
+  {{ $catId := .File.BaseFileName }}
+  {{ $categoryLabel := "" }}
+  {{ $categoryDesc := "" }}
+  {{ range .Site.Data.categories.categories }}
+    {{ if eq .id $catId }}
+      {{ $categoryLabel = .label }}
+      {{ $categoryDesc = .description | default "" }}
+    {{ end }}
+  {{ end }}
+  {{ $title = printf "%s | %s" $categoryLabel $siteTitle }}
+  {{ $description = $categoryDesc }}
+  {{ if not $description }}
+    {{ $description = $siteDesc }}
+  {{ end }}
+{{ else }}
+  {{ if .Title }}
+    {{ $title = printf "%s | %s" .Title $siteTitle }}
+  {{ else }}
+    {{ $title = $siteTitle }}
+  {{ end }}
+  {{ $description = .Description | default $siteDesc }}
+{{ end }}
+
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+
+{{/* Canonical URL for all pages */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Robots: noindex when set in frontmatter (e.g. search, imprint) */}}
+{{ with .Params.robots }}
+<meta name="robots" content="{{ . }}">
+{{ end }}
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ $ogImage := .Site.Params.ogImage | default "/images/social/og-default.png" }}
+<meta property="og:image" content="{{ $ogImage | absURL }}">
+<meta property="og:image:alt" content="{{ .Site.Params.ogImageAlt | default "Sovereign Tech Directory" }}">
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $ogImage | absURL }}">

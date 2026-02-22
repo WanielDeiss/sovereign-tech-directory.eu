@@ -1,23 +1,31 @@
 - id: cloud-storage
   label: Cloud Storage & File Sync
+  description: "Discover sovereign cloud storage and file sync tools for European data residency and self-hosting."
 
 - id: communication
   label: Communication & Messaging
+  description: "Secure messaging and communication tools with EU data sovereignty and open standards."
 
 - id: analytics
   label: Analytics & Monitoring
+  description: "Privacy-respecting analytics and monitoring tools that comply with EU data protection."
 
 - id: project-management
   label: Project Management
+  description: "Project management and collaboration tools with data sovereignty and self-hosting options."
 
 - id: development
   label: Development & DevOps
+  description: "Development and DevOps tools that support digital sovereignty and open source."
 
 - id: office
   label: Office & Collaboration
+  description: "Office suites and collaboration tools with EU data residency and self-hosted deployment."
 
 - id: email
   label: Email & Calendar
+  description: "Email and calendar solutions with sovereign hosting and privacy-focused features."
 
 - id: social-media
   label: Social Media & Networking
+  description: "Decentralised and sovereign social media and networking platforms."

@@ -1,6 +1,9 @@
 ---
 title: "Imprint"
 description: "Legal notice and provider information"
+robots: "noindex,follow"
+sitemap:
+  disable: true
 menu:
   main:
     name: "Imprint"

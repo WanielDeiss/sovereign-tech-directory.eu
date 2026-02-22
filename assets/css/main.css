@@ -87,6 +87,12 @@
   .card {
     @apply bg-white border border-border rounded-card shadow-card p-6 flex flex-col gap-4 transition-shadow transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-gray-300;
   }
+  .card .card-link {
+    @apply block no-underline text-inherit flex-1 flex flex-col gap-4 min-w-0;
+  }
+  .card .card-link:hover {
+    @apply text-inherit;
+  }
   .card header {
     @apply flex flex-col gap-2;
   }
@@ -114,11 +120,19 @@
   .meta-item dd {
     @apply m-0 text-small;
   }
-  .card footer {
+  .card footer,
+  .card .card-footer-actions {
     @apply mt-auto pt-2 border-none;
   }
-  .card footer a {
+  .card footer a:not(.button),
+  .card .card-footer-actions a:not(.button) {
     @apply text-primary text-small no-underline hover:underline;
+  }
+  .button-secondary {
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200;
+  }
+  .card .card-footer-actions .button-secondary {
+    @apply text-gray-900 hover:text-gray-900;
   }
   .card .category {
     @apply text-small text-muted bg-gray-100 px-2.5 py-0.5 rounded-full whitespace-nowrap;

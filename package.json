@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "tsx scripts/dev.ts",
     "build": "tsx scripts/score-tools.ts && hugo",
+    "seo:check": "tsx scripts/seo-check.ts",
     "score": "tsx scripts/score-tools.ts",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -19,6 +20,7 @@
     "husky": "^9.1.7",
     "postcss": "^8.4",
     "postcss-cli": "^11.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4",
     "tsx": "^4.19",
     "typescript": "^5.7",

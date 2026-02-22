@@ -1,0 +1,82 @@
+{{/* JSON-LD structured data: WebSite (home), ItemList (list pages), Product (tool detail). */}}
+{{ $schema := false }}
+
+{{ if .IsHome }}
+  {{ $schema = dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "name" .Site.Title
+    "url" .Site.BaseURL
+    "description" (.Site.Params.description | default "")
+  }}
+{{ else if and (eq .Section "tools") .IsPage }}
+  {{ $tool := index .Site.Data.tools .File.BaseFileName }}
+  {{ if $tool }}
+    {{ $schema = dict
+      "@context" "https://schema.org"
+      "@type" "Product"
+      "name" $tool.name
+      "description" $tool.description
+      "url" .Permalink
+    }}
+  {{ end }}
+{{ else if eq .Section "tools" }}
+  {{/* Tools list page */}}
+  {{ $toolsSlice := slice }}
+  {{ range $filename, $t := .Site.Data.tools }}
+    {{ $toolsSlice = $toolsSlice | append $t }}
+  {{ end }}
+  {{ $toolsSlice = sort $toolsSlice "name" }}
+  {{ $items := slice }}
+  {{ range $i, $t := $toolsSlice }}
+    {{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" (printf "%stools/%s/" (strings.TrimSuffix "/" .Site.BaseURL) $t.id)) }}
+  {{ end }}
+  {{ $schema = dict
+    "@context" "https://schema.org"
+    "@type" "ItemList"
+    "name" (.Title | default "Tools")
+    "numberOfItems" (len $toolsSlice)
+    "itemListElement" $items
+  }}
+{{ else if eq .Section "categories" }}
+  {{ if .IsPage }}
+    {{/* Single category: optional ItemList of tools in category */}}
+    {{ $catId := .File.BaseFileName }}
+    {{ $toolsInCat := slice }}
+    {{ range $filename, $t := .Site.Data.tools }}
+      {{ if eq $t.category $catId }}
+        {{ $toolsInCat = $toolsInCat | append $t }}
+      {{ end }}
+    {{ end }}
+    {{ $toolsInCat = sort $toolsInCat "name" }}
+    {{ $items := slice }}
+    {{ range $i, $t := $toolsInCat }}
+      {{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" (printf "%stools/%s/" (strings.TrimSuffix "/" .Site.BaseURL) $t.id)) }}
+    {{ end }}
+    {{ $schema = dict
+      "@context" "https://schema.org"
+      "@type" "ItemList"
+      "name" .Title
+      "numberOfItems" (len $toolsInCat)
+      "itemListElement" $items
+    }}
+  {{ else }}
+    {{/* Categories list page */}}
+    {{ $items := slice }}
+    {{ $list := .Site.Data.categories.categories }}
+    {{ range $i, $c := $list }}
+      {{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" (printf "%scategories/%s/" (strings.TrimSuffix "/" .Site.BaseURL) $c.id)) }}
+    {{ end }}
+    {{ $schema = dict
+      "@context" "https://schema.org"
+      "@type" "ItemList"
+      "name" (.Title | default "Categories")
+      "numberOfItems" (len $list)
+      "itemListElement" $items
+    }}
+  {{ end }}
+{{ end }}
+
+{{ if $schema }}
+{{ printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML }}
+{{ end }}

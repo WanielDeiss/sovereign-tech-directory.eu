@@ -70,6 +70,9 @@ other = "Links"
 [label_website]
 other = "Website"
 
+[label_view_details]
+other = "View details"
+
 [label_sovereignty_checklist]
 other = "Sovereignty Checklist"
 

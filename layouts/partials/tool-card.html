@@ -1,45 +1,47 @@
 <li class="card">
-  <header>
-    <div class="card-header-with-logo">
-      {{ with index .logos .tool.id }}
-      <img src="{{ . }}" alt="" class="tool-card-logo">
-      {{ end }}
-      <h2 class="section-title">{{ .tool.name }}</h2>
-    </div>
-    <div class="card-header-badges">
-      {{ with .score }}
-      {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
-      <a href="{{ "/sovereignty-score/" | relURL }}" class="score-badge score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}" title="{{ i18n "label_sovereignty_score" }}: {{ .sovereignty_score }}/10 ({{ .score_confidence }} confidence)">
-        <span class="score-badge-value">{{ .sovereignty_score }}</span>
-        <span class="score-badge-label">{{ i18n "label_sovereignty_score" }}</span>
-      </a>
-      {{ end }}
-      <span class="category">{{ index .categories .tool.category }}</span>
-    </div>
-  </header>
+  <a href="{{ (path.Join "tools" .tool.id) | relURL }}/" class="card-link" aria-label="{{ .tool.name }} – {{ i18n "label_view_details" }}">
+    <header>
+      <div class="card-header-with-logo">
+        {{ with index .logos .tool.id }}
+        <img src="{{ . }}" alt="" class="tool-card-logo">
+        {{ end }}
+        <h2 class="section-title">{{ .tool.name }}</h2>
+      </div>
+      <div class="card-header-badges">
+        {{ with .score }}
+        {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
+        <span class="score-badge score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}" title="{{ i18n "label_sovereignty_score" }}: {{ .sovereignty_score }}/10 ({{ .score_confidence }} confidence)">
+          <span class="score-badge-value">{{ .sovereignty_score }}</span>
+          <span class="score-badge-label">{{ i18n "label_sovereignty_score" }}</span>
+        </span>
+        {{ end }}
+        <span class="category">{{ index .categories .tool.category }}</span>
+      </div>
+    </header>
 
-  <p class="tool-card-description">{{ .tool.description }}</p>
+    <p class="tool-card-description">{{ .tool.description }}</p>
 
-  <dl class="tool-meta">
-    <div class="meta-item">
-      <dt>{{ i18n "label_countries" }}</dt>
-      <dd>{{ partial "country-names.html" .tool.countries }}</dd>
-    </div>
-    <div class="meta-item">
-      <dt>{{ i18n "label_data_residency" }}</dt>
-      <dd><span class="badge badge-neutral">{{ i18n (printf "data_residency_%s" (lower .tool.data_residency)) | default .tool.data_residency }}</span></dd>
-    </div>
-    <div class="meta-item">
-      <dt>{{ i18n "label_open_source" }}</dt>
-      <dd>{{ if .tool.open_source }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
-    </div>
-    <div class="meta-item">
-      <dt>{{ i18n "label_self_hostable" }}</dt>
-      <dd>{{ if .tool.self_hostable }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
-    </div>
-  </dl>
+    <dl class="tool-meta">
+      <div class="meta-item">
+        <dt>{{ i18n "label_countries" }}</dt>
+        <dd>{{ partial "country-names.html" .tool.countries }}</dd>
+      </div>
+      <div class="meta-item">
+        <dt>{{ i18n "label_data_residency" }}</dt>
+        <dd><span class="badge badge-neutral">{{ i18n (printf "data_residency_%s" (lower .tool.data_residency)) | default .tool.data_residency }}</span></dd>
+      </div>
+      <div class="meta-item">
+        <dt>{{ i18n "label_open_source" }}</dt>
+        <dd>{{ if .tool.open_source }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
+      </div>
+      <div class="meta-item">
+        <dt>{{ i18n "label_self_hostable" }}</dt>
+        <dd>{{ if .tool.self_hostable }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
+      </div>
+    </dl>
+  </a>
 
-  <footer>
-    <a href="{{ .tool.website }}" target="_blank" rel="noopener">{{ i18n "label_website" }}</a>
+  <footer class="card-footer-actions">
+    <a href="{{ .tool.website }}" target="_blank" rel="noopener" class="button button-secondary">{{ i18n "label_website" }}</a>
   </footer>
 </li>
