@@ -10,7 +10,7 @@ Each dimension is scored from 0 to 2 points in 0.5 steps. The total score is the
 
 | Dimension | Meaning |
 |-----------|--------|
-| **legal_jurisdiction** | Where the vendor is based and operates (EU/EEA/adequacy/mixed/non-EU). |
+| **legal_jurisdiction** | Where the vendor is based and operates (EU/EEA/EFTA/adequacy/mixed/non-EU). |
 | **data_control** | Where data is stored and whether users can self-host. |
 | **openness** | Open source and use of open standards. |
 | **lock_in** | Lock-in risk (inverted: higher = less lock-in); driven by open standards and data portability. |
@@ -32,16 +32,18 @@ Each input field is used in at most two dimensions to keep weighting balanced:
 
 ### legal_jurisdiction (eu_company, countries)
 
-Country classification: **eu** (all EU), **eea** (all EEA, at least one non-EU EEA), **adequacy** (all EU/EEA/adequacy, at least one adequacy-only), **mixed** (at least one EU/EEA/adequacy and one other), **non_eu** (none of the above).
+Country classification (order: eu → eea → efta → adequacy → mixed → non_eu): **eu** (all EU), **eea** (all EEA, at least one non-EU EEA), **efta** (all in EU/EEA/EFTA/adequacy, at least one EFTA country e.g. CH), **adequacy** (all in EU/EEA/adequacy, at least one adequacy-only, and no EFTA country), **mixed** (at least one EU/EEA/adequacy and one other), **non_eu** (none of the above).
 
 | eu_company | Classification | Points |
 |------------|----------------|--------|
 | true | eu or eea | 2.0 |
-| true | adequacy | 1.5 |
+| true | efta | 1.5 |
+| true | adequacy | 1.0 |
 | true | mixed | 1.0 |
 | true | non_eu | 0.5 |
 | false | eu or eea | 1.5 |
-| false | adequacy | 1.0 |
+| false | efta | 1.0 |
+| false | adequacy | 0.5 |
 | false | mixed | 0.5 |
 | false | non_eu | 0.0 |
 
@@ -83,14 +85,14 @@ Additive: +1.0 if open_standards = true; +1.0 (full), +0.5 (partial), or +0.0 (n
 
 ## Examples
 
-### Element (9.0)
+### Element (8.5)
 
-- eu_company: false, countries: [GB] (adequacy) -> legal_jurisdiction 1.0
+- eu_company: false, countries: [GB] (adequacy) -> legal_jurisdiction 0.5
 - self_hostable: true, data_residency: EU -> data_control 2.0
 - open_source: true, open_standards: true -> openness 2.0
 - open_standards: true, data_portability: full -> lock_in 2.0
 - self_hostable: true, open_source: true -> operational_autonomy 2.0  
-**Total: 9.0, confidence: high**
+**Total: 8.5, confidence: high**
 
 ### Nextcloud (10.0)
 

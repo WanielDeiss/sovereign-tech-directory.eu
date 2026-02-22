@@ -74,7 +74,7 @@ describe("computeSovereigntyScore", () => {
     expect(r.sovereignty_breakdown.operational_autonomy).toBe(0.5);
   });
 
-  it("NON_EU OSS self-hostable with EU data_residency (Element-like) scores 9.0 with high confidence", () => {
+  it("adequacy-only (GB) OSS self-hostable with EU data_residency (Element-like) scores 8.5 with high confidence", () => {
     const t = tool({
       id: "element",
       name: "Element",
@@ -91,13 +91,34 @@ describe("computeSovereigntyScore", () => {
       last_reviewed: "2026-01",
     });
     const r = computeSovereigntyScore(t);
-    expect(r.sovereignty_score).toBe(9);
+    expect(r.sovereignty_score).toBe(8.5);
     expect(r.score_confidence).toBe("high");
-    expect(r.sovereignty_breakdown.legal_jurisdiction).toBe(1);
+    expect(r.sovereignty_breakdown.legal_jurisdiction).toBe(0.5);
     expect(r.sovereignty_breakdown.data_control).toBe(2);
     expect(r.sovereignty_breakdown.openness).toBe(2);
     expect(r.sovereignty_breakdown.lock_in).toBe(2);
     expect(r.sovereignty_breakdown.operational_autonomy).toBe(2);
+  });
+
+  it("EFTA (CH only) gets legal_jurisdiction 1.5 when eu_company true, 1.0 when false", () => {
+    const base = {
+      id: "swiss-tool",
+      name: "Swiss Tool",
+      description: "Vendor in Switzerland.",
+      category: "communication",
+      countries: ["CH"],
+      data_residency: "EU" as const,
+      open_source: true,
+      self_hostable: true,
+      open_standards: true,
+      data_portability: "full",
+      website: "https://example.ch",
+      last_reviewed: "2026-01",
+    };
+    const rTrue = computeSovereigntyScore(tool({ ...base, eu_company: true }));
+    expect(rTrue.sovereignty_breakdown.legal_jurisdiction).toBe(1.5);
+    const rFalse = computeSovereigntyScore(tool({ ...base, eu_company: false }));
+    expect(rFalse.sovereignty_breakdown.legal_jurisdiction).toBe(1);
   });
 
   it("UNKNOWN data_residency reduces data_control and sets confidence to medium when other fields unknown", () => {

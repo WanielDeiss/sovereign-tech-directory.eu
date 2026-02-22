@@ -13,6 +13,12 @@ export const EU_COUNTRIES = new Set([
 export const EEA_EXTRA = new Set(["IS", "LI", "NO"]);
 
 /**
+ * EFTA member states: Iceland, Liechtenstein, Norway, Switzerland.
+ * Used for legal_jurisdiction scoring (efta classification).
+ */
+export const EFTA_COUNTRIES = new Set(["IS", "LI", "NO", "CH"]);
+
+/**
  * Countries with EU adequacy decision (simplified list; not exhaustive).
  * Used for legal_jurisdiction scoring.
  */
@@ -28,11 +34,12 @@ const EU_OR_EEA_OR_ADEQUACY = new Set([
   ...ADEQUACY_COUNTRIES,
 ]);
 
-export type CountryClassification = "eu" | "eea" | "adequacy" | "mixed" | "non_eu";
+export type CountryClassification = "eu" | "eea" | "efta" | "adequacy" | "mixed" | "non_eu";
 
 /**
  * Classifies a list of country codes for sovereignty scoring.
  * Returns the strictest classification that applies to the set.
+ * Order: eu → eea → efta (at least one EFTA country) → adequacy → mixed → non_eu.
  */
 export function classifyCountries(countries: string[]): CountryClassification {
   if (!countries || countries.length === 0) {
@@ -47,7 +54,12 @@ export function classifyCountries(countries: string[]): CountryClassification {
   if (allInEea && hasEeaExtra) return "eea";
 
   const allInEuEeaAdequacy = [...set].every((c) => EU_OR_EEA_OR_ADEQUACY.has(c));
-  const hasOnlyAdequacy = [...set].some((c) => ADEQUACY_COUNTRIES.has(c) && !EEA_COUNTRIES.has(c));
+  const hasAnyEfta = [...set].some((c) => EFTA_COUNTRIES.has(c));
+  if (allInEuEeaAdequacy && hasAnyEfta) return "efta";
+
+  const hasOnlyAdequacy =
+    [...set].some((c) => ADEQUACY_COUNTRIES.has(c) && !EEA_COUNTRIES.has(c)) &&
+    ![...set].some((c) => EFTA_COUNTRIES.has(c));
   if (allInEuEeaAdequacy && hasOnlyAdequacy) return "adequacy";
 
   const hasEuEeaAdequacy = [...set].some((c) => EU_OR_EEA_OR_ADEQUACY.has(c));

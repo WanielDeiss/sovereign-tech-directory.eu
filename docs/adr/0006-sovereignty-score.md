@@ -40,7 +40,11 @@ Negativ:
 3) Weniger Dimensionen oder andere Gewichtung
 - Aktuelle Aufteilung bildet Rechtsraum, Datenkontrolle, Offenheit, Lock-in und Betriebsautonomie getrennt ab und erlaubt konsistente Vergleiche
 
+## Aenderungen
+
+- **EFTA-Erweiterung**: Die legal_jurisdiction-Klassifikation wurde um **efta** ergaenzt (EFTA-Staaten: IS, LI, NO, CH). Sobald mindestens ein EFTA-Land vorkommt, gilt efta (Punkte 1.5/1.0). Reine Adequacy-Laender (z.B. GB, JP) wurden auf 1.0/0.5 abgestuft; Tools mit nur Adequacy-Laendern verlieren damit 0.5 Punkte legal_jurisdiction (z.B. Element 9.0 -> 8.5). Bewusst gewollt, um EFTA rechtlich hoeher zu bewerten als reine Adequacy.
+
 ## Referenzen
 
 - Spezifikation und Tabellen: `docs/sovereignty-score-v1.md`
-- Implementierung: `scripts/score-tools.ts`, `scripts/lib/scoring.ts`
+- Implementierung: `scripts/score-tools.ts`, `scripts/lib/scoring.ts`, `scripts/lib/country-lists.ts`

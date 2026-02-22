@@ -31,11 +31,13 @@ function scoreLegalJurisdiction(tool: ToolData): number {
   const classification: CountryClassification = classifyCountries(countries);
 
   if (euCompany && (classification === "eu" || classification === "eea")) return 2.0;
-  if (euCompany && classification === "adequacy") return 1.5;
+  if (euCompany && classification === "efta") return 1.5;
+  if (euCompany && classification === "adequacy") return 1.0;
   if (euCompany && classification === "mixed") return 1.0;
   if (euCompany && classification === "non_eu") return 0.5;
   if (!euCompany && (classification === "eu" || classification === "eea")) return 1.5;
-  if (!euCompany && classification === "adequacy") return 1.0;
+  if (!euCompany && classification === "efta") return 1.0;
+  if (!euCompany && classification === "adequacy") return 0.5;
   if (!euCompany && classification === "mixed") return 0.5;
   if (!euCompany && classification === "non_eu") return 0.0;
   return 0.0;
