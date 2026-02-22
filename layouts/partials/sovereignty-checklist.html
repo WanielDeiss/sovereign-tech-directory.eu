@@ -33,15 +33,31 @@
       </div>
       <div class="checklist-row">
         <span class="checklist-label">{{ i18n "label_open_source" }}</span>
-        <span class="checklist-value">{{ if .tool.open_source }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</span>
+        <span class="checklist-value">
+          {{ if .tool.open_source }}
+            <span class="meta-icon-wrap meta-icon-yes" aria-hidden="true">{{ partial "icon.html" (dict "name" "check" "style" "solid" "size" 20 "class" "meta-icon-svg") }}</span>
+            <span class="sr-only">{{ i18n "badge_yes" }}</span>
+          {{ else }}
+            <span class="meta-icon-wrap meta-icon-no" aria-hidden="true">{{ partial "icon.html" (dict "name" "x-mark" "style" "solid" "size" 20 "class" "meta-icon-svg") }}</span>
+            <span class="sr-only">{{ i18n "badge_no" }}</span>
+          {{ end }}
+        </span>
       </div>
       <div class="checklist-row">
         <span class="checklist-label">{{ i18n "label_self_hostable" }}</span>
-        <span class="checklist-value">{{ if .tool.self_hostable }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</span>
+        <span class="checklist-value">
+          {{ if .tool.self_hostable }}
+            <span class="meta-icon-wrap meta-icon-yes" aria-hidden="true">{{ partial "icon.html" (dict "name" "check" "style" "solid" "size" 20 "class" "meta-icon-svg") }}</span>
+            <span class="sr-only">{{ i18n "badge_yes" }}</span>
+          {{ else }}
+            <span class="meta-icon-wrap meta-icon-no" aria-hidden="true">{{ partial "icon.html" (dict "name" "x-mark" "style" "solid" "size" 20 "class" "meta-icon-svg") }}</span>
+            <span class="sr-only">{{ i18n "badge_no" }}</span>
+          {{ end }}
+        </span>
       </div>
       <div class="checklist-row">
         <span class="checklist-label">{{ i18n "label_countries" }}</span>
-        <span class="checklist-value">{{ partial "country-names.html" .tool.countries }}</span>
+        <span class="checklist-value">{{ partial "country-flags.html" .tool.countries }}</span>
       </div>
       {{ if .tool.last_reviewed }}
       <div class="checklist-row">

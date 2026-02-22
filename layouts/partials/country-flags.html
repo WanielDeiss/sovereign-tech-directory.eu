@@ -1,0 +1,16 @@
+{{/* Input: slice of ISO 3166-1 alpha-2 country codes. Output: row of flag images; hover shows localized country name. */}}
+{{ $codes := . | uniq | sort }}
+<span class="country-flags">
+  {{ range $codes }}
+    {{ $codeLower := lower . }}
+    {{ $key := printf "country_%s" $codeLower }}
+    {{ $t := i18n $key }}
+    {{ $name := cond (or (eq $t $key) (eq $t "")) . $t }}
+    {{ $path := printf "flags/%s.svg" $codeLower }}
+    {{ with resources.Get $path }}
+      <img src="{{ .RelPermalink }}" alt="{{ $name }}" title="{{ $name }}" class="country-flag" width="24" height="18" loading="lazy">
+    {{ else }}
+      <span class="country-flag-fallback" title="{{ $name }}">{{ $name }}</span>
+    {{ end }}
+  {{ end }}
+</span>
