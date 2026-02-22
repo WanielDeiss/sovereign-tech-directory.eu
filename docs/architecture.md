@@ -35,7 +35,7 @@ Das System besteht aus:
 High-Level Datenfluss:
 1) Tool und Kategorie Daten werden als YAML in `data/` gepflegt.
 2) Hugo rendert daraus statische Seiten in `public/`.
-3) Deployment liefert die statischen Assets über CDN oder statisches Hosting aus.
+3) Deployment: GitHub Pages. Bei Push auf `main` baut und deployed eine GitHub Action die Site (siehe `.github/workflows/hugo.yaml`); die statischen Assets werden über GitHub Pages ausgeliefert.
 
 ## Repository Struktur
 
@@ -228,3 +228,7 @@ ADR 002: YAML Daten als Source of Truth
 ADR 003: Progressive Enhancement
 - Grund: Gute Basis ohne JS, dann optional bessere UX.
 - Konsequenz: Filter und Suche müssen ohne JS nicht notwendig sein.
+
+ADR 007: Hosting auf GitHub Pages
+- Grund: Öffentliches Hosting ohne eigene Infrastruktur; Build und Deploy bei Push auf main.
+- Konsequenz: Siehe `.github/workflows/hugo.yaml` und docs/adr/0007-hosting-github-pages.md.

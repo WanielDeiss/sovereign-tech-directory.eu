@@ -4,6 +4,10 @@ languageCode = "en-GB"
 defaultContentLanguage = "en"
 contentDir = "content/en"
 
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
+
 [params]
   description = "A curated directory for digital sovereignty in Europe"
 

@@ -8,6 +8,7 @@ applyTo: "**/*"
 Ziel:
 Ein kuratiertes, datengetriebenes Verzeichnis für digitale Souveränität in Europa.
 Statischer Build mit Hugo (SSG), keine Datenbank, keine User-Accounts.
+Deployment: GitHub Pages via GitHub Actions (Build und Deploy bei Push auf `main`).
 
 Primärprinzipien:
 - Daten sind Source of Truth (YAML in /data)

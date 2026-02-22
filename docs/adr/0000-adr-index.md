@@ -16,3 +16,4 @@ Konvention:
 - [0004 Routing fuer Tool Detailseiten](0004-routing-tools.md)
 - [0005 Heroicons via Hugo Module](0005-heroicons-via-hugo-module.md)
 - [0006 Sovereignty Score v1.0](0006-sovereignty-score.md)
+- [0007 Hosting auf GitHub Pages](0007-hosting-github-pages.md)
