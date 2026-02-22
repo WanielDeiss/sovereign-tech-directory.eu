@@ -83,6 +83,13 @@ const initFuse = (data) => {
   });
   input.addEventListener('input', onInput);
   input.addEventListener('search', onInput);
+  const form = input.closest('form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      runSearch(input.value);
+    });
+  }
 };
 
 function showLoadError() {

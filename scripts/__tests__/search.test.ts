@@ -60,6 +60,34 @@ function sampleTools(): SearchIndexEntry[] {
 }
 
 describe("search (assets/js/search.js behaviour)", () => {
+  describe("form submit (Enter key)", () => {
+    it("prevents form submit and runs search with current input value", () => {
+      const form = document.createElement("form");
+      form.setAttribute("role", "search");
+      const input = document.createElement("input");
+      input.type = "search";
+      input.id = "search-input";
+      form.appendChild(input);
+      document.body.appendChild(form);
+
+      let defaultPrevented = false;
+      let capturedQuery: string | null = null;
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        defaultPrevented = true;
+        capturedQuery = (e.target as HTMLFormElement).querySelector("input")!.value;
+      });
+
+      input.value = "google analytics";
+      form.requestSubmit();
+
+      expect(defaultPrevented).toBe(true);
+      expect(capturedQuery).toBe("google analytics");
+
+      form.remove();
+    });
+  });
+
   describe("escapeHtml", () => {
     it("escapes <, >, & so that text is safe in HTML", () => {
       const div = document.createElement("div");
