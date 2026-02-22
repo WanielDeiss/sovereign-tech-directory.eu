@@ -4,7 +4,7 @@
 {{ range $codes }}
   {{ $key := printf "country_%s" (lower .) }}
   {{ $t := i18n $key }}
-  {{ $name := cond (eq $t $key) . $t }}
-  {{ $names = $names | append $name }}
+  {{ $name := cond (or (eq $t $key) (eq $t "")) . $t }}
+  {{ if ne $name "" }}{{ $names = $names | append $name }}{{ end }}
 {{ end }}
 {{ delimit (sort $names) ", " }}
