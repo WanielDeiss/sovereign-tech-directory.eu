@@ -24,24 +24,42 @@
     <dl class="tool-meta">
       <div class="meta-item">
         <dt>{{ i18n "label_countries" }}</dt>
-        <dd>{{ partial "country-names.html" .tool.countries }}</dd>
+        <dd>{{ partial "country-flags.html" .tool.countries }}</dd>
       </div>
       <div class="meta-item">
         <dt>{{ i18n "label_data_residency" }}</dt>
         <dd><span class="badge badge-neutral">{{ i18n (printf "data_residency_%s" (lower .tool.data_residency)) | default .tool.data_residency }}</span></dd>
       </div>
-      <div class="meta-item">
-        <dt>{{ i18n "label_open_source" }}</dt>
-        <dd>{{ if .tool.open_source }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
-      </div>
-      <div class="meta-item">
-        <dt>{{ i18n "label_self_hostable" }}</dt>
-        <dd>{{ if .tool.self_hostable }}<span class="badge badge-highlight">{{ i18n "badge_yes" }}</span>{{ else }}<span class="badge badge-neutral">{{ i18n "badge_no" }}</span>{{ end }}</dd>
+      <div class="meta-item meta-item-inline-row">
+        <div class="meta-item-inline">
+          <dt>{{ i18n "label_open_source" }}</dt>
+          <dd>
+            {{ if .tool.open_source }}
+              <span class="meta-icon-wrap meta-icon-yes" aria-hidden="true">{{ partial "icon.html" (dict "name" "check" "style" "solid" "size" 24 "class" "meta-icon-svg meta-icon-thick") }}</span>
+              <span class="sr-only">{{ i18n "badge_yes" }}</span>
+            {{ else }}
+              <span class="meta-icon-wrap meta-icon-no" aria-hidden="true">{{ partial "icon.html" (dict "name" "x-mark" "style" "solid" "size" 24 "class" "meta-icon-svg meta-icon-thick") }}</span>
+              <span class="sr-only">{{ i18n "badge_no" }}</span>
+            {{ end }}
+          </dd>
+        </div>
+        <div class="meta-item-inline">
+          <dt>{{ i18n "label_self_hostable" }}</dt>
+          <dd>
+            {{ if .tool.self_hostable }}
+              <span class="meta-icon-wrap meta-icon-yes" aria-hidden="true">{{ partial "icon.html" (dict "name" "check" "style" "solid" "size" 24 "class" "meta-icon-svg meta-icon-thick") }}</span>
+              <span class="sr-only">{{ i18n "badge_yes" }}</span>
+            {{ else }}
+              <span class="meta-icon-wrap meta-icon-no" aria-hidden="true">{{ partial "icon.html" (dict "name" "x-mark" "style" "solid" "size" 24 "class" "meta-icon-svg meta-icon-thick") }}</span>
+              <span class="sr-only">{{ i18n "badge_no" }}</span>
+            {{ end }}
+          </dd>
+        </div>
       </div>
     </dl>
   </a>
 
   <footer class="card-footer-actions">
-    <a href="{{ .tool.website }}" target="_blank" rel="noopener" class="button button-secondary">{{ i18n "label_website" }}</a>
+    <a href="{{ .tool.website }}" target="_blank" rel="noopener" class="button">{{ i18n "label_website" }}</a>
   </footer>
 </li>
