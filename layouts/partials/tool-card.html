@@ -18,7 +18,7 @@
   <dl class="tool-meta">
     <div class="meta-item">
       <dt>{{ i18n "label_countries" }}</dt>
-      <dd>{{ delimit .tool.countries ", " }}</dd>
+      <dd>{{ partial "country-names.html" .tool.countries }}</dd>
     </div>
     <div class="meta-item">
       <dt>{{ i18n "label_data_residency" }}</dt>

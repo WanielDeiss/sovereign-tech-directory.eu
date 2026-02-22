@@ -41,7 +41,7 @@
       </div>
       <div class="checklist-row">
         <span class="checklist-label">{{ i18n "label_countries" }}</span>
-        <span class="checklist-value">{{ delimit .tool.countries ", " }}</span>
+        <span class="checklist-value">{{ partial "country-names.html" .tool.countries }}</span>
       </div>
       {{ if .tool.last_reviewed }}
       <div class="checklist-row">

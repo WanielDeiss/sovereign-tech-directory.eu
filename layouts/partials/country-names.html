@@ -1,0 +1,10 @@
+{{/* Input: slice of ISO 3166-1 alpha-2 country codes (e.g. .tool.countries). Output: comma-separated list of localized country names, deduplicated and sorted alphabetically. */}}
+{{ $codes := . | uniq }}
+{{ $names := slice }}
+{{ range $codes }}
+  {{ $key := printf "country_%s" (lower .) }}
+  {{ $t := i18n $key }}
+  {{ $name := cond (eq $t $key) . $t }}
+  {{ $names = $names | append $name }}
+{{ end }}
+{{ delimit (sort $names) ", " }}

@@ -99,6 +99,96 @@ other = "Non-EU"
 [data_residency_unknown]
 other = "Unknown"
 
+# Country names (ISO 3166-1 alpha-2, from country-lists.ts)
+[country_ad]
+other = "Andorra"
+[country_ar]
+other = "Argentina"
+[country_at]
+other = "Austria"
+[country_be]
+other = "Belgium"
+[country_bg]
+other = "Bulgaria"
+[country_ca]
+other = "Canada"
+[country_ch]
+other = "Switzerland"
+[country_cy]
+other = "Cyprus"
+[country_cz]
+other = "Czechia"
+[country_de]
+other = "Germany"
+[country_dk]
+other = "Denmark"
+[country_ee]
+other = "Estonia"
+[country_es]
+other = "Spain"
+[country_fi]
+other = "Finland"
+[country_fo]
+other = "Faroe Islands"
+[country_fr]
+other = "France"
+[country_gb]
+other = "United Kingdom"
+[country_gg]
+other = "Guernsey"
+[country_gr]
+other = "Greece"
+[country_hr]
+other = "Croatia"
+[country_hu]
+other = "Hungary"
+[country_ie]
+other = "Ireland"
+[country_il]
+other = "Israel"
+[country_im]
+other = "Isle of Man"
+[country_is]
+other = "Iceland"
+[country_it]
+other = "Italy"
+[country_je]
+other = "Jersey"
+[country_jp]
+other = "Japan"
+[country_kr]
+other = "South Korea"
+[country_li]
+other = "Liechtenstein"
+[country_lt]
+other = "Lithuania"
+[country_lu]
+other = "Luxembourg"
+[country_lv]
+other = "Latvia"
+[country_mt]
+other = "Malta"
+[country_nl]
+other = "Netherlands"
+[country_no]
+other = "Norway"
+[country_nz]
+other = "New Zealand"
+[country_pl]
+other = "Poland"
+[country_pt]
+other = "Portugal"
+[country_ro]
+other = "Romania"
+[country_se]
+other = "Sweden"
+[country_si]
+other = "Slovenia"
+[country_sk]
+other = "Slovakia"
+[country_uy]
+other = "Uruguay"
+
 # Other
 [tools_in_category]
 other = "Tools in this category."
