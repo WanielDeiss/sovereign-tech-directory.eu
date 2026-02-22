@@ -1,247 +1,348 @@
-# SEO Implementation Plan (based on audit 2026-02-22)
+# SEO Implementation Plan v2 (2026-02-22)
 
-## 1) Goal
+This version incorporates clarified product decisions from stakeholder feedback.
 
-Resolve all high and medium SEO issues from `docs/seo-analysis-2026-02-22.md` with minimal complexity and clear verification gates.
+## 1) Final decisions (locked)
+
+1. No staging/preview environment is available.
+2. `/imprint/` and `/search/` must be non-indexable.
+3. No OG image exists yet; one must be created.
+4. Category-specific descriptions should be added to the data model.
+5. Title/description quality rules are required.
+6. Internal detail links on tool cards: decided here as **primary CTA**.
+7. Structured data for tool detail pages: use `Product`.
+8. Add CI automation for SEO guardrails.
+
+## 2) Goal
+
+Resolve all high and medium issues from `docs/seo-analysis-2026-02-22.md` with deterministic outputs and regression safety in CI.
 
 Primary outcomes:
 
-- clean, descriptive, unique titles on all indexable pages
-- page-specific meta descriptions on key landing pages
-- canonical, social meta, and robots coverage
-- stronger internal linking to tool detail pages
+- unique, quality-controlled metadata on indexable pages
+- explicit index/noindex policy by page type
+- complete canonical + social metadata + robots coverage
+- improved internal crawl path to tool detail pages
+- baseline structured data for discoverability
 
-## 2) Scope
+## 3) Scope
 
 Included:
 
-- technical SEO in Hugo templates/config
-- on-page metadata quality (title/description)
-- crawl/index controls (`robots.txt`, taxonomy cleanup)
-- internal links and structured data basics
+- technical SEO in Hugo templates/config/data
+- on-page metadata quality (title/description constraints)
+- crawl/index controls (`robots.txt`, sitemap relevance, utility pages)
+- social cards (including share image)
+- internal linking and structured data baseline
+- CI checks for SEO regressions
 
 Excluded:
 
 - backlink strategy
 - external keyword research
-- content marketing plan
-- server/CDN infrastructure changes
+- paid/social campaign planning
 
-## 3) Workstream overview and order
+## 4) Indexability policy (explicit)
 
-1. **P0 Metadata Core** (highest impact)
-2. **P1 Indexability + Social Metadata**
-3. **P1 Internal Linking**
-4. **P2 Structured Data**
-5. **QA + Monitoring Rollout**
+### Indexable
 
-Implementation order follows dependency: first fix page identity (title/description), then indexing/share metadata, then link graph, then schema enrichment.
+- `/`
+- `/tools/`
+- `/tools/<id>/`
+- `/categories/`
+- `/categories/<id>/`
+- `/sovereignty-score/`
+- `/about/`
 
-## 4) Detailed implementation plan
+### Non-indexable
 
-## Phase A — P0 Metadata Core (Day 1)
+- `/search/`
+- `/imprint/`
+- `/tags/` (remove output entirely if unused)
 
-### A1. Centralize SEO metadata logic
+Implementation note:
+
+- Prefer `noindex,follow` for `/search/` and `/imprint/`.
+- Also remove these two from sitemap to keep sitemap focused on indexable URLs.
+
+## 5) Workstreams and execution order
+
+1. **P0 Metadata + index policy core**
+2. **P1 Social metadata + OG image**
+3. **P1 Internal linking**
+4. **P2 Structured data**
+5. **CI guardrails + rollout monitoring**
+
+Because no staging exists, production safety relies on CI and phased, small deploys.
+
+## 6) Detailed implementation plan
+
+## Phase A — P0 Metadata and index policy core (Day 1)
+
+### A1. Centralize head metadata logic
 
 **Files**
 
 - `layouts/_default/baseof.html`
-- `layouts/partials/` (new partial, e.g. `seo-head.html`)
+- `layouts/partials/seo-head.html` (new)
 
 **Tasks**
 
-- Extract head metadata generation into one reusable partial.
-- Compute context-aware `seo_title` and `seo_description` with fallbacks:
-  - home/list/single pages: frontmatter (`.Title`, `.Description`)
-  - tool detail pages: derive from `data/tools/<id>.yaml` (`name`, `description`)
-  - category detail pages: derive from `data/categories/categories.yaml` label + category summary template
-  - final fallback: site defaults from `hugo.toml`
+- Extract title/description/canonical/social boilerplate into one partial.
+- Resolve metadata using page-type logic:
+  - home/list/single pages: frontmatter first
+  - tools detail: `data/tools/<id>.yaml` (`name`, `description`)
+  - category detail: `data/categories/categories.yaml` (`label`, `description`)
+  - final fallback: site defaults in `hugo.toml`
 
 **Acceptance criteria**
 
-- No generated page contains `<title> | Sovereign Tech Directory</title>`.
-- Tool detail pages use tool names in title.
-- Category detail pages use category labels in title.
-- Descriptions are no longer generic on tool/category pages.
+- No `<title> | Sovereign Tech Directory</title>` in generated output.
+- Tool details use tool names in title.
+- Category details use category labels in title.
+- Tool/category descriptions are page-specific.
 
-### A2. Keep content files lean (no forced duplication)
+### A2. Add category descriptions to data model
 
 **Files**
 
-- `content/en/tools/*.md`
-- `content/en/categories/*.md`
+- `data/categories/categories.yaml`
+- `scripts/` validation logic (if category schema is validated)
+- optional docs update: `docs/` data model docs
 
 **Tasks**
 
-- Do not duplicate full text into every markdown file.
-- Keep metadata logic in templates/data model to preserve single source of truth.
+- Add `description` field per category entry.
+- Consume this field in metadata generation for category detail pages.
 
 **Acceptance criteria**
 
-- Existing data-driven model remains intact.
-- No manual title/description maintenance burden introduced.
+- Every category has a non-empty description in data.
+- Category meta descriptions are unique enough and no longer generic.
 
-## Phase B — P1 Indexability and social sharing (Day 1–2)
-
-### B1. Add canonical URLs
+### A3. Enforce index/noindex for utility pages
 
 **Files**
 
-- SEO head partial from Phase A
+- `content/en/search.md`
+- `content/en/imprint.md`
+- `layouts/partials/seo-head.html`
 
 **Tasks**
 
-- Add `<link rel="canonical" href="{{ .Permalink }}">` (or normalized absolute permalink).
+- Add frontmatter flag for robots (e.g. `robots: "noindex,follow"`).
+- Render `<meta name="robots" ...>` when flag is set.
+- Ensure page-type fallback keeps key pages indexable.
 
 **Acceptance criteria**
 
-- Every indexable HTML page includes exactly one canonical tag.
+- `/search/` and `/imprint/` output `noindex,follow`.
+- All other target pages remain indexable.
 
-### B2. Add Open Graph and Twitter cards
+## Phase B — P1 Social metadata and robots output (Day 1–2)
+
+### B1. Canonical on all indexable pages
 
 **Files**
 
-- SEO head partial
-- `hugo.toml` (`[params]` defaults for social image/site name if needed)
+- `layouts/partials/seo-head.html`
 
 **Tasks**
 
-- Add minimal but complete set:
-  - `og:title`, `og:description`, `og:type`, `og:url`
-  - `twitter:card`, `twitter:title`, `twitter:description`
-- Reuse the same resolved SEO title/description variables from Phase A.
+- Emit one absolute canonical URL per page (`.Permalink`).
 
 **Acceptance criteria**
 
-- All key pages emit OG/Twitter metadata.
-- Shared previews contain page-specific title and description.
+- Exactly one canonical tag on each indexable HTML page.
 
-### B3. Enable and control robots output
+### B2. Open Graph + Twitter complete set
+
+**Files**
+
+- `layouts/partials/seo-head.html`
+- `hugo.toml` (`[params]` defaults)
+
+**Tasks**
+
+- Add:
+  - `og:title`, `og:description`, `og:type`, `og:url`, `og:image`, `og:image:alt`
+  - `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`
+- Reuse resolved title/description variables from A1.
+
+**Acceptance criteria**
+
+- Key pages render full OG/Twitter metadata.
+- Shared previews are page-specific and include image.
+
+### B3. Create default OG image asset
+
+**Files**
+
+- `static/images/social/og-default.png` (1200x630, new)
+- optional editable source: `assets/images/social/og-default.svg` (new)
+
+**Tasks**
+
+- Create branded default image for social sharing.
+- Add clear alt text in metadata (`og:image:alt`).
+- Ensure image URL is absolute in generated meta tags.
+
+**Acceptance criteria**
+
+- `og:image` points to valid, publicly reachable PNG.
+- Social debugger tools can fetch the image.
+
+### B4. Enable robots.txt and keep sitemap focused
 
 **Files**
 
 - `hugo.toml`
-- optional: `layouts/robots.txt` (custom template)
+- optional `layouts/robots.txt`
 
 **Tasks**
 
-- Enable robots generation (`enableRobotsTXT = true`).
-- Ensure sitemap URL is declared in robots.
-- Define default policy (`Allow: /`) for production.
+- Enable `enableRobotsTXT = true`.
+- Include sitemap URL in robots output.
+- Remove `/tags/` generation if taxonomy is unused.
+- Exclude noindex utility pages from sitemap (search/imprint).
 
 **Acceptance criteria**
 
-- `public/robots.txt` exists after build.
-- Robots includes sitemap reference.
-
-### B4. Remove low-value taxonomy pages from index
-
-**Files**
-
-- `hugo.toml`
-
-**Tasks**
-
-- Disable unused taxonomy kinds (`taxonomy`, `term`) if not needed.
-- Confirm `/tags/` is no longer generated/indexed.
-
-**Acceptance criteria**
-
+- `public/robots.txt` exists and references sitemap.
 - `/tags/` removed from output and sitemap.
-- No regression on `/categories/` section pages.
+- `/search/` and `/imprint/` absent from sitemap.
 
-## Phase C — P1 Internal linking improvement (Day 2)
+## Phase C — P1 Internal linking (Day 2)
 
-### C1. Link from tool cards to internal detail pages
+### C1. Make internal detail path primary on tool cards
+
+**Decision rationale**
+
+- Improves crawl depth and discovery of key landing pages.
+- Keeps external website as secondary user option.
 
 **Files**
 
 - `layouts/partials/tool-card.html`
-- `i18n/en.yaml` (if new link label is introduced)
+- `i18n/en.yaml` (new label, e.g. `label_view_details`)
 
 **Tasks**
 
-- Add internal link to `/tools/<id>/` from card title and/or dedicated CTA (e.g. "View details").
-- Keep external vendor link but demote to secondary action.
+- Link tool name and primary CTA to `/tools/<id>/`.
+- Keep vendor website link as secondary action.
 
 **Acceptance criteria**
 
-- `/tools/` page links to every tool detail page.
-- Crawl path to tool detail pages exists from top navigation → tools list → detail.
+- `/tools/` links to all `/tools/<id>/` pages.
+- User can still reach vendor site from each card.
 
 ## Phase D — P2 Structured data (Day 3)
 
-### D1. Add JSON-LD partials
+### D1. Add JSON-LD partials with fixed type choice
 
 **Files**
 
 - `layouts/partials/seo-jsonld.html` (new)
-- `layouts/_default/baseof.html` (inject partial)
+- `layouts/_default/baseof.html`
 
 **Tasks**
 
-- Implement lightweight schema:
+- Implement:
   - Home: `WebSite`
-  - Tools list/category pages: `ItemList`
-  - Tool detail: `SoftwareApplication` (or `Product`, choose one and keep consistent)
-- Generate JSON via Hugo-safe serialization (`jsonify`) to avoid invalid escaping.
+  - Listing pages: `ItemList`
+  - Tool detail pages: `Product` (fixed decision)
+- Use `jsonify` to avoid escaping errors.
 
 **Acceptance criteria**
 
-- Pages render valid JSON-LD blocks.
-- No console/schema parse errors in validation tools.
+- Valid JSON-LD emitted on target templates.
+- Schema validators show no critical errors.
 
-## 5) QA and verification checklist
+## 7) Metadata quality rules (enforced)
 
-Run after each phase:
+## Title
+
+- Target length: 45-60 characters (soft bound).
+- Must be unique across indexable pages.
+- Pattern:
+  - home: `Sovereign Tech Directory`
+  - detail/list: `<page-specific title> | Sovereign Tech Directory`
+
+## Description
+
+- Target length: 140-160 characters (soft bound).
+- Must be specific (no generic global fallback on tool/category details).
+- Must be unique per tool detail page.
+
+## 8) CI guardrails (required)
+
+Add a dedicated SEO check step to CI:
 
 1. `npm run build`
-2. Spot-check generated files in `public/`:
+2. script-based assertions (new script, e.g. `scripts/seo-check.ts`) to validate:
+   - no empty title pattern
+   - canonical present exactly once on indexable pages
+   - OG/Twitter tags present
+   - `noindex,follow` present on `/search/` and `/imprint/`
+   - `/tags/` not generated
+   - `/search/` and `/imprint/` not present in `sitemap.xml`
+   - no duplicate titles among indexable pages
+
+Expose as npm script:
+
+- `npm run seo:check`
+
+CI should fail on any violation.
+
+## 9) QA checklist (manual spot checks)
+
+After each phase:
+
+1. Run `npm run build`
+2. Validate generated files:
    - `/index.html`
    - `/tools/index.html`
    - `/tools/nextcloud/index.html`
    - `/categories/analytics/index.html`
+   - `/search/index.html`
+   - `/imprint/index.html`
+   - `/robots.txt`
    - `/sitemap.xml`
-   - `/robots.txt` (after Phase B)
-3. Automated grep/ripgrep checks:
-   - no empty title pattern
-   - canonical count matches page count
-   - OG/Twitter tags present
-   - `/tags/` absent (if disabled)
+3. Confirm OG image loads in browser and social debugger.
 
-Suggested technical checks:
+## 10) Rollout strategy (chosen)
 
-- no match: `<title> \| Sovereign Tech Directory</title>`
-- no match: generic description on tool/category pages
+Given no staging:
 
-## 6) Rollout strategy
+- release **P0 + P1 together** in one controlled deploy (metadata + index policy + robots/social)
+- release **P1 internal linking** and **P2 schema** in follow-up small deploys
+- keep commits small and self-contained
 
-- Merge in small commits per phase (A, B, C, D).
-- Deploy after each phase if CI/build is green.
-- Validate in Google Search Console:
-  - URL inspection for sample tool/category pages
-  - sitemap refresh
-  - CTR trend on tool/category landing pages (2–4 weeks window)
+## 11) Risks and mitigations
 
-## 7) Risks and mitigations
+- **Risk:** accidental deindexing of important pages  
+  **Mitigation:** explicit allowlist of indexable page types + CI assertions.
 
-- **Risk:** wrong title resolution for data-driven pages  
-  **Mitigation:** explicit branch logic for `tools` and `categories` with fallback tests.
+- **Risk:** wrong canonical host/path  
+  **Mitigation:** canonical checks against `baseURL` in CI.
 
-- **Risk:** disabling taxonomies removes required pages accidentally  
-  **Mitigation:** verify section-based `/categories/` remains intact before merge.
+- **Risk:** OG image path breaks after deployment  
+  **Mitigation:** absolute URL generation + fetch check in CI if possible.
 
-- **Risk:** inconsistent metadata between HTML title and OG title  
-  **Mitigation:** compute once, reuse variables for all tags.
+- **Risk:** metadata drift across tags  
+  **Mitigation:** compute metadata once in partial and reuse for title/OG/Twitter.
 
-## 8) Definition of done
+## 12) Definition of done
 
-All items below are true:
+All are true:
 
 - No empty/blank titles in generated HTML.
 - Tool and category pages have specific descriptions.
-- Canonical + OG + Twitter tags available on all key pages.
-- `robots.txt` exists and references sitemap.
-- Low-value `/tags/` page removed (or explicitly controlled).
-- Internal links to tool detail pages exist from `/tools/`.
-- Build passes and sitemap/index output is consistent.
+- Category descriptions exist in data model.
+- `/search/` and `/imprint/` are `noindex,follow` and not in sitemap.
+- Canonical + OG + Twitter tags available on all indexable key pages.
+- Default OG image exists and is referenced.
+- `/tags/` is not generated.
+- `/tools/` provides internal links to all tool details.
+- JSON-LD (`WebSite`, `ItemList`, `Product`) is valid.
+- `npm run seo:check` passes in CI.
