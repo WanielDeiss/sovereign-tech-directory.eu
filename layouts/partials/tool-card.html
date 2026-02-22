@@ -1,6 +1,11 @@
 <li class="card">
   <header>
-    <h2 class="section-title">{{ .tool.name }}</h2>
+    <div class="card-header-with-logo">
+      {{ with index .logos .tool.id }}
+      <img src="{{ . }}" alt="" class="tool-card-logo">
+      {{ end }}
+      <h2 class="section-title">{{ .tool.name }}</h2>
+    </div>
     <div class="card-header-badges">
       {{ with .score }}
       {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}

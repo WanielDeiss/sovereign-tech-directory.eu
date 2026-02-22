@@ -13,6 +13,12 @@
   {{ $categories = merge $categories (dict .id .label) }}
 {{ end }}
 
+{{/* Build logo map: tool id -> logo URL */}}
+{{ $logos := dict }}
+{{ range resources.Match "tools/*" }}
+  {{ $logos = merge $logos (dict (path.BaseName .Name) .RelPermalink) }}
+{{ end }}
+
 {{/* Collect tools in this category and sort by name */}}
 {{ $tools := slice }}
 {{ range $filename, $tool := .Site.Data.tools }}
@@ -28,7 +34,7 @@
 
   <ul class="tools-grid" role="list">
     {{ range $tools }}
-    {{ partial "tool-card.html" (dict "tool" . "categories" $categories) }}
+    {{ partial "tool-card.html" (dict "tool" . "categories" $categories "logos" $logos) }}
     {{ end }}
   </ul>
 </article>

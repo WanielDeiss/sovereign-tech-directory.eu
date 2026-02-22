@@ -90,7 +90,10 @@
   .card header {
     @apply flex flex-col gap-2;
   }
-  .card header .section-title {
+  .card-header-with-logo {
+    @apply flex flex-col gap-2;
+  }
+  .card-header-with-logo .section-title {
     @apply mb-0 min-w-0 break-words;
   }
   .card-header-badges {
@@ -175,9 +178,20 @@
     @apply text-muted mt-4;
   }
 
+  /* Tool logos (card and detail hero) */
+  .tool-card-logo {
+    @apply block mx-auto w-full md:w-2/3 h-auto max-h-[70px] object-contain;
+  }
+  .tool-logo {
+    @apply shrink-0 h-auto max-h-[70px] w-auto object-contain md:ml-auto;
+  }
+
   /* Tool detail page */
   .tool-detail-hero {
-    @apply mb-8;
+    @apply mb-8 flex flex-wrap items-start gap-4;
+  }
+  .tool-detail-hero-content {
+    @apply min-w-0 flex-1;
   }
   .tool-detail-hero .tool-card-description {
     @apply mb-4;
@@ -192,7 +206,7 @@
     @apply list-none p-0 m-0 space-y-1;
   }
   .tool-detail-sidebar {
-    @apply md:min-w-0;
+    @apply md:min-w-0 flex flex-col gap-6;
   }
   .checklist {
     @apply space-y-3;
