@@ -1,10 +1,10 @@
 <article class="card">
-  <h2 class="section-title"><a href="/categories/{{ .category.id }}/">{{ .category.label }}</a></h2>
+  <h2 class="section-title"><a href="{{ (printf "/categories/%s/" .category.id) | relURL }}">{{ .category.label }}</a></h2>
   {{ $catId := .category.id }}
   <ul>
     {{ range $filename, $tool := .ctx.Site.Data.tools }}
     {{ if eq $tool.category $catId }}
-    <li><a href="/tools/{{ $tool.id }}/" class="link">{{ $tool.name }}</a></li>
+    <li><a href="{{ (printf "/tools/%s/" $tool.id) | relURL }}" class="link">{{ $tool.name }}</a></li>
     {{ end }}
     {{ end }}
   </ul>
