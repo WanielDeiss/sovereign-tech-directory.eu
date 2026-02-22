@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article class="page-content" role="main">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+
+  <form class="search-form" role="search" aria-label="{{ i18n "nav_search" }}">
+    <label for="search-input" class="sr-only">{{ i18n "nav_search" }}</label>
+    <input type="search" id="search-input" class="search-input" placeholder="{{ i18n "search_placeholder" }}" autocomplete="off" />
+  </form>
+
+  <div id="search-results" class="search-results" aria-live="polite" data-index-url="{{ "search-index.json" | relURL }}"></div>
+
+  <noscript>
+    <p class="search-no-js">{{ i18n "search_requires_js" }}</p>
+    <p><a href="{{ "tools/" | relURL }}" class="link">{{ i18n "search_requires_js_link" }}</a></p>
+  </noscript>
+
+  <script>window.SEARCH_I18N = { noResults: {{ i18n "search_no_results" | jsonify }}, loadError: {{ i18n "search_load_error" | jsonify }} };</script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js" crossorigin="anonymous"></script>
+  {{ $searchJs := resources.Get "js/search.js" }}
+  {{ if hugo.IsProduction }}{{ $searchJs = $searchJs | minify }}{{ end }}
+  {{ $searchJs = $searchJs | fingerprint }}
+  <script src="{{ $searchJs.RelPermalink }}" integrity="{{ $searchJs.Data.Integrity }}" crossorigin="anonymous"></script>
+</article>
+{{ end }}

@@ -5,6 +5,7 @@
     <li><a href="{{ "tools/" | relURL }}" class="nav-link{{ if eq .Section "tools" }} nav-link-active{{ end }}">{{ i18n "nav_tools" }}</a></li>
     <li><a href="{{ "categories/" | relURL }}" class="nav-link{{ if eq .Section "categories" }} nav-link-active{{ end }}">{{ i18n "nav_categories" }}</a></li>
     <li><a href="{{ "sovereignty-score/" | relURL }}" class="nav-link{{ if in .RelPermalink "/sovereignty-score/" }} nav-link-active{{ end }}">{{ i18n "nav_sovereignty_score" }}</a></li>
+    <li><a href="{{ "search/" | relURL }}" class="nav-link{{ if in .RelPermalink "/search/" }} nav-link-active{{ end }}">{{ i18n "nav_search" }}</a></li>
     <li><a href="{{ "about/" | relURL }}" class="nav-link{{ if in .RelPermalink "/about/" }} nav-link-active{{ end }}">{{ i18n "nav_about" }}</a></li>
   </ul>
 </nav>

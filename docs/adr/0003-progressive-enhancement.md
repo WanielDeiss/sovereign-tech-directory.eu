@@ -21,12 +21,13 @@ Wir bauen die Kernnavigation und Kerninhalte so, dass sie ohne JavaScript funkti
 
 JavaScript ist optional und darf spaeter fuer Komfortfunktionen genutzt werden:
 - client-side Filter UI
-- client-side Suche
+- client-side Suche (Fuse.js, Suchindex bei Build erzeugt)
 
 Dabei gilt:
 - Vanilla JS
 - kein Framework
-- Seite bleibt ohne JS voll nutzbar
+- Seite bleibt ohne JS voll nutzbar (Kernnavigation, Tools- und Kategorienseiten)
+- Ausnahme Suchseite: Suche nutzt bewusst JavaScript; ohne JS zeigt die Suchseite einen Hinweis und Link zur Tools-Übersicht (kein toter Screen)
 
 ## Konsequenzen
 
@@ -38,7 +39,7 @@ Positiv:
 
 Negativ:
 - Filter ohne JS sind weniger flexibel
-- Suche ist ohne JS nur ueber Browser Suche oder spaeter via prebuilt index moeglich
+- Suche ohne JS: Nutzer sieht Hinweis und kann zur Tools-Liste wechseln (kein Suchlauf ohne JS)
 
 ## Alternativen
 

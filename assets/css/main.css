@@ -158,6 +158,23 @@
     @apply text-primary no-underline hover:underline;
   }
 
+  /* Search page */
+  .search-form {
+    @apply mb-6;
+  }
+  .search-input {
+    @apply w-full max-w-md px-4 py-3 border border-border rounded-card text-gray-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary;
+  }
+  .search-results {
+    @apply space-y-4 mt-6;
+  }
+  .search-results .card {
+    @apply block no-underline text-inherit;
+  }
+  .search-no-js {
+    @apply text-muted mt-4;
+  }
+
   /* Tool detail page */
   .tool-detail-hero {
     @apply mb-8;

@@ -17,6 +17,25 @@ other = "About"
 [nav_imprint]
 other = "Imprint"
 
+[nav_search]
+other = "Search"
+
+# Search page
+[search_placeholder]
+other = "Search tools…"
+
+[search_no_results]
+other = "No tools found. Try different terms."
+
+[search_requires_js]
+other = "Search requires JavaScript."
+
+[search_requires_js_link]
+other = "Browse all tools"
+
+[search_load_error]
+other = "Search could not be loaded. Please refresh the page."
+
 # Labels
 [label_eu_company]
 other = "EU Company"

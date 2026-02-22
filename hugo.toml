@@ -11,6 +11,14 @@ contentDir = "content/en"
 [params]
   description = "A curated directory for digital sovereignty in Europe"
 
+[outputFormats.searchindex]
+  mediaType = "application/json"
+  baseName = "search-index"
+  isPlainText = true
+
+[outputs]
+  home = ["HTML", "searchindex"]
+
 [module]
   [[module.imports]]
     path = "github.com/gohugoio/hugo-mod-heroicons"
