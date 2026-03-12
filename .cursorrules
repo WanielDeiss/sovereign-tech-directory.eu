@@ -18,7 +18,7 @@ Statischer Build mit Hugo (SSG), keine Datenbank, keine User-Accounts.
 
 ## Datenmodell
 - Tools: /data/tools/*.yaml
-- Kategorien: /data/categories/*.yaml
+- Kategorien: /data/categories/categories.yaml
 - IDs: lowercase-kebab-case
 
 ## Nicht-Ziele (Phase 1)
