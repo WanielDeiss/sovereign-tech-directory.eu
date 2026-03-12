@@ -49,16 +49,18 @@ The following tables describe the exact rules we use. They are the same rules us
 
 ### Legal jurisdiction
 
-We look at whether the company is registered in the EU/EEA and in which countries it operates. Countries are grouped into: **EU only**, **EEA** (EU plus Iceland, Liechtenstein, Norway), **adequacy** (countries with an EU adequacy decision, e.g. UK, Switzerland), **mixed** (mix of these and others), or **non-EU**.
+We look at whether the company is registered in the EU/EEA and in which countries it operates. Countries are grouped into: **EU only**, **EEA** (EU plus Iceland, Liechtenstein, Norway), **EFTA** (EFTA states: Iceland, Liechtenstein, Norway, Switzerland), **adequacy** (countries with an EU adequacy decision, e.g. UK, Japan), **mixed** (mix of these and others), or **non-EU**.
 
 | EU-based company? | Countries classification | Points |
 | :----------------- | :----------------------- | -----: |
 | Yes | EU or EEA only | 2.0 |
-| Yes | Adequacy only | 1.5 |
+| Yes | EFTA | 1.5 |
+| Yes | Adequacy only | 1.0 |
 | Yes | Mixed | 1.0 |
 | Yes | Non-EU only | 0.5 |
 | No | EU or EEA only | 1.5 |
-| No | Adequacy only | 1.0 |
+| No | EFTA | 1.0 |
+| No | Adequacy only | 0.5 |
 | No | Mixed | 0.5 |
 | No | Non-EU only | 0.0 |
 
@@ -136,14 +138,14 @@ Missing booleans are treated as "no"; missing data portability is treated as "un
 
 ## Worked examples
 
-### Element (Matrix) – score 9.0
+### Element (Matrix) – score 8.5
 
-- **Legal jurisdiction**: Vendor not EU-based; operations in UK (adequacy) → **1.0**
+- **Legal jurisdiction**: Vendor not EU-based; operations in UK (adequacy) → **0.5**
 - **Data control**: Self-hostable, data residency EU → **2.0**
 - **Openness**: Open source, open standards (Matrix) → **2.0**
 - **Lock-in**: Open standards + full data portability → **2.0**
-- **Operational autonomy**: Self-hostable, open source → **2.0**  
-**Total: 9.0** (confidence: high)
+- **Operational autonomy**: Self-hostable, open source → **2.0**
+**Total: 8.5** (confidence: high)
 
 ### Nextcloud – score 10.0
 
