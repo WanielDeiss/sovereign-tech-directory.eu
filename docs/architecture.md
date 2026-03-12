@@ -65,7 +65,7 @@ Pflichtfelder:
 - `category`: Referenz auf eine Kategorie ID
 - `countries`: ISO Ländercodes als Array, zB `["DE","FR"]`
 - `eu_company`: boolean
-- `data_residency`: enum `EU | EWR | Unknown | Global`
+- `data_residency`: enum `EU | EEA | NON_EU | UNKNOWN`
 - `open_source`: boolean
 - `self_hostable`: boolean
 - `website`: URL
