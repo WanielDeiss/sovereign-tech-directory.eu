@@ -130,9 +130,9 @@ Missing booleans are treated as "no"; missing data portability is treated as "un
 | Score range | Interpretation |
 | :---------- | :------------- |
 | **0.0 – 2.0** | Low sovereignty; strong dependency on non-EU or non-transparent providers. |
-| **3.0 – 5.0** | Limited sovereignty; some EU or control aspects, but notable lock-in or lack of openness. |
-| **6.0 – 8.0** | Good sovereignty; EU/EEA or strong openness and control, with some gaps. |
-| **9.0 – 10.0** | High sovereignty; EU/EEA where relevant, open, self-hostable, low lock-in. |
+| **2.5 – 5.0** | Limited sovereignty; some EU or control aspects, but notable lock-in or lack of openness. |
+| **5.5 – 8.0** | Good sovereignty; EU/EEA or strong openness and control, with some gaps. |
+| **8.5 – 10.0** | High sovereignty; EU/EEA where relevant, open, self-hostable, low lock-in. |
 
 ---
 
