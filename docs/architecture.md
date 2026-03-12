@@ -50,7 +50,7 @@ Wichtige Verzeichnisse:
 - `layouts/`  
   Hugo Templates für Listen, Detailseiten, Partials.
 - `assets/`  
-  CSS und optionales JS (Vanilla, ohne Framework).
+  Tailwind CSS (via PostCSS) und optionales Vanilla JS.
 
 ## Datenmodell
 
@@ -134,7 +134,7 @@ Umsetzung:
 ## UI und UX Leitlinien
 
 - Semantisches HTML
-- Minimal CSS, kein Framework
+- Tailwind CSS als Design-System, semantische Klassen via `@apply` (siehe 040-tailwind-conventions)
 - Gute Lesbarkeit, klare Hierarchie
 - Mobile first
 - Barrierearm:
