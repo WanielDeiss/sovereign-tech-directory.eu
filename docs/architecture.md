@@ -22,7 +22,7 @@ Leitprinzipien:
 - **Data as Source of Truth**: YAML Daten sind die Wahrheit, Templates sind Views.
 - **Progressive Enhancement**: Ohne JavaScript funktioniert alles, JS ist optional.
 - **Kuration vor Vollständigkeit**: Lieber weniger Einträge, dafür verlässlich.
-- **Transparenz vor Score**: Kriterien werden als Checkliste dargestellt, kein intransparenter Gesamtscore.
+- **Transparenz vor Score**: Kriterien sind als Checkliste und mit nachvollziehbarer Bewertungslogik dargestellt; der Sovereignty Score (→ ADR 0006) ist deterministisch und vollständig dokumentiert.
 
 ## Systemübersicht
 
