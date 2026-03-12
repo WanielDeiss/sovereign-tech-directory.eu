@@ -49,16 +49,18 @@ The following tables describe the exact rules we use. They are the same rules us
 
 ### Legal jurisdiction
 
-We look at whether the company is registered in the EU/EEA and in which countries it operates. Countries are grouped into: **EU only**, **EEA** (EU plus Iceland, Liechtenstein, Norway), **adequacy** (countries with an EU adequacy decision, e.g. UK, Switzerland), **mixed** (mix of these and others), or **non-EU**.
+We look at whether the company is registered in the EU/EEA and in which countries it operates. Countries are grouped into: **EU only**, **EEA** (EU plus Iceland, Liechtenstein, Norway), **EFTA** (EFTA states: Iceland, Liechtenstein, Norway, Switzerland), **adequacy** (countries with an EU adequacy decision, e.g. UK, Japan), **mixed** (mix of these and others), or **non-EU**.
 
 | EU-based company? | Countries classification | Points |
 | :----------------- | :----------------------- | -----: |
 | Yes | EU or EEA only | 2.0 |
-| Yes | Adequacy only | 1.5 |
+| Yes | EFTA | 1.5 |
+| Yes | Adequacy only | 1.0 |
 | Yes | Mixed | 1.0 |
 | Yes | Non-EU only | 0.5 |
 | No | EU or EEA only | 1.5 |
-| No | Adequacy only | 1.0 |
+| No | EFTA | 1.0 |
+| No | Adequacy only | 0.5 |
 | No | Mixed | 0.5 |
 | No | Non-EU only | 0.0 |
 
@@ -128,22 +130,22 @@ Missing booleans are treated as "no"; missing data portability is treated as "un
 | Score range | Interpretation |
 | :---------- | :------------- |
 | **0.0 – 2.0** | Low sovereignty; strong dependency on non-EU or non-transparent providers. |
-| **3.0 – 5.0** | Limited sovereignty; some EU or control aspects, but notable lock-in or lack of openness. |
-| **6.0 – 8.0** | Good sovereignty; EU/EEA or strong openness and control, with some gaps. |
-| **9.0 – 10.0** | High sovereignty; EU/EEA where relevant, open, self-hostable, low lock-in. |
+| **2.5 – 5.0** | Limited sovereignty; some EU or control aspects, but notable lock-in or lack of openness. |
+| **5.5 – 8.0** | Good sovereignty; EU/EEA or strong openness and control, with some gaps. |
+| **8.5 – 10.0** | High sovereignty; EU/EEA where relevant, open, self-hostable, low lock-in. |
 
 ---
 
 ## Worked examples
 
-### Element (Matrix) – score 9.0
+### Element (Matrix) – score 8.5
 
-- **Legal jurisdiction**: Vendor not EU-based; operations in UK (adequacy) → **1.0**
+- **Legal jurisdiction**: Vendor not EU-based; operations in UK (adequacy) → **0.5**
 - **Data control**: Self-hostable, data residency EU → **2.0**
 - **Openness**: Open source, open standards (Matrix) → **2.0**
 - **Lock-in**: Open standards + full data portability → **2.0**
-- **Operational autonomy**: Self-hostable, open source → **2.0**  
-**Total: 9.0** (confidence: high)
+- **Operational autonomy**: Self-hostable, open source → **2.0**
+**Total: 8.5** (confidence: high)
 
 ### Nextcloud – score 10.0
 
