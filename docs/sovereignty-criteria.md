@@ -18,6 +18,13 @@ Dieses Dokument beschreibt die Kriterien, nach denen Tools im sovereign-tech-dir
 | `website` | Offizielle Website |
 | `last_reviewed` | Letztes Review-Datum (YYYY-MM) |
 
+### Optionale Felder (Sovereignty Score v1.0)
+
+| Feld | Beschreibung |
+|------|--------------|
+| `open_standards` | Boolean: Nutzt offene Standards/Protokolle? (Default: false) |
+| `data_portability` | Exportierbarkeit: full \| partial \| none \| unknown (Default: unknown) |
+
 ## Souveränitätsindikatoren
 
 ### EU-Unternehmen (`eu_company`)
@@ -38,12 +45,26 @@ Dieses Dokument beschreibt die Kriterien, nach denen Tools im sovereign-tech-dir
 - **true**: Kann auf eigener Infrastruktur betrieben werden
 - **false**: Nur als SaaS verfügbar
 
+### Offene Standards (`open_standards`)
+- **true**: Nutzt oder implementiert offene Standards/Protokolle (z.B. Matrix, WebDAV, CalDAV)
+- **false**: Nutzt proprietäre Protokolle oder Formate
+
+### Datenportabilität (`data_portability`)
+- **full**: Vollständiger Export aller Nutzerdaten möglich
+- **partial**: Teilweiser Export möglich
+- **none**: Kein Export vorgesehen
+- **unknown**: Keine klare Aussage verfügbar
+
 ## Bewertungslogik
 
-Ein Tool gilt als **besonders souveränitätsfreundlich**, wenn:
-- `eu_company: true`
-- `data_residency: EU` oder `EEA`
-- `open_source: true`
-- `self_hostable: true`
+Die Souveränitätsbewertung erfolgt über den **Sovereignty Score** (0.0–10.0), der deterministisch aus den oben genannten Feldern berechnet wird. Der Score bildet fünf Dimensionen ab:
 
-Diese Kriterien sind keine Wertung, sondern Transparenzindikatoren für informierte Entscheidungen.
+1. **Legal Jurisdiction** — Rechtsraum des Anbieters (basierend auf `eu_company`, `countries`)
+2. **Data Control** — Datenkontrolle (basierend auf `data_residency`, `self_hostable`)
+3. **Openness** — Offenheit (basierend auf `open_source`, `open_standards`)
+4. **Lock-in** — Bindungsrisiko (basierend auf `open_standards`, `data_portability`)
+5. **Operational Autonomy** — Betriebsautonomie (basierend auf `self_hostable`, `open_source`, `eu_company`)
+
+Jede Dimension wird mit 0–2 Punkten bewertet. Details zur Berechnung: → [Sovereignty Score v1.0](sovereignty-score-v1.md) und [ADR 0006](adr/0006-sovereignty-score.md).
+
+Diese Kriterien sind keine subjektive Wertung, sondern Transparenzindikatoren für informierte Entscheidungen.
