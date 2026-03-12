@@ -1,0 +1,17 @@
+id: mullvad-vpn
+name: Mullvad VPN
+description: Privacy-focused VPN service from Sweden. No email or personal information required to sign up, accepts anonymous payment methods, and publishes regular security audits.
+category: security
+countries:
+  - SE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: false
+open_standards: true
+data_portability: none
+alternatives_to:
+  - NordVPN
+  - ExpressVPN
+website: https://mullvad.net
+last_reviewed: 2026-03

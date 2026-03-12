@@ -1,0 +1,18 @@
+id: taiga
+name: Taiga
+description: Open-source project management platform for agile teams. Supports Scrum and Kanban workflows with backlogs, sprints, and user stories. Self-hosted or cloud deployment.
+category: project-management
+countries:
+  - ES
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Jira
+  - Trello
+  - Asana
+website: https://taiga.io
+last_reviewed: 2026-03

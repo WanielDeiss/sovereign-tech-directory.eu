@@ -1,0 +1,19 @@
+id: tresorit
+name: Tresorit
+description: End-to-end encrypted cloud storage for businesses and individuals. Swiss-Hungarian company with zero-knowledge encryption and EU data centers.
+category: cloud-storage
+countries:
+  - CH
+  - HU
+eu_company: true
+data_residency: EU
+open_source: false
+self_hostable: false
+open_standards: false
+data_portability: partial
+alternatives_to:
+  - Google Drive
+  - Dropbox
+  - Microsoft OneDrive
+website: https://tresorit.com
+last_reviewed: 2026-03

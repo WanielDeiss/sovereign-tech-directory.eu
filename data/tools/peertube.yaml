@@ -1,0 +1,17 @@
+id: peertube
+name: PeerTube
+description: Decentralized video hosting platform using ActivityPub federation and peer-to-peer streaming. Developed by Framasoft, a French non-profit, as a sovereign alternative to YouTube.
+category: social-media
+countries:
+  - FR
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - YouTube
+  - Vimeo
+website: https://joinpeertube.org
+last_reviewed: 2026-03

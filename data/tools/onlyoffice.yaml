@@ -1,0 +1,18 @@
+id: onlyoffice
+name: ONLYOFFICE
+description: Open-source office suite with online document editors for text, spreadsheets, and presentations. Integrates with Nextcloud, ownCloud, and other platforms. Self-hosted or cloud deployment.
+category: office
+countries:
+  - LV
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Google Docs
+  - Microsoft Office 365
+  - LibreOffice
+website: https://www.onlyoffice.com
+last_reviewed: 2026-03

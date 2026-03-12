@@ -1,0 +1,17 @@
+id: wekan
+name: WeKan
+description: Open-source Kanban board application. Lightweight, self-hosted alternative for task and project management with boards, lists, cards, and checklists.
+category: project-management
+countries:
+  - FI
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: false
+data_portability: full
+alternatives_to:
+  - Trello
+  - Notion
+website: https://wekan.github.io
+last_reviewed: 2026-03

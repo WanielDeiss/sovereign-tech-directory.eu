@@ -1,0 +1,17 @@
+id: rocketchat
+name: Rocket.Chat
+description: Open-source team communication platform with channels, direct messaging, and video conferencing. Supports federation and can be fully self-hosted.
+category: communication
+countries:
+  - BR
+eu_company: false
+data_residency: NON_EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Slack
+  - Microsoft Teams
+website: https://rocket.chat
+last_reviewed: 2026-03

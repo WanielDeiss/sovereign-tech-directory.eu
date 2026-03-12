@@ -29,3 +29,7 @@
 - id: social-media
   label: Social Media & Networking
   description: "Decentralised and sovereign social media and networking platforms."
+
+- id: security
+  label: Security & Privacy
+  description: "Security and privacy tools including VPNs, password managers, and encryption for digital sovereignty."
