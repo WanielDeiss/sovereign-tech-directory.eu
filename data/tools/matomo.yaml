@@ -1,0 +1,17 @@
+id: matomo
+name: Matomo
+description: Open-source web analytics platform and leading alternative to Google Analytics. Self-hosted or cloud option with full GDPR compliance, data ownership, and no data sampling.
+category: analytics
+countries:
+  - NZ
+eu_company: false
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Google Analytics
+  - Adobe Analytics
+website: https://matomo.org
+last_reviewed: 2026-03

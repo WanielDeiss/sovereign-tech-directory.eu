@@ -1,0 +1,18 @@
+id: jitsi-meet
+name: Jitsi Meet
+description: Open-source video conferencing solution that runs entirely in the browser. Can be self-hosted for complete control over communication infrastructure.
+category: communication
+countries:
+  - US
+eu_company: false
+data_residency: NON_EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: none
+alternatives_to:
+  - Zoom
+  - Google Meet
+  - Microsoft Teams
+website: https://jitsi.org
+last_reviewed: 2026-03

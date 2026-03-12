@@ -1,0 +1,17 @@
+id: open-xchange
+name: Open-Xchange
+description: Open-source email, calendar, and collaboration platform for service providers and enterprises. Powers many European email providers with self-hosted deployment.
+category: email
+countries:
+  - DE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Microsoft Exchange
+  - Google Workspace
+website: https://www.open-xchange.com
+last_reviewed: 2026-03

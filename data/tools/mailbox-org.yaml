@@ -1,0 +1,18 @@
+id: mailbox-org
+name: Mailbox.org
+description: Privacy-focused email and office suite hosted in Berlin, Germany. Offers email, calendar, contacts, cloud storage, and video conferencing with strong GDPR compliance.
+category: email
+countries:
+  - DE
+eu_company: true
+data_residency: EU
+open_source: false
+self_hostable: false
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Gmail
+  - Outlook
+  - Google Workspace
+website: https://mailbox.org
+last_reviewed: 2026-03

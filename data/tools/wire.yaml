@@ -1,0 +1,18 @@
+id: wire
+name: Wire
+description: Secure collaboration platform with end-to-end encrypted messaging, voice, and video calls. Built in Europe with on-premises deployment option for enterprises.
+category: communication
+countries:
+  - DE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Slack
+  - Microsoft Teams
+  - Zoom
+website: https://wire.com
+last_reviewed: 2026-03

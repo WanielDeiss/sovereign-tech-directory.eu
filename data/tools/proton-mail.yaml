@@ -1,0 +1,18 @@
+id: proton-mail
+name: Proton Mail
+description: Encrypted email service based in Switzerland with strong privacy protections. Open-source clients, zero-access encryption, and data stored in Swiss data centers.
+category: email
+countries:
+  - CH
+eu_company: false
+data_residency: EEA
+open_source: true
+self_hostable: false
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Gmail
+  - Outlook
+  - Yahoo Mail
+website: https://proton.me/mail
+last_reviewed: 2026-03

@@ -1,0 +1,18 @@
+id: owncloud
+name: ownCloud
+description: Open-source file sync and share platform with strong enterprise features. Offers on-premises deployment for full data control and integrates with existing IT infrastructure.
+category: cloud-storage
+countries:
+  - DE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - Google Drive
+  - Dropbox
+  - Microsoft OneDrive
+website: https://owncloud.com
+last_reviewed: 2026-03

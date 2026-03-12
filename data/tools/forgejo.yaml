@@ -1,0 +1,18 @@
+id: forgejo
+name: Forgejo
+description: Community-driven, self-hosted Git forge. Lightweight alternative for code hosting, pull requests, issue tracking, and CI/CD. Fork of Gitea under the Codeberg e.V. umbrella.
+category: development
+countries:
+  - DE
+eu_company: true
+data_residency: EU
+open_source: true
+self_hostable: true
+open_standards: true
+data_portability: full
+alternatives_to:
+  - GitHub
+  - GitLab
+  - Bitbucket
+website: https://forgejo.org
+last_reviewed: 2026-03
