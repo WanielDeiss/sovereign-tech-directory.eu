@@ -1,6 +1,6 @@
 id: tuta
 name: Tuta
-description: End-to-end encrypted email service from Germany (formerly Tutanota). Includes calendar and contacts with zero-knowledge encryption. All data stored in EU data centers.
+description: End-to-end encrypted email and calendar service from Germany. Encrypts the entire mailbox including contacts and calendars with a focus on privacy and GDPR compliance.
 category: email
 countries:
   - DE

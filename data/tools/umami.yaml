@@ -1,6 +1,6 @@
 id: umami
 name: Umami
-description: Simple, fast, privacy-focused web analytics. Open-source alternative to Google Analytics with no cookies, no tracking across sites, and full GDPR compliance.
+description: Simple, fast, privacy-focused web analytics alternative. Open source with self-hosting support, no cookies required, and fully GDPR compliant by design.
 category: analytics
 countries:
   - US

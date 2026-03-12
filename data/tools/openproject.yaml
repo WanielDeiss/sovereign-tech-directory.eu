@@ -1,6 +1,6 @@
 id: openproject
 name: OpenProject
-description: Open-source project management software with Gantt charts, agile boards, time tracking, and cost reporting. Made in Germany with enterprise self-hosting and EU cloud options.
+description: Open source project management software with Gantt charts, agile boards, time tracking, and cost reporting. Used by public administrations and enterprises across Europe.
 category: project-management
 countries:
   - DE
@@ -14,6 +14,5 @@ alternatives_to:
   - Jira
   - Asana
   - Monday.com
-  - Microsoft Project
 website: https://www.openproject.org
 last_reviewed: 2026-03

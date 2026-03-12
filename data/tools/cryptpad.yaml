@@ -1,6 +1,6 @@
 id: cryptpad
 name: CryptPad
-description: End-to-end encrypted collaboration suite with documents, spreadsheets, presentations, kanban boards, and forms. Zero-knowledge architecture ensures only users can access their data.
+description: End-to-end encrypted collaboration suite with documents, spreadsheets, presentations, kanban, and forms. Zero-knowledge architecture ensures the server never sees user content.
 category: office
 countries:
   - FR
@@ -12,7 +12,7 @@ open_standards: true
 data_portability: full
 alternatives_to:
   - Google Docs
-  - Microsoft Office 365
   - Notion
+  - Microsoft Office 365
 website: https://cryptpad.org
 last_reviewed: 2026-03
