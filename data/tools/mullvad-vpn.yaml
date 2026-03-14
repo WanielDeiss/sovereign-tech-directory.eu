@@ -1,6 +1,6 @@
 id: mullvad-vpn
 name: Mullvad VPN
-description: Privacy-focused VPN service from Sweden. No email or personal information required to sign up, accepts anonymous payment methods, and publishes regular security audits.
+description: Privacy-focused VPN service from Sweden that requires no email or personal information to sign up. Open source clients with support for WireGuard and OpenVPN protocols.
 category: security
 countries:
   - SE

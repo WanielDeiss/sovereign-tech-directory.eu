@@ -1,12 +1,12 @@
 id: threema
 name: Threema
-description: Privacy-focused instant messenger from Switzerland. No phone number required, end-to-end encrypted, with a self-hosted business version (Threema Work).
+description: Privacy-focused instant messenger that requires no phone number or email to register. Swiss-made with end-to-end encryption and Threema Work for enterprises.
 category: communication
 countries:
   - CH
 eu_company: false
 data_residency: EU
-open_source: false
+open_source: true
 self_hostable: true
 open_standards: false
 data_portability: partial

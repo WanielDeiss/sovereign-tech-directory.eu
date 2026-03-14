@@ -1,6 +1,6 @@
 id: lemmy
 name: Lemmy
-description: Decentralized link aggregation and discussion platform using ActivityPub. Self-hostable, federated alternative for community-driven content sharing and discussion.
+description: Open source link aggregator and discussion platform for the Fediverse. Self-hostable with federation support via ActivityPub, providing community-driven content curation.
 category: social-media
 countries:
   - DE
@@ -12,5 +12,6 @@ open_standards: true
 data_portability: full
 alternatives_to:
   - Reddit
+  - Hacker News
 website: https://join-lemmy.org
 last_reviewed: 2026-03

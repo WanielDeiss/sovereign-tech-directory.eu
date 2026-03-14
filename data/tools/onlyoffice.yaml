@@ -1,6 +1,6 @@
 id: onlyoffice
 name: ONLYOFFICE
-description: Open-source office suite with online document editors for text, spreadsheets, and presentations. Integrates with Nextcloud, ownCloud, and other platforms. Self-hosted or cloud deployment.
+description: Open source office suite with online editors for documents, spreadsheets, and presentations. Offers deep integration with popular collaboration platforms and self-hosted deployment.
 category: office
 countries:
   - LV

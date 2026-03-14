@@ -1,6 +1,6 @@
 id: owncloud
 name: ownCloud
-description: Open-source file sync and share platform with strong enterprise features. Offers on-premises deployment for full data control and integrates with existing IT infrastructure.
+description: Enterprise file sync and share platform with strong access control and encryption. Available as self-hosted or managed solution with full data sovereignty.
 category: cloud-storage
 countries:
   - DE

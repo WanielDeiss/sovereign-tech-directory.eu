@@ -1,14 +1,14 @@
 id: bitwarden
 name: Bitwarden
-description: Open-source password manager with end-to-end encryption. Available as cloud service or self-hosted via Vaultwarden. Supports browser extensions, mobile apps, and CLI.
+description: Open source password manager with end-to-end encryption. Available as cloud service or self-hosted via Vaultwarden, supporting all major platforms and browsers.
 category: security
 countries:
   - US
 eu_company: false
-data_residency: EU
+data_residency: NON_EU
 open_source: true
 self_hostable: true
-open_standards: true
+open_standards: false
 data_portability: full
 alternatives_to:
   - 1Password

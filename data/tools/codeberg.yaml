@@ -1,6 +1,6 @@
 id: codeberg
 name: Codeberg
-description: Free and open-source code hosting platform based on Forgejo. Non-profit organization (Codeberg e.V.) from Berlin, hosting projects with a focus on free software and European values.
+description: Free and open source Git hosting service run by a non-profit organization in Berlin. Powered by Forgejo, offering a community-driven alternative to commercial code hosting.
 category: development
 countries:
   - DE
