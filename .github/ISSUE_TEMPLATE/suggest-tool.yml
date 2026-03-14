@@ -1,0 +1,85 @@
+name: Suggest a tool
+description: Suggest a European or sovereign software tool for the directory.
+title: "[Tool]: "
+labels: ["new-tool"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a tool! Please fill in as much as you can - we'll research the rest.
+
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      placeholder: e.g. Nextcloud
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      placeholder: https://example.com
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Cloud Storage & File Sync
+        - Communication & Messaging
+        - Analytics & Monitoring
+        - Project Management
+        - Development & DevOps
+        - Office & Collaboration
+        - Email & Calendar
+        - Social Media & Networking
+        - Security & Privacy
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: Country of the company
+      description: Where is the company headquartered?
+      placeholder: e.g. Germany, France, Netherlands
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: sovereignty
+    attributes:
+      label: Sovereignty indicators
+      description: Check all that apply (leave unchecked if unsure).
+      options:
+        - label: EU-based company
+        - label: Open source
+        - label: Self-hostable
+        - label: Uses open standards
+        - label: Data stored in the EU
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does the tool do? What is it an alternative to?
+      placeholder: |
+        A short description of the tool and what commercial products it can replace.
+    validations:
+      required: false
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Links to help us verify the information (e.g. imprint, privacy policy, GitHub repo).
+      placeholder: |
+        - https://example.com/imprint
+        - https://github.com/example/repo
+    validations:
+      required: false
