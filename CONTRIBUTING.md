@@ -38,6 +38,7 @@ open_source: true
 self_hostable: true
 open_standards: true
 data_portability: full
+governance_type: nonprofit
 alternatives_to:
   - Google Drive
   - Dropbox
@@ -72,6 +73,7 @@ An SVG logo of the tool. Keep it clean and reasonably sized.
 | `self_hostable` | yes | `true` / `false` |
 | `open_standards` | no | `true` / `false` (default: `false`) |
 | `data_portability` | no | `full` \| `partial` \| `none` \| `unknown` |
+| `governance_type` | no | `community` \| `company` \| `nonprofit` (default: `unknown`) |
 | `alternatives_to` | no | List of tools it replaces |
 | `website` | yes | Official URL |
 | `last_reviewed` | yes | `YYYY-MM` format |

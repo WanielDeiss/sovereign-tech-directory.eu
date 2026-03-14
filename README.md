@@ -13,6 +13,7 @@ The directory evaluates European and sovereign software tools across transparent
 - **Self-hosting** - Can you run it on your own infrastructure?
 - **Open standards** - Does it use interoperable formats?
 - **Data portability** - Can you take your data and leave?
+- **Governance type** - Is it community-driven, nonprofit, or company-backed?
 
 Each tool receives a **Sovereignty Score** (0-10), computed deterministically from these criteria. The algorithm is fully documented in [`docs/sovereignty-score-v1.md`](docs/sovereignty-score-v1.md).
 

@@ -63,6 +63,19 @@ body:
         - label: Uses open standards
         - label: Data stored in the EU
 
+  - type: dropdown
+    id: governance_type
+    attributes:
+      label: Governance type
+      description: What kind of organisation maintains this tool?
+      options:
+        - Community-driven (open community project)
+        - Nonprofit (e.V., foundation, etc.)
+        - Company (GmbH, AG, Ltd, etc.)
+        - Not sure
+    validations:
+      required: false
+
   - type: textarea
     id: description
     attributes:
