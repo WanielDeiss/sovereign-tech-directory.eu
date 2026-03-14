@@ -24,6 +24,7 @@ Dieses Dokument beschreibt die Kriterien, nach denen Tools im sovereign-tech-dir
 |------|--------------|
 | `open_standards` | Boolean: Nutzt offene Standards/Protokolle? (Default: false) |
 | `data_portability` | Exportierbarkeit: full \| partial \| none \| unknown (Default: unknown) |
+| `governance_type` | Organisationsform: community \| company \| nonprofit (Default: unknown) |
 
 ## Souveränitätsindikatoren
 
@@ -55,6 +56,11 @@ Dieses Dokument beschreibt die Kriterien, nach denen Tools im sovereign-tech-dir
 - **none**: Kein Export vorgesehen
 - **unknown**: Keine klare Aussage verfügbar
 
+### Organisationsform (`governance_type`)
+- **community**: Projekt wird von einer offenen Community getragen (z.B. Forgejo, Lemmy)
+- **nonprofit**: Träger ist eine gemeinnützige Organisation wie e.V., Stiftung, Foundation (z.B. Codeberg, Mastodon)
+- **company**: Träger ist ein gewinnorientiertes Unternehmen wie GmbH, AG, Ltd (z.B. Nextcloud, Element)
+
 ## Bewertungslogik
 
 Die Souveränitätsbewertung erfolgt über den **Sovereignty Score** (0.0–10.0), der deterministisch aus den oben genannten Feldern berechnet wird. Der Score bildet fünf Dimensionen ab:
@@ -63,7 +69,7 @@ Die Souveränitätsbewertung erfolgt über den **Sovereignty Score** (0.0–10.0
 2. **Data Control** — Datenkontrolle (basierend auf `data_residency`, `self_hostable`)
 3. **Openness** — Offenheit (basierend auf `open_source`, `open_standards`)
 4. **Lock-in** — Bindungsrisiko (basierend auf `open_standards`, `data_portability`)
-5. **Operational Autonomy** — Betriebsautonomie (basierend auf `self_hostable`, `open_source`, `eu_company`)
+5. **Operational Autonomy** — Betriebsautonomie (basierend auf `self_hostable`, `open_source`, `eu_company`, `governance_type`)
 
 Jede Dimension wird mit 0–2 Punkten bewertet. Details zur Berechnung: → [Sovereignty Score v1.0](sovereignty-score-v1.md) und [ADR 0006](adr/0006-sovereignty-score.md).
 

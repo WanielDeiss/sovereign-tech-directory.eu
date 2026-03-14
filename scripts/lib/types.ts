@@ -10,6 +10,14 @@ export type DataResidency = "EU" | "EEA" | "NON_EU" | "UNKNOWN";
  */
 export type DataPortability = "full" | "partial" | "none" | "unknown";
 
+/**
+ * Governance type: organizational structure behind the tool.
+ * community = open community-driven project
+ * nonprofit = backed by nonprofit (e.V., foundation, etc.)
+ * company = backed by a for-profit company (GmbH, AG, Ltd, etc.)
+ */
+export type GovernanceType = "community" | "company" | "nonprofit";
+
 export type ScoreConfidence = "low" | "medium" | "high";
 
 export interface SovereigntyBreakdown {
@@ -42,6 +50,7 @@ export interface ToolData {
   self_hostable?: boolean;
   open_standards?: boolean;
   data_portability?: string;
+  governance_type?: string;
   alternatives_to?: string[];
   website: string;
   last_reviewed: string;

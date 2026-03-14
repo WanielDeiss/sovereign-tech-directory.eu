@@ -1,9 +1,10 @@
-import type { DataResidency, DataPortability, ScoreConfidence } from "./types.js";
+import type { DataResidency, DataPortability, GovernanceType, ScoreConfidence } from "./types.js";
 import type { SovereigntyBreakdown, ScoreResult, ToolData } from "./types.js";
 import { classifyCountries, type CountryClassification } from "./country-lists.js";
 
 const VALID_RESIDENCY: DataResidency[] = ["EU", "EEA", "NON_EU", "UNKNOWN"];
 const VALID_PORTABILITY: DataPortability[] = ["full", "partial", "none", "unknown"];
+const VALID_GOVERNANCE: GovernanceType[] = ["community", "company", "nonprofit"];
 
 /**
  * Normalizes legacy data_residency values to the canonical enum.
@@ -79,16 +80,27 @@ function scoreLockIn(tool: ToolData): number {
   return Math.min(2.0, score);
 }
 
+function getGovernanceType(raw: string | undefined): GovernanceType | "unknown" {
+  if (raw == null || raw === "") return "unknown";
+  const lower = raw.toLowerCase();
+  if (VALID_GOVERNANCE.includes(lower as GovernanceType)) return lower as GovernanceType;
+  return "unknown";
+}
+
 function scoreOperationalAutonomy(tool: ToolData): number {
   const selfHostable = tool.self_hostable === true;
   const openSource = tool.open_source === true;
   const euCompany = tool.eu_company === true;
+  const governance = getGovernanceType(tool.governance_type);
 
-  if (selfHostable && openSource) return 2.0;
-  if (selfHostable && !openSource) return 1.5;
-  if (!selfHostable && openSource) return 1.0;
-  if (!selfHostable && !openSource && euCompany) return 0.5;
-  return 0.0;
+  let base = 0;
+  if (selfHostable && openSource) base = 2.0;
+  else if (selfHostable && !openSource) base = 1.5;
+  else if (!selfHostable && openSource) base = 1.0;
+  else if (!selfHostable && !openSource && euCompany) base = 0.5;
+
+  const governanceBonus = (governance === "community" || governance === "nonprofit") ? 0.5 : 0;
+  return Math.min(2.0, base + governanceBonus);
 }
 
 function computeScoreConfidence(tool: ToolData): ScoreConfidence {
@@ -98,12 +110,15 @@ function computeScoreConfidence(tool: ToolData): ScoreConfidence {
 
   if (!hasBool(tool.open_source) || !hasBool(tool.self_hostable)) return "low";
 
+  const governance = getGovernanceType(tool.governance_type);
+
   const missingOrUnknown =
     (hasBool(tool.eu_company) ? 0 : 1) +
     (Array.isArray(tool.countries) && tool.countries.length > 0 ? 0 : 1) +
     (residency === "UNKNOWN" ? 1 : 0) +
     (hasBool(tool.open_standards) ? 0 : 1) +
-    (portability === "unknown" ? 1 : 0);
+    (portability === "unknown" ? 1 : 0) +
+    (governance === "unknown" ? 1 : 0);
 
   if (missingOrUnknown >= 3) return "low";
   if (missingOrUnknown >= 1) return "medium";

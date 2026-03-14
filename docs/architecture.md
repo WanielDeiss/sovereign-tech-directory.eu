@@ -72,6 +72,7 @@ Pflichtfelder:
 - `last_reviewed`: `YYYY-MM`
 
 Optionale Felder:
+- `governance_type`: enum `community | company | nonprofit` — Organisationsform des Trägers
 - `tags`: Array
 - `license`: String, zB `AGPL-3.0`
 - `repo_url`: URL

@@ -55,6 +55,12 @@
           {{ end }}
         </span>
       </div>
+      {{ with .tool.governance_type }}
+      <div class="checklist-row">
+        <span class="checklist-label">{{ i18n "label_governance_type" }}</span>
+        <span class="checklist-value"><span class="badge badge-neutral">{{ i18n (printf "governance_type_%s" (lower .)) | default . }}</span></span>
+      </div>
+      {{ end }}
       <div class="checklist-row">
         <span class="checklist-label">{{ i18n "label_countries" }}</span>
         <span class="checklist-value">{{ partial "country-flags.html" .tool.countries }}</span>
