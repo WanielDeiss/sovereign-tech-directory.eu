@@ -1,0 +1,41 @@
+name: Suggest a category
+description: Propose a new category for the directory.
+title: "[Category]: "
+labels: ["new-category"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest a new category for the Sovereign Tech Directory. Please explain what kind of tools it would cover and why it's distinct from the existing categories.
+
+        Current categories: Cloud Storage & File Sync, Communication & Messaging, Analytics & Monitoring, Project Management, Development & DevOps, Office & Collaboration, Email & Calendar, Social Media & Networking, Security & Privacy.
+
+  - type: input
+    id: name
+    attributes:
+      label: Category name
+      placeholder: e.g. Identity & Access Management
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What tools would this cover?
+      description: Describe what kind of software belongs in this category and how it differs from existing ones.
+      placeholder: |
+        This category would cover tools for single sign-on, identity providers, and access management.
+        It's different from Security & Privacy because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example tools
+      description: List some tools that would fit this category.
+      placeholder: |
+        - Keycloak (https://keycloak.org)
+        - Authentik (https://goauthentik.io)
+    validations:
+      required: false
