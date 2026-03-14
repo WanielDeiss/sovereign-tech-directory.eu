@@ -29,7 +29,7 @@
 {{ $tools = sort $tools "name" }}
 
 <article class="page-content">
-  <h1 class="page-title">{{ $categoryLabel }}</h1>
+  <h1 class="page-title">{{ $categoryLabel }} <span class="category-count">({{ len $tools }})</span></h1>
   <p>{{ i18n "tools_in_category" }}</p>
 
   <ul class="tools-grid" role="list">

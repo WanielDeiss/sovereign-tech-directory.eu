@@ -22,6 +22,8 @@
   {{ end }}
   {{ $tools = sort $tools "name" }}
 
+  <p class="tools-count">{{ len $tools }} Tools</p>
+
   <ul class="tools-grid" role="list">
     {{ $scores := index (index .Site.Data "generated" | default dict) "scores" | default dict }}
     {{ range $tools }}
