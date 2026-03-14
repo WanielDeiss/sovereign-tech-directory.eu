@@ -7,6 +7,7 @@ eu_company: false
 data_residency: EU
 open_source: true
 self_hostable: true
+governance_type: "community"
 open_standards: true
 data_portability: full
 alternatives_to:

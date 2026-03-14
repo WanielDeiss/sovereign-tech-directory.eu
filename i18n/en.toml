@@ -55,6 +55,9 @@ other = "Open Source"
 [label_self_hostable]
 other = "Self-Hostable"
 
+[label_governance_type]
+other = "Governance"
+
 [label_last_reviewed]
 other = "Last reviewed"
 
@@ -191,6 +194,16 @@ other = "Slovenia"
 other = "Slovakia"
 [country_uy]
 other = "Uruguay"
+
+# Governance Type Values
+[governance_type_community]
+other = "Community"
+
+[governance_type_company]
+other = "Company"
+
+[governance_type_nonprofit]
+other = "Nonprofit"
 
 # Other
 [tools_in_category]

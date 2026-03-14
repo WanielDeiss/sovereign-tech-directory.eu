@@ -27,6 +27,7 @@ Each input field is used in at most two dimensions to keep weighting balanced:
 - `open_source`: openness, operational_autonomy
 - `open_standards`: openness, lock_in
 - `data_portability`: lock_in
+- `governance_type`: operational_autonomy (bonus)
 
 ## Scoring tables
 
@@ -73,15 +74,28 @@ Country classification (order: eu → eea → efta → adequacy → mixed → no
 
 Additive: +1.0 if open_standards = true; +1.0 (full), +0.5 (partial), or +0.0 (none/unknown) for data_portability. Capped at 2.0.
 
-### operational_autonomy (self_hostable, open_source, eu_company)
+### operational_autonomy (self_hostable, open_source, eu_company, governance_type)
 
-| self_hostable | open_source | eu_company | Points |
-|---------------|-------------|------------|--------|
+Base score from self_hostable, open_source, eu_company:
+
+| self_hostable | open_source | eu_company | Base Points |
+|---------------|-------------|------------|-------------|
 | true | true | - | 2.0 |
 | true | false | - | 1.5 |
 | false | true | - | 1.0 |
 | false | false | true | 0.5 |
 | false | false | false | 0.0 |
+
+Governance bonus (added to base, capped at 2.0):
+
+| governance_type | Bonus |
+|-----------------|-------|
+| community | +0.5 |
+| nonprofit | +0.5 |
+| company | +0.0 |
+| unknown/missing | +0.0 |
+
+The governance bonus acts as a tiebreaker: it can only increase the score if the base is below 2.0.
 
 ## Examples
 
