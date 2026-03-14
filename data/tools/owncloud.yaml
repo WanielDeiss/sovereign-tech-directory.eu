@@ -4,7 +4,7 @@ description: Enterprise file sync and share platform with strong access control 
 category: cloud-storage
 countries:
   - DE
-eu_company: true
+eu_company: false
 data_residency: EU
 open_source: true
 self_hostable: true
