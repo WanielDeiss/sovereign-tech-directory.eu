@@ -4,6 +4,7 @@ description: Secure collaboration platform with end-to-end encryption for messag
 category: communication
 countries:
   - DE
+  - CH
 eu_company: true
 data_residency: EU
 open_source: true

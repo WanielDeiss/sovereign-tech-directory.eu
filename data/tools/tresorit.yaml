@@ -5,7 +5,7 @@ category: cloud-storage
 countries:
   - CH
   - HU
-eu_company: true
+eu_company: false
 data_residency: EU
 open_source: false
 self_hostable: false

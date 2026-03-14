@@ -5,7 +5,7 @@ category: communication
 countries:
   - CH
 eu_company: false
-data_residency: EU
+data_residency: NON_EU
 open_source: true
 self_hostable: true
 open_standards: false

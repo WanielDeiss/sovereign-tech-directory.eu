@@ -5,7 +5,7 @@ category: email
 countries:
   - CH
 eu_company: false
-data_residency: EU
+data_residency: NON_EU
 open_source: true
 self_hostable: false
 open_standards: true
