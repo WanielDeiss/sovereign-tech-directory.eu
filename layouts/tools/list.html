@@ -22,11 +22,8 @@
   {{ end }}
   {{ $tools = sort $tools "name" }}
 
-<<<<<<< HEAD
   <p class="tools-count">{{ len $tools }} Tools</p>
 
-  <ul class="tools-grid" role="list">
-=======
   {{/* Filter bar */}}
   <div id="tool-filters" class="filter-bar" role="group" aria-label="Filter tools">
     <fieldset class="filter-group">
@@ -67,7 +64,6 @@
   <div id="filter-no-results" class="filter-no-results" hidden>{{ i18n "filter_no_results" }}</div>
 
   <ul id="tools-grid" class="tools-grid" role="list">
->>>>>>> 08be818 (feat: add client-side filters to tools listing page)
     {{ $scores := index (index .Site.Data "generated" | default dict) "scores" | default dict }}
     {{ range $tools }}
     {{ partial "tool-card.html" (dict "tool" . "categories" $categories "score" (index $scores .id) "logos" $logos) }}
