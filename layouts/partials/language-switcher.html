@@ -1,4 +1,4 @@
-{{ if gt (len .Site.Home.AllTranslations) 1 }}
+{{ if hugo.IsMultilingual }}
 <nav class="language-switcher" aria-label="Language">
   <span class="lang-link lang-link-active" aria-current="true">{{ .Language.LanguageName }}</span>
   {{ if .IsTranslated }}
@@ -7,9 +7,9 @@
   {{ end }}
   {{ else }}
   {{/* Fallback: link to other language homepage */}}
-  {{ range .Site.Home.AllTranslations }}
-  {{ if ne .Language.Lang $.Language.Lang }}
-  <a href="{{ .RelPermalink }}" class="lang-link" lang="{{ .Language.Lang }}">{{ .Language.LanguageName }}</a>
+  {{ range site.Languages }}
+  {{ if ne .Lang $.Language.Lang }}
+  <a href="{{ relLangURL "" }}" class="lang-link" lang="{{ .Lang }}">{{ .LanguageName }}</a>
   {{ end }}
   {{ end }}
   {{ end }}
