@@ -1,6 +1,7 @@
 id: open-xchange
 name: Open-Xchange
 description: Open source email, communication, and collaboration platform powering major European email providers. Offers OX App Suite for self-hosted enterprise deployments.
+description_de: Quelloffene E-Mail-, Kommunikations- und Kollaborationsplattform, die große europäische E-Mail-Anbieter betreibt. Bietet die OX App Suite für selbst gehostete Unternehmensinstallationen.
 category: email
 countries:
   - DE

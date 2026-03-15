@@ -4,11 +4,11 @@
   {{ range $filename, $tool := .ctx.Site.Data.tools }}
     {{ if eq $tool.category $catId }}{{ $count = add $count 1 }}{{ end }}
   {{ end }}
-  <h2 class="section-title"><a href="{{ (printf "/categories/%s/" .category.id) | relURL }}">{{ .category.label }}</a> <span class="category-count">({{ $count }})</span></h2>
+  <h2 class="section-title"><a href="{{ (printf "categories/%s/" .category.id) | relLangURL }}">{{ partial "l10n-field.html" (dict "obj" .category "field" "label") }}</a> <span class="category-count">({{ $count }})</span></h2>
   <ul>
     {{ range $filename, $tool := .ctx.Site.Data.tools }}
     {{ if eq $tool.category $catId }}
-    <li><a href="{{ (printf "/tools/%s/" $tool.id) | relURL }}" class="link">{{ $tool.name }}</a></li>
+    <li><a href="{{ (printf "tools/%s/" $tool.id) | relLangURL }}" class="link">{{ $tool.name }}</a></li>
     {{ end }}
     {{ end }}
   </ul>

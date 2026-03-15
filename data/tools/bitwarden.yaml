@@ -1,6 +1,7 @@
 id: bitwarden
 name: Bitwarden
 description: Open source password manager with end-to-end encryption. Available as cloud service or self-hosted via Vaultwarden, supporting all major platforms and browsers.
+description_de: Quelloffener Passwort-Manager mit Ende-zu-Ende-Verschlüsselung. Verfügbar als Cloud-Dienst oder selbstgehostet über Vaultwarden, mit Unterstützung aller gängigen Plattformen und Browser.
 category: security
 countries:
   - US

@@ -1,0 +1,280 @@
+# Navigation
+[nav_home]
+other = "Startseite"
+
+[nav_tools]
+other = "Tools"
+
+[nav_categories]
+other = "Kategorien"
+
+[nav_sovereignty_score]
+other = "Sovereignty Score"
+
+[nav_about]
+other = "Über uns"
+
+[nav_imprint]
+other = "Impressum"
+
+[nav_search]
+other = "Suche"
+
+# Search page
+[search_placeholder]
+other = "Tools suchen…"
+
+[search_no_results]
+other = "Keine Tools gefunden. Versuchen Sie andere Begriffe."
+
+[search_requires_js]
+other = "Die Suche benötigt JavaScript."
+
+[search_requires_js_link]
+other = "Alle Tools durchsuchen"
+
+[search_load_error]
+other = "Die Suche konnte nicht geladen werden. Bitte laden Sie die Seite neu."
+
+# Labels
+[label_eu_company]
+other = "EU-Unternehmen"
+
+[label_countries]
+other = "Länder"
+
+[label_category]
+other = "Kategorie"
+
+[label_data_residency]
+other = "Datenresidenz"
+
+[label_open_source]
+other = "Open Source"
+
+[label_self_hostable]
+other = "Selbst hostbar"
+
+[label_governance_type]
+other = "Organisationsform"
+
+[label_last_reviewed]
+other = "Zuletzt geprüft"
+
+[label_alternatives_to]
+other = "Alternativen zu"
+
+[label_about]
+other = "Über"
+
+[label_links]
+other = "Links"
+
+[label_website]
+other = "Webseite"
+
+[label_view_details]
+other = "Details anzeigen"
+
+[label_sovereignty_checklist]
+other = "Souveränitäts-Checkliste"
+
+[label_sovereignty_score]
+other = "Sovereignty Score"
+
+# Badges
+[badge_yes]
+other = "Ja"
+
+[badge_no]
+other = "Nein"
+
+# Data Residency Values
+[data_residency_eu]
+other = "EU"
+
+[data_residency_eea]
+other = "EWR"
+
+[data_residency_global]
+other = "Global"
+
+[data_residency_non_eu]
+other = "Nicht-EU"
+
+[data_residency_unknown]
+other = "Unbekannt"
+
+# Country names (ISO 3166-1 alpha-2)
+[country_ad]
+other = "Andorra"
+[country_ar]
+other = "Argentinien"
+[country_at]
+other = "Österreich"
+[country_be]
+other = "Belgien"
+[country_bg]
+other = "Bulgarien"
+[country_ca]
+other = "Kanada"
+[country_ch]
+other = "Schweiz"
+[country_cy]
+other = "Zypern"
+[country_cz]
+other = "Tschechien"
+[country_de]
+other = "Deutschland"
+[country_dk]
+other = "Dänemark"
+[country_ee]
+other = "Estland"
+[country_es]
+other = "Spanien"
+[country_fi]
+other = "Finnland"
+[country_fo]
+other = "Färöer"
+[country_fr]
+other = "Frankreich"
+[country_gb]
+other = "Vereinigtes Königreich"
+[country_gg]
+other = "Guernsey"
+[country_gr]
+other = "Griechenland"
+[country_hr]
+other = "Kroatien"
+[country_hu]
+other = "Ungarn"
+[country_ie]
+other = "Irland"
+[country_il]
+other = "Israel"
+[country_im]
+other = "Isle of Man"
+[country_is]
+other = "Island"
+[country_it]
+other = "Italien"
+[country_je]
+other = "Jersey"
+[country_jp]
+other = "Japan"
+[country_kr]
+other = "Südkorea"
+[country_li]
+other = "Liechtenstein"
+[country_lt]
+other = "Litauen"
+[country_lu]
+other = "Luxemburg"
+[country_lv]
+other = "Lettland"
+[country_mt]
+other = "Malta"
+[country_nl]
+other = "Niederlande"
+[country_no]
+other = "Norwegen"
+[country_nz]
+other = "Neuseeland"
+[country_pl]
+other = "Polen"
+[country_pt]
+other = "Portugal"
+[country_ro]
+other = "Rumänien"
+[country_se]
+other = "Schweden"
+[country_si]
+other = "Slowenien"
+[country_sk]
+other = "Slowakei"
+[country_uy]
+other = "Uruguay"
+[country_us]
+other = "Vereinigte Staaten"
+
+# Governance Type Values
+[governance_type_community]
+other = "Community"
+
+[governance_type_company]
+other = "Unternehmen"
+
+[governance_type_nonprofit]
+other = "Gemeinnützig"
+
+# Filters
+[filter_category]
+other = "Kategorie"
+
+[filter_features]
+other = "Merkmale"
+
+[filter_data_residency]
+other = "Datenresidenz"
+
+[filter_data_portability]
+other = "Datenportabilität"
+
+[filter_all]
+other = "Alle"
+
+[filter_clear]
+other = "Filter zurücksetzen"
+
+[filter_no_results]
+other = "Keine Tools entsprechen den gewählten Filtern."
+
+[filter_showing]
+other = "%d von %d Tools angezeigt"
+
+[data_portability_full]
+other = "Vollständig"
+
+[data_portability_partial]
+other = "Teilweise"
+
+[data_portability_none]
+other = "Keine"
+
+[data_portability_unknown]
+other = "Unbekannt"
+
+# Alternatives
+[nav_alternatives]
+other = "Alternativen"
+
+[alternatives_intro]
+other = "Finden Sie souveräne, EU-freundliche Alternativen zu den Tools, die Sie heute nutzen."
+
+[alternatives_to_prefix]
+other = "Souveräne Alternativen zu"
+
+[alternatives_why_switch]
+other = "Warum wechseln?"
+
+[alternatives_count]
+other = "souveräne Alternativen"
+
+[alternatives_sorted_by_score]
+other = "Sortiert nach Sovereignty Score"
+
+[alternatives_see_category]
+other = "Alle %s Tools anzeigen"
+
+[label_replaces]
+other = "Ersetzt"
+
+[label_vendor]
+other = "von"
+
+# Other
+[tools_in_category]
+other = "Tools in dieser Kategorie."
+
+[footer_made_in_eu]
+other = "Made in Germany für digitale Souveränität in Europa"

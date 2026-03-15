@@ -1,16 +1,16 @@
 {{ define "main" }}
 {{ $catId := .File.BaseFileName }}
 
-{{/* Look up category label from data */}}
+{{/* Look up category label from data (localized) */}}
 {{ $categoryLabel := "" }}
 {{ range .Site.Data.categories.categories }}
-  {{ if eq .id $catId }}{{ $categoryLabel = .label }}{{ end }}
+  {{ if eq .id $catId }}{{ $categoryLabel = partial "l10n-field.html" (dict "obj" . "field" "label") }}{{ end }}
 {{ end }}
 
-{{/* Build category lookup for badges */}}
+{{/* Build category lookup for badges (localized) */}}
 {{ $categories := dict }}
 {{ range .Site.Data.categories.categories }}
-  {{ $categories = merge $categories (dict .id .label) }}
+  {{ $categories = merge $categories (dict .id (partial "l10n-field.html" (dict "obj" . "field" "label"))) }}
 {{ end }}
 
 {{/* Build logo map: tool id -> logo URL */}}

@@ -1,6 +1,7 @@
 id: nextcloud
 name: Nextcloud
 description: Self-hosted productivity platform with file sync, collaboration, and communication features. A privacy-focused alternative to Google Workspace and Dropbox.
+description_de: Selbst gehostete Produktivitätsplattform mit Dateisynchronisation, Kollaboration und Kommunikationsfunktionen. Eine datenschutzorientierte Alternative zu Google Workspace und Dropbox.
 category: cloud-storage
 countries:
   - DE

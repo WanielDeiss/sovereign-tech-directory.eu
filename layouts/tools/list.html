@@ -3,10 +3,10 @@
   <h1 class="page-title">{{ .Title }}</h1>
   {{ .Content }}
 
-  {{/* Build category lookup map */}}
+  {{/* Build category lookup map (localized) */}}
   {{ $categories := dict }}
   {{ range .Site.Data.categories.categories }}
-    {{ $categories = merge $categories (dict .id .label) }}
+    {{ $categories = merge $categories (dict .id (partial "l10n-field.html" (dict "obj" . "field" "label"))) }}
   {{ end }}
 
   {{/* Build logo map: tool id -> logo URL */}}
@@ -30,7 +30,7 @@
       <legend>{{ i18n "filter_category" }}</legend>
       <button type="button" class="filter-chip" data-filter="category" data-value="" aria-pressed="true">{{ i18n "filter_all" }}</button>
       {{ range .Site.Data.categories.categories }}
-      <button type="button" class="filter-chip" data-filter="category" data-value="{{ .id }}" aria-pressed="false">{{ .label }}</button>
+      <button type="button" class="filter-chip" data-filter="category" data-value="{{ .id }}" aria-pressed="false">{{ partial "l10n-field.html" (dict "obj" . "field" "label") }}</button>
       {{ end }}
     </fieldset>
 

@@ -1,6 +1,7 @@
 id: peertube
 name: PeerTube
 description: Decentralized video hosting platform using ActivityPub and peer-to-peer technology. Developed by French non-profit Framasoft, enabling federated video sharing without platform lock-in.
+description_de: Dezentrale Video-Hosting-Plattform auf Basis von ActivityPub und Peer-to-Peer-Technologie. Entwickelt von der französischen gemeinnützigen Organisation Framasoft für föderiertes Video-Sharing ohne Plattform-Abhängigkeit.
 category: social-media
 countries:
   - FR

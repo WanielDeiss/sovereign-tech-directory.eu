@@ -1,6 +1,7 @@
 id: wire
 name: Wire
 description: Secure collaboration platform with end-to-end encryption for messaging, voice, and video. Built for enterprises with on-premise deployment options.
+description_de: Sichere Kollaborationsplattform mit Ende-zu-Ende-Verschlüsselung für Messaging, Sprach- und Videokommunikation. Entwickelt für Unternehmen mit On-Premise-Bereitstellungsoptionen.
 category: communication
 countries:
   - DE

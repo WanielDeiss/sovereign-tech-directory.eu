@@ -1,6 +1,7 @@
 id: taiga
 name: Taiga
 description: Open source project management tool for agile teams with Scrum and Kanban support. Intuitive interface with epics, user stories, tasks, and sprint planning.
+description_de: Quelloffenes Projektmanagement-Tool für agile Teams mit Scrum- und Kanban-Unterstützung. Intuitive Oberfläche mit Epics, User Stories, Aufgaben und Sprint-Planung.
 category: project-management
 countries:
   - ES

@@ -1,0 +1,10 @@
+{{- $obj := .obj -}}
+{{- $field := .field -}}
+{{- $lang := site.Language.Lang -}}
+{{- $localizedKey := printf "%s_%s" $field $lang -}}
+{{- $localized := index $obj $localizedKey -}}
+{{- if $localized -}}
+  {{- $localized -}}
+{{- else -}}
+  {{- index $obj $field -}}
+{{- end -}}

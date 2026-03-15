@@ -5,7 +5,7 @@
     data-eu-company="{{ .tool.eu_company | default false }}"
     data-data-residency="{{ .tool.data_residency | default "UNKNOWN" }}"
     data-data-portability="{{ .tool.data_portability | default "unknown" }}">
-  <a href="{{ (path.Join "tools" .tool.id) | relURL }}/" class="card-link" aria-label="{{ .tool.name }} – {{ i18n "label_view_details" }}">
+  <a href="{{ (path.Join "tools" .tool.id) | relLangURL }}/" class="card-link" aria-label="{{ .tool.name }} – {{ i18n "label_view_details" }}">
     <header>
       <div class="card-header-with-logo">
         {{ with index .logos .tool.id }}
@@ -15,7 +15,7 @@
       </div>
       <div class="card-header-badges">
         {{ with .score }}
-        {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
+        {{ $range := trim (partial "score-range.html" .sovereignty_score) "\n\r\t " }}
         <span class="score-badge score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}" title="{{ i18n "label_sovereignty_score" }}: {{ .sovereignty_score }}/10 ({{ .score_confidence }} confidence)">
           <span class="score-badge-value">{{ .sovereignty_score }}</span>
           <span class="score-badge-label">{{ i18n "label_sovereignty_score" }}</span>
@@ -25,7 +25,7 @@
       </div>
     </header>
 
-    <p class="tool-card-description">{{ .tool.description }}</p>
+    <p class="tool-card-description">{{ partial "l10n-field.html" (dict "obj" .tool "field" "description") }}</p>
 
     <dl class="tool-meta">
       <div class="meta-item">

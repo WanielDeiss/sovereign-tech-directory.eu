@@ -1,6 +1,7 @@
 id: mailbox-org
 name: Mailbox.org
 description: Privacy-focused email provider from Berlin with integrated cloud office, calendar, and address book. Runs on 100% green energy with servers exclusively in Germany.
+description_de: Datenschutzorientierter E-Mail-Anbieter aus Berlin mit integriertem Cloud-Office, Kalender und Adressbuch. Betrieb mit 100 % Ökostrom und Servern ausschließlich in Deutschland.
 category: email
 countries:
   - DE

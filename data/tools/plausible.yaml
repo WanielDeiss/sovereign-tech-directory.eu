@@ -1,6 +1,7 @@
 id: plausible
 name: Plausible Analytics
 description: Lightweight, privacy-friendly web analytics. No cookies, fully GDPR compliant, with EU-hosted cloud option or self-hosting capability.
+description_de: Leichtgewichtige, datenschutzfreundliche Webanalyse. Ohne Cookies, vollständig DSGVO-konform, mit EU-gehosteter Cloud-Option oder Self-Hosting-Möglichkeit.
 category: analytics
 countries:
   - EE

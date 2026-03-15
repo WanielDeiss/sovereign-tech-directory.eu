@@ -1,6 +1,7 @@
 id: jitsi-meet
 name: Jitsi Meet
 description: Open source video conferencing solution that can be used directly in the browser without downloads. Fully self-hostable for complete control over communications.
+description_de: Quelloffene Videokonferenzlösung, die direkt im Browser ohne Downloads nutzbar ist. Vollständig selbst hostbar für die komplette Kontrolle über die Kommunikation.
 category: communication
 countries:
   - US

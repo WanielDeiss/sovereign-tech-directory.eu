@@ -18,7 +18,7 @@
     {{ else }}
       {{ $title = $candidate }}
     {{ end }}
-    {{ $description = $tool.description | default $siteDesc }}
+    {{ $description = (partial "l10n-field.html" (dict "obj" $tool "field" "description")) | default $siteDesc }}
   {{ else }}
     {{ $title = printf "%s%s" .Title $suffixShort }}
     {{ $description = .Description | default $siteDesc }}
@@ -29,8 +29,8 @@
   {{ $categoryDesc := "" }}
   {{ range .Site.Data.categories.categories }}
     {{ if eq .id $catId }}
-      {{ $categoryLabel = .label }}
-      {{ $categoryDesc = .description | default "" }}
+      {{ $categoryLabel = partial "l10n-field.html" (dict "obj" . "field" "label") }}
+      {{ $categoryDesc = (partial "l10n-field.html" (dict "obj" . "field" "description")) | default "" }}
     {{ end }}
   {{ end }}
   {{ $catCandidate := printf "%s%s" $categoryLabel $suffixShort }}
@@ -93,3 +93,11 @@
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $ogImage | absURL }}">
+
+{{/* Hreflang tags for multilingual SEO */}}
+{{ if .IsTranslated }}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}

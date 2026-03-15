@@ -8,11 +8,11 @@
     <input type="search" id="search-input" class="search-input" placeholder="{{ i18n "search_placeholder" }}" autocomplete="off" />
   </form>
 
-  <div id="search-results" class="search-results" aria-live="polite" data-index-url="{{ "search-index.json" | relURL }}"></div>
+  <div id="search-results" class="search-results" aria-live="polite" data-index-url="{{ "search-index.json" | relLangURL }}"></div>
 
   <noscript>
     <p class="search-no-js">{{ i18n "search_requires_js" }}</p>
-    <p><a href="{{ "tools/" | relURL }}" class="link">{{ i18n "search_requires_js_link" }}</a></p>
+    <p><a href="{{ "tools/" | relLangURL }}" class="link">{{ i18n "search_requires_js_link" }}</a></p>
   </noscript>
 
   <script>window.SEARCH_I18N = { noResults: {{ i18n "search_no_results" | jsonify }}, loadError: {{ i18n "search_load_error" | jsonify }} };</script>

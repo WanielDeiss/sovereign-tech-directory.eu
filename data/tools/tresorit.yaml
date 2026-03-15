@@ -1,6 +1,7 @@
 id: tresorit
 name: Tresorit
 description: End-to-end encrypted cloud storage built for businesses and individuals. Swiss-Hungarian company with zero-knowledge encryption and EU data centers.
+description_de: Ende-zu-Ende-verschlüsselter Cloud-Speicher für Unternehmen und Privatpersonen. Schweizerisch-ungarisches Unternehmen mit Zero-Knowledge-Verschlüsselung und EU-Rechenzentren.
 category: cloud-storage
 countries:
   - CH

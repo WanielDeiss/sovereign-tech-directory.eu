@@ -1,9 +1,23 @@
 baseURL = "https://sovereign-tech-directory.eu/"
 title = "Sovereign Tech Directory"
-languageCode = "en-GB"
 defaultContentLanguage = "en"
-contentDir = "content/en"
 enableRobotsTXT = true
+
+[languages]
+  [languages.en]
+    languageCode = "en-GB"
+    languageName = "English"
+    weight = 1
+    contentDir = "content/en"
+    [languages.en.params]
+      description = "A curated directory for digital sovereignty in Europe"
+  [languages.de]
+    languageCode = "de-DE"
+    languageName = "Deutsch"
+    weight = 2
+    contentDir = "content/de"
+    [languages.de.params]
+      description = "Ein kuratiertes Verzeichnis für digitale Souveränität in Europa"
 
 [taxonomies]
   category = "categories"
@@ -13,7 +27,6 @@ enableRobotsTXT = true
     dir = ":cacheDir/images"
 
 [params]
-  description = "A curated directory for digital sovereignty in Europe"
   ogImage = "/images/social/og-default.png"
   ogImageAlt = "Sovereign Tech Directory"
 

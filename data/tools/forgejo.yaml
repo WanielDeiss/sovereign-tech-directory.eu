@@ -1,6 +1,7 @@
 id: forgejo
 name: Forgejo
 description: Community-driven open source Git forge providing code hosting, code review, CI/CD, and package registry. Lightweight and easy to self-host, governed by Codeberg e.V.
+description_de: Gemeinschaftsgetriebene, quelloffene Git-Forge mit Code-Hosting, Code-Review, CI/CD und Paketregistry. Leichtgewichtig und einfach selbst zu hosten, verwaltet durch den Codeberg e.V.
 category: development
 countries:
   - DE

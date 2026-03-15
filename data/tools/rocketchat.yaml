@@ -1,6 +1,7 @@
 id: rocketchat
 name: Rocket.Chat
 description: Open source team communication platform with real-time messaging, video conferencing, and file sharing. Supports federation and can be fully self-hosted.
+description_de: Quelloffene Team-Kommunikationsplattform mit Echtzeit-Messaging, Videokonferenzen und Dateifreigabe. Unterstützt Föderation und kann vollständig selbst gehostet werden.
 category: communication
 countries:
   - BR
