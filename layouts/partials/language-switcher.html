@@ -1,4 +1,4 @@
-{{ if site.IsMultiLingual }}
+{{ if gt (len site.Languages) 1 }}
 <nav class="language-switcher" aria-label="Language">
   <span class="lang-link lang-link-active" aria-current="true">{{ site.Language.LanguageName }}</span>
   {{ if .IsTranslated }}
