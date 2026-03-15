@@ -1,6 +1,7 @@
 id: tuta
 name: Tuta
 description: End-to-end encrypted email and calendar service from Germany. Encrypts the entire mailbox including contacts and calendars with a focus on privacy and GDPR compliance.
+description_de: Ende-zu-Ende-verschlüsselter E-Mail- und Kalenderdienst aus Deutschland. Verschlüsselt das gesamte Postfach einschließlich Kontakte und Kalender mit Fokus auf Datenschutz und DSGVO-Konformität.
 category: email
 countries:
   - DE

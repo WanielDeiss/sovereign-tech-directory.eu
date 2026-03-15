@@ -83,6 +83,17 @@
     @apply font-bold text-primary no-underline hover:text-primary;
   }
 
+  /* Language switcher */
+  .language-switcher {
+    @apply flex gap-2 text-sm;
+  }
+  .lang-link {
+    @apply text-gray-500 no-underline hover:text-primary;
+  }
+  .lang-link-active {
+    @apply text-gray-900 font-medium;
+  }
+
   /* Card (replaces tool-card, category-card) */
   .card {
     @apply bg-white border border-border rounded-card shadow-card p-6 flex flex-col gap-4;

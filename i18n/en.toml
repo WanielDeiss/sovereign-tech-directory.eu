@@ -270,6 +270,25 @@ other = "Replaces"
 [label_vendor]
 other = "by"
 
+# SEO Titles
+[seo_home_title]
+other = "Sovereign Tech Directory – Curated Tools for Sovereignty"
+
+[seo_suffix_long]
+other = "Sovereign Tech Directory – Digital Sovereignty"
+
+[seo_alternatives_detail_title]
+other = "Sovereign Alternatives to %s — Rated by Sovereignty Score"
+
+[seo_alternatives_detail_desc]
+other = "Find EU-friendly, open source alternatives to %s, ranked by data sovereignty, self-hosting, and openness."
+
+[seo_alternatives_list_title]
+other = "Sovereign Alternatives to Popular Tools | Sovereign Tech Directory"
+
+[seo_alternatives_list_desc]
+other = "Find sovereign, EU-friendly alternatives to popular tools like Slack, Google Analytics, and GitHub — rated by Sovereignty Score."
+
 # Other
 [tools_in_category]
 other = "Tools in this category."

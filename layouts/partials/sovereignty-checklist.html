@@ -1,9 +1,9 @@
 <aside class="tool-detail-sidebar">
   {{ with .score }}
-  {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
+  {{ $range := trim (partial "score-range.html" .sovereignty_score) "\n\r\t " }}
   <div class="card score-card">
     <h2 class="section-title">{{ i18n "label_sovereignty_score" }}</h2>
-    <a href="{{ "/sovereignty-score/" | relURL }}" class="score-badge score-badge-sidebar score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}">
+    <a href="{{ "/sovereignty-score/" | relLangURL }}" class="score-badge score-badge-sidebar score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}">
       <span class="score-badge-value">{{ .sovereignty_score }}</span>
       <span class="score-badge-label">/ 10</span>
     </a>

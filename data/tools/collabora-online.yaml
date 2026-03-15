@@ -1,6 +1,7 @@
 id: collabora-online
 name: Collabora Online
 description: Enterprise-ready online office suite based on LibreOffice technology. Integrates with Nextcloud, ownCloud, and other platforms for collaborative document editing.
+description_de: Unternehmenstaugliche Online-Office-Suite auf Basis von LibreOffice-Technologie. Integriert sich mit Nextcloud, ownCloud und anderen Plattformen für kollaborative Dokumentenbearbeitung.
 category: office
 countries:
   - GB

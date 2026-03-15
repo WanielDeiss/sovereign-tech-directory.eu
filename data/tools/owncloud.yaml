@@ -1,6 +1,7 @@
 id: owncloud
 name: ownCloud
 description: Enterprise file sync and share platform with strong access control and encryption. Available as self-hosted or managed solution with full data sovereignty.
+description_de: Unternehmenstaugliche Dateisynchronisations- und Sharing-Plattform mit starker Zugriffskontrolle und Verschlüsselung. Verfügbar als selbst gehostete oder verwaltete Lösung mit vollständiger Datensouveränität.
 category: cloud-storage
 countries:
   - DE

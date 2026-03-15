@@ -1,6 +1,7 @@
 id: pixelfed
 name: Pixelfed
 description: Decentralized photo sharing platform built on ActivityPub. Ad-free and privacy-focused alternative for sharing images with chronological feeds and no algorithmic manipulation.
+description_de: Dezentrale Foto-Sharing-Plattform auf Basis von ActivityPub. Werbefreie und datenschutzorientierte Alternative zum Teilen von Bildern mit chronologischen Feeds ohne algorithmische Manipulation.
 category: social-media
 countries:
   - CA

@@ -1,6 +1,7 @@
 id: matomo
 name: Matomo
 description: Leading open source web analytics platform providing full data ownership. GDPR-compliant with self-hosting option that keeps all analytics data on your own servers.
+description_de: Führende quelloffene Webanalyse-Plattform mit vollständiger Datenhoheit. DSGVO-konform mit Self-Hosting-Option, bei der alle Analysedaten auf den eigenen Servern verbleiben.
 category: analytics
 countries:
   - NZ

@@ -5,10 +5,10 @@
   {{ return }}
 {{ end }}
 
-{{/* Build category lookup */}}
+{{/* Build category lookup (localized) */}}
 {{ $categories := dict }}
 {{ range .Site.Data.categories.categories }}
-  {{ $categories = merge $categories (dict .id .label) }}
+  {{ $categories = merge $categories (dict .id (partial "l10n-field.html" (dict "obj" . "field" "label"))) }}
 {{ end }}
 
 {{/* Build logo map */}}
@@ -76,7 +76,7 @@
   {{/* Link to category */}}
   {{ with $categoryLabel }}
   <p class="alternatives-category-link">
-    <a href="{{ (path.Join "categories" $rp.category) | relURL }}/" class="link">{{ printf (i18n "alternatives_see_category") . }} &rarr;</a>
+    <a href="{{ (path.Join "categories" $rp.category) | relLangURL }}/" class="link">{{ printf (i18n "alternatives_see_category") . }} &rarr;</a>
   </p>
   {{ end }}
 </article>

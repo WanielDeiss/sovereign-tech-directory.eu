@@ -1,6 +1,7 @@
 id: threema
 name: Threema
 description: Privacy-focused instant messenger that requires no phone number or email to register. Swiss-made with end-to-end encryption and Threema Work for enterprises.
+description_de: Datenschutzorientierter Instant Messenger, der zur Registrierung weder Telefonnummer noch E-Mail erfordert. Aus der Schweiz, mit Ende-zu-Ende-Verschlüsselung und Threema Work für Unternehmen.
 category: communication
 countries:
   - CH

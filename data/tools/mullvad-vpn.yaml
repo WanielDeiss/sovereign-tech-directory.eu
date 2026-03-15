@@ -1,6 +1,7 @@
 id: mullvad-vpn
 name: Mullvad VPN
 description: Privacy-focused VPN service from Sweden that requires no email or personal information to sign up. Open source clients with support for WireGuard and OpenVPN protocols.
+description_de: Datenschutzorientierter VPN-Dienst aus Schweden, der zur Anmeldung weder E-Mail noch persönliche Daten erfordert. Quelloffene Clients mit Unterstützung für WireGuard- und OpenVPN-Protokolle.
 category: security
 countries:
   - SE

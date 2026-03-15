@@ -1,35 +1,53 @@
 - id: cloud-storage
   label: Cloud Storage & File Sync
+  label_de: Cloud-Speicher & Dateisynchronisation
   description: "Discover sovereign cloud storage and file sync tools for European data residency and self-hosting."
+  description_de: "Souveräne Cloud-Speicher- und Dateisynchronisations-Tools mit europäischer Datenresidenz und Self-Hosting."
 
 - id: communication
   label: Communication & Messaging
+  label_de: Kommunikation & Messaging
   description: "Secure messaging and communication tools with EU data sovereignty and open standards."
+  description_de: "Sichere Messaging- und Kommunikationstools mit EU-Datensouveränität und offenen Standards."
 
 - id: analytics
   label: Analytics & Monitoring
+  label_de: Analytik & Monitoring
   description: "Privacy-respecting analytics and monitoring tools that comply with EU data protection."
+  description_de: "Datenschutzfreundliche Analytik- und Monitoring-Tools, die EU-Datenschutzstandards erfüllen."
 
 - id: project-management
   label: Project Management
+  label_de: Projektmanagement
   description: "Project management and collaboration tools with data sovereignty and self-hosting options."
+  description_de: "Projektmanagement- und Kollaborationstools mit Datensouveränität und Self-Hosting-Optionen."
 
 - id: development
   label: Development & DevOps
+  label_de: Entwicklung & DevOps
   description: "Development and DevOps tools that support digital sovereignty and open source."
+  description_de: "Entwicklungs- und DevOps-Tools, die digitale Souveränität und Open Source unterstützen."
 
 - id: office
   label: Office & Collaboration
+  label_de: Office & Zusammenarbeit
   description: "Office suites and collaboration tools with EU data residency and self-hosted deployment."
+  description_de: "Office-Suiten und Kollaborationstools mit EU-Datenresidenz und Self-Hosted-Deployment."
 
 - id: email
   label: Email & Calendar
+  label_de: E-Mail & Kalender
   description: "Email and calendar solutions with sovereign hosting and privacy-focused features."
+  description_de: "E-Mail- und Kalender-Lösungen mit souveränem Hosting und datenschutzorientierten Funktionen."
 
 - id: social-media
   label: Social Media & Networking
+  label_de: Soziale Medien & Netzwerke
   description: "Decentralised and sovereign social media and networking platforms."
+  description_de: "Dezentrale und souveräne Social-Media- und Netzwerk-Plattformen."
 
 - id: security
   label: Security & Privacy
+  label_de: Sicherheit & Datenschutz
   description: "Security and privacy tools including VPNs, password managers, and encryption for digital sovereignty."
+  description_de: "Sicherheits- und Datenschutz-Tools einschließlich VPNs, Passwort-Manager und Verschlüsselung für digitale Souveränität."

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.Language.Lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,7 @@
   <header class="site-header">
     <div class="app-container">
       {{ partial "nav.html" . }}
+      {{ partial "language-switcher.html" . }}
     </div>
   </header>
   <main class="site-main app-container">
@@ -24,7 +25,7 @@
   <footer class="site-footer app-container">
     <p>&copy; {{ now.Year }} Sovereign Tech Directory</p>
     <p>{{ i18n "footer_made_in_eu" }}</p>
-    <p><a href="{{ "imprint/" | relURL }}">{{ i18n "nav_imprint" }}</a></p>
+    <p><a href="{{ "imprint/" | relLangURL }}">{{ i18n "nav_imprint" }}</a></p>
   </footer>
 </body>
 </html>

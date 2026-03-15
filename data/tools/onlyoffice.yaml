@@ -1,6 +1,7 @@
 id: onlyoffice
 name: ONLYOFFICE
 description: Open source office suite with online editors for documents, spreadsheets, and presentations. Offers deep integration with popular collaboration platforms and self-hosted deployment.
+description_de: Quelloffene Office-Suite mit Online-Editoren für Dokumente, Tabellen und Präsentationen. Bietet tiefe Integration mit gängigen Kollaborationsplattformen und kann selbst gehostet werden.
 category: office
 countries:
   - LV

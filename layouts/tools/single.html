@@ -19,13 +19,13 @@
     <div class="tool-detail-hero-content">
       <h1 class="page-title">{{ $tool.name }}</h1>
       {{ with $score }}
-      {{ $range := strings.TrimSpace (partial "score-range.html" .sovereignty_score) }}
-      <a href="{{ "/sovereignty-score/" | relURL }}" class="score-badge score-badge-hero score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}" title="{{ i18n "label_sovereignty_score" }}: {{ .sovereignty_score }}/10 ({{ .score_confidence }} confidence)">
+      {{ $range := trim (partial "score-range.html" .sovereignty_score) "\n\r\t " }}
+      <a href="{{ "/sovereignty-score/" | relLangURL }}" class="score-badge score-badge-hero score-badge-range-{{ $range }}{{ if eq .score_confidence "low" }} score-confidence-low{{ end }}" title="{{ i18n "label_sovereignty_score" }}: {{ .sovereignty_score }}/10 ({{ .score_confidence }} confidence)">
         <span class="score-badge-value">{{ .sovereignty_score }}</span>
         <span class="score-badge-label">{{ i18n "label_sovereignty_score" }}</span>
       </a>
       {{ end }}
-      <p class="tool-card-description">{{ $tool.description }}</p>
+      <p class="tool-card-description">{{ partial "l10n-field.html" (dict "obj" $tool "field" "description") }}</p>
       <a href="{{ $tool.website }}" class="button" target="_blank" rel="noopener">{{ i18n "label_website" }}</a>
     </div>
     {{ with $toolLogo }}
@@ -38,7 +38,7 @@
     <div class="tool-detail-main">
       <section>
         <h2 class="section-title">{{ i18n "label_about" }}</h2>
-        <p>{{ $tool.description }}</p>
+        <p>{{ partial "l10n-field.html" (dict "obj" $tool "field" "description") }}</p>
       </section>
 
       {{ if $tool.alternatives_to }}
@@ -67,7 +67,7 @@
         <h2 class="section-title">{{ i18n "label_replaces" }}</h2>
         <div class="replaces-list">
           {{ range $replacedProducts }}
-          <a href="{{ (path.Join "alternatives" .slug) | relURL }}/" class="badge badge-highlight replaces-badge">{{ .name }}</a>
+          <a href="{{ (path.Join "alternatives" .slug) | relLangURL }}/" class="badge badge-highlight replaces-badge">{{ .name }}</a>
           {{ end }}
         </div>
       </section>

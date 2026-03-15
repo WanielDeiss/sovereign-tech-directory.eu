@@ -1,6 +1,7 @@
 id: element
 name: Element (Matrix)
 description: Secure messaging and collaboration app built on the Matrix protocol. Offers end-to-end encryption and can be self-hosted for complete data sovereignty.
+description_de: Sichere Messaging- und Kollaborations-App auf Basis des Matrix-Protokolls. Bietet Ende-zu-Ende-Verschlüsselung und kann selbst gehostet werden, um vollständige Datensouveränität zu gewährleisten.
 category: communication
 countries:
   - GB

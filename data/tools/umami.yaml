@@ -1,6 +1,7 @@
 id: umami
 name: Umami
 description: Simple, fast, privacy-focused web analytics alternative. Open source with self-hosting support, no cookies required, and fully GDPR compliant by design.
+description_de: Einfache, schnelle und datenschutzorientierte Webanalyse-Alternative. Quelloffen mit Self-Hosting-Unterstützung, ohne Cookies und von Grund auf DSGVO-konform.
 category: analytics
 countries:
   - US

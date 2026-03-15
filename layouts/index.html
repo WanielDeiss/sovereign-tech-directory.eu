@@ -3,9 +3,9 @@
   <h1 class="page-title">{{ .Title }}</h1>
   {{ .Content }}
   <section class="cta">
-    <a href="{{ "tools/" | relURL }}" class="button">{{ i18n "nav_tools" }}</a>
-    <a href="{{ "categories/" | relURL }}" class="button">{{ i18n "nav_categories" }}</a>
-    <a href="{{ "alternatives/" | relURL }}" class="button button-secondary">{{ i18n "nav_alternatives" }}</a>
+    <a href="{{ "tools/" | relLangURL }}" class="button">{{ i18n "nav_tools" }}</a>
+    <a href="{{ "categories/" | relLangURL }}" class="button">{{ i18n "nav_categories" }}</a>
+    <a href="{{ "alternatives/" | relLangURL }}" class="button button-secondary">{{ i18n "nav_alternatives" }}</a>
   </section>
 </article>
 {{ end }}

@@ -1,6 +1,7 @@
 id: gitlab
 name: GitLab
 description: Complete DevOps platform with source code management, CI/CD, security scanning, and project planning. Available as SaaS or self-managed installation.
+description_de: Umfassende DevOps-Plattform mit Quellcodeverwaltung, CI/CD, Sicherheitsscans und Projektplanung. Verfügbar als SaaS oder selbstverwaltete Installation.
 category: development
 countries:
   - US

@@ -1,6 +1,7 @@
 id: proton-mail
 name: Proton Mail
 description: Encrypted email service based in Switzerland with zero-access encryption. Part of the Proton ecosystem including calendar, drive, and VPN services.
+description_de: Verschlüsselter E-Mail-Dienst mit Sitz in der Schweiz und Zero-Access-Verschlüsselung. Teil des Proton-Ökosystems mit Kalender, Cloud-Speicher und VPN-Diensten.
 category: email
 countries:
   - CH

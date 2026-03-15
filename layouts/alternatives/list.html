@@ -1,8 +1,8 @@
 {{ define "main" }}
-{{/* Build category lookup */}}
+{{/* Build category lookup (localized) */}}
 {{ $categories := dict }}
 {{ range .Site.Data.categories.categories }}
-  {{ $categories = merge $categories (dict .id .label) }}
+  {{ $categories = merge $categories (dict .id (partial "l10n-field.html" (dict "obj" . "field" "label"))) }}
 {{ end }}
 
 {{/* Collect all replaced products */}}
@@ -36,12 +36,12 @@
   {{ range $catOrder }}
   {{ $catProducts := index $grouped .id }}
   <section class="alternatives-category-group">
-    <h2 class="section-title">{{ .label }}</h2>
+    <h2 class="section-title">{{ partial "l10n-field.html" (dict "obj" . "field" "label") }}</h2>
     <ul class="alternatives-grid" role="list">
       {{ range $catProducts }}
       {{ $altCount := len .alternatives }}
       <li class="card">
-        <a href="{{ (path.Join "alternatives" .slug) | relURL }}/" class="card-link" aria-label="{{ .name }} – {{ $altCount }} {{ i18n "alternatives_count" }}">
+        <a href="{{ (path.Join "alternatives" .slug) | relLangURL }}/" class="card-link" aria-label="{{ .name }} – {{ $altCount }} {{ i18n "alternatives_count" }}">
           <header>
             <div class="card-header-with-logo">
               <span class="alternatives-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "arrows-right-left" "style" "outline" "size" 24 "class" "meta-icon-svg") }}</span>

@@ -1,6 +1,7 @@
 id: openproject
 name: OpenProject
 description: Open source project management software with Gantt charts, agile boards, time tracking, and cost reporting. Used by public administrations and enterprises across Europe.
+description_de: Quelloffene Projektmanagement-Software mit Gantt-Diagrammen, agilen Boards, Zeiterfassung und Kostenberichten. Wird von öffentlichen Verwaltungen und Unternehmen in ganz Europa eingesetzt.
 category: project-management
 countries:
   - DE

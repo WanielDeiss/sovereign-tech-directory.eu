@@ -1,6 +1,7 @@
 id: cryptpad
 name: CryptPad
 description: End-to-end encrypted collaboration suite with documents, spreadsheets, presentations, kanban, and forms. Zero-knowledge architecture ensures the server never sees user content.
+description_de: Ende-zu-Ende-verschlüsselte Kollaborationsplattform mit Dokumenten, Tabellen, Präsentationen, Kanban und Formularen. Die Zero-Knowledge-Architektur stellt sicher, dass der Server keinen Zugriff auf Nutzerinhalte hat.
 category: office
 countries:
   - FR

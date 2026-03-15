@@ -1,6 +1,7 @@
 id: mastodon
 name: Mastodon
 description: Decentralized social network based on the ActivityPub protocol. Users can join existing instances or host their own server for full control.
+description_de: Dezentrales soziales Netzwerk auf Basis des ActivityPub-Protokolls. Nutzer können bestehenden Instanzen beitreten oder einen eigenen Server betreiben, um die volle Kontrolle zu behalten.
 category: social-media
 countries:
   - DE

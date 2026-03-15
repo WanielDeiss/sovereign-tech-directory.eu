@@ -1,6 +1,7 @@
 id: wekan
 name: WeKan
 description: Open source Kanban board application. Lightweight and self-hostable alternative for visual task management with swimlanes, checklists, and custom fields.
+description_de: Quelloffene Kanban-Board-Anwendung. Leichtgewichtige und selbst hostbare Alternative für visuelle Aufgabenverwaltung mit Swimlanes, Checklisten und benutzerdefinierten Feldern.
 category: project-management
 countries:
   - FI

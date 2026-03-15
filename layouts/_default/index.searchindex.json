@@ -1,18 +1,19 @@
 {{ define "main" }}
 {{ $categories := dict }}
 {{ range .Site.Data.categories.categories }}
-  {{ $categories = merge $categories (dict .id .label) }}
+  {{ $categories = merge $categories (dict .id (partial "l10n-field.html" (dict "obj" . "field" "label"))) }}
 {{ end }}
 
 {{ $entries := slice }}
 {{ range $filename, $tool := .Site.Data.tools }}
-  {{ $searchableText := printf "%s %s" $tool.name $tool.description }}
+  {{ $desc := partial "l10n-field.html" (dict "obj" $tool "field" "description") }}
+  {{ $searchableText := printf "%s %s" $tool.name $desc }}
   {{ if $tool.alternatives_to }}
     {{ $searchableText = printf "%s %s" $searchableText (delimit $tool.alternatives_to " ") }}
   {{ end }}
   {{ $categoryLabel := index $categories $tool.category }}
-  {{ $url := printf "/tools/%s/" $tool.id | relURL }}
-  {{ $entry := dict "id" $tool.id "name" $tool.name "description" $tool.description "url" $url "searchableText" $searchableText "categoryLabel" $categoryLabel }}
+  {{ $url := printf "tools/%s/" $tool.id | relLangURL }}
+  {{ $entry := dict "id" $tool.id "name" $tool.name "description" $desc "url" $url "searchableText" $searchableText "categoryLabel" $categoryLabel }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 {{ $entries = sort $entries "name" }}

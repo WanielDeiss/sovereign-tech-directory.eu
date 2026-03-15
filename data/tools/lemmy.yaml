@@ -1,6 +1,7 @@
 id: lemmy
 name: Lemmy
 description: Open source link aggregator and discussion platform for the Fediverse. Self-hostable with federation support via ActivityPub, providing community-driven content curation.
+description_de: Quelloffener Link-Aggregator und Diskussionsplattform für das Fediverse. Selbst hostbar mit Föderations-Unterstützung über ActivityPub für gemeinschaftsbasierte Inhalte-Kuratierung.
 category: social-media
 countries: []
 eu_company: false
