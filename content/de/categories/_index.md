@@ -1,10 +1,10 @@
 ---
-title: "Categories"
-description: "Browse tools by category"
+title: "Kategorien"
+description: "Tools nach Kategorie durchsuchen"
 menu:
   main:
-    name: "Categories"
+    name: "Kategorien"
     weight: 3
 ---
 
-Explore tools organised by their primary function and use case.
+Entdecken Sie Tools, geordnet nach ihrer Hauptfunktion und ihrem Einsatzbereich.

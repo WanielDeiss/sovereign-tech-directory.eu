@@ -4,10 +4,10 @@
 {{ $siteTitle := .Site.Title }}
 {{ $siteDesc := .Site.Params.description | default "" }}
 {{ $suffixShort := " | Sovereign Tech Directory" }}
-{{ $suffixLong := " | Sovereign Tech Directory – Digital Sovereignty" }}
+{{ $suffixLong := printf " | %s" (i18n "seo_suffix_long") }}
 
 {{ if .IsHome }}
-  {{ $title = "Sovereign Tech Directory – Curated Tools for Sovereignty" }}
+  {{ $title = i18n "seo_home_title" }}
   {{ $description = .Site.Params.description | default "" }}
 {{ else if and (eq .Section "tools") .IsPage }}
   {{ $tool := index .Site.Data.tools .File.BaseFileName }}
@@ -46,15 +46,15 @@
 {{ else if and (eq .Section "alternatives") .IsPage }}
   {{ $rp := index (index .Site.Data "replaced-products") .File.BaseFileName }}
   {{ if $rp }}
-    {{ $title = printf "Sovereign Alternatives to %s — Rated by Sovereignty Score" $rp.name }}
-    {{ $description = printf "Find EU-friendly, open source alternatives to %s, ranked by data sovereignty, self-hosting, and openness." $rp.name }}
+    {{ $title = printf (i18n "seo_alternatives_detail_title") $rp.name }}
+    {{ $description = printf (i18n "seo_alternatives_detail_desc") $rp.name }}
   {{ else }}
     {{ $title = printf "%s%s" .Title $suffixShort }}
     {{ $description = .Description | default $siteDesc }}
   {{ end }}
 {{ else if eq .Section "alternatives" }}
-  {{ $title = "Sovereign Alternatives to Popular Tools | Sovereign Tech Directory" }}
-  {{ $description = "Find sovereign, EU-friendly alternatives to popular tools like Slack, Google Analytics, and GitHub — rated by Sovereignty Score." }}
+  {{ $title = i18n "seo_alternatives_list_title" }}
+  {{ $description = i18n "seo_alternatives_list_desc" }}
 {{ else }}
   {{ if .Title }}
     {{ if eq .Title "Sovereignty Score" }}
@@ -63,7 +63,7 @@
       {{ $title = printf "%s%s" .Title $suffixLong }}
     {{ end }}
   {{ else }}
-    {{ $title = "Sovereign Tech Directory – Curated Tools for Digital Sovereignty" }}
+    {{ $title = i18n "seo_home_title" }}
   {{ end }}
   {{ $description = .Description | default $siteDesc }}
 {{ end }}

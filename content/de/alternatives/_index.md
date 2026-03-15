@@ -1,4 +1,4 @@
 ---
-title: "Sovereign Alternatives"
-description: "Find sovereign, EU-friendly alternatives to the tools you use today."
+title: "Souveräne Alternativen"
+description: "Finden Sie souveräne, EU-freundliche Alternativen zu den Tools, die Sie heute nutzen."
 ---

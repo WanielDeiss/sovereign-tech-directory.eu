@@ -1,10 +1,10 @@
 ---
 title: "Tools"
-description: "Browse all tools in the Sovereign Tech Directory"
+description: "Alle Tools im Sovereign Tech Directory durchsuchen"
 menu:
   main:
     name: "Tools"
     weight: 2
 ---
 
-Browse software tools evaluated for digital sovereignty, each assessed on EU company status, data residency, open source availability, and self-hosting options.
+Durchsuchen Sie Software-Tools, die auf digitale Souveränität bewertet wurden — jeweils nach EU-Unternehmensstatus, Datenresidenz, Open-Source-Verfügbarkeit und Self-Hosting-Optionen.
