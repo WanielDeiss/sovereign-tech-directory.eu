@@ -195,7 +195,6 @@ other = "Slovakia"
 [country_uy]
 other = "Uruguay"
 
-<<<<<<< HEAD
 # Governance Type Values
 [governance_type_community]
 other = "Community"
@@ -205,7 +204,7 @@ other = "Company"
 
 [governance_type_nonprofit]
 other = "Nonprofit"
-=======
+
 # Filters
 [filter_category]
 other = "Category"
@@ -242,7 +241,6 @@ other = "None"
 
 [data_portability_unknown]
 other = "Unknown"
->>>>>>> 08be818 (feat: add client-side filters to tools listing page)
 
 # Other
 [tools_in_category]
