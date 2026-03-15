@@ -1,0 +1,17 @@
+slug: gmail
+name: Gmail
+vendor: Google
+vendorCountry: US
+category: email
+description: >
+  Gmail is the world's largest email service with over 1.8 billion users, operated by Google.
+  Emails are scanned for advertising purposes and stored on US infrastructure.
+reasons:
+  - Emails processed and stored on US infrastructure
+  - Content scanning for advertising and AI training
+  - Deep integration into Google ecosystem
+  - No self-hosting option
+alternatives:
+  - proton-mail
+  - tuta
+  - mailbox-org

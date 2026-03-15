@@ -38,6 +38,38 @@
     "numberOfItems" (len $toolsSlice)
     "itemListElement" $items
   }}
+{{ else if and (eq .Section "alternatives") .IsPage }}
+  {{ $rp := index (index .Site.Data "replaced-products") .File.BaseFileName }}
+  {{ if $rp }}
+    {{ $items := slice }}
+    {{ range $i, $altId := $rp.alternatives }}
+      {{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" (printf "%stools/%s/" (strings.TrimSuffix "/" $.Site.BaseURL) $altId)) }}
+    {{ end }}
+    {{ $schema = dict
+      "@context" "https://schema.org"
+      "@type" "ItemList"
+      "name" (printf "Sovereign Alternatives to %s" $rp.name)
+      "numberOfItems" (len $rp.alternatives)
+      "itemListElement" $items
+    }}
+  {{ end }}
+{{ else if eq .Section "alternatives" }}
+  {{ $allProducts := slice }}
+  {{ range $slug, $rp := (index .Site.Data "replaced-products") }}
+    {{ $allProducts = $allProducts | append $rp }}
+  {{ end }}
+  {{ $allProducts = sort $allProducts "name" }}
+  {{ $items := slice }}
+  {{ range $i, $rp := $allProducts }}
+    {{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" (printf "%salternatives/%s/" (strings.TrimSuffix "/" $.Site.BaseURL) $rp.slug)) }}
+  {{ end }}
+  {{ $schema = dict
+    "@context" "https://schema.org"
+    "@type" "ItemList"
+    "name" (.Title | default "Sovereign Alternatives")
+    "numberOfItems" (len $allProducts)
+    "itemListElement" $items
+  }}
 {{ else if eq .Section "categories" }}
   {{ if .IsPage }}
     {{/* Single category: optional ItemList of tools in category */}}

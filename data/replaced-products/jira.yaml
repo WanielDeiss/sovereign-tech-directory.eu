@@ -1,0 +1,16 @@
+slug: jira
+name: Jira
+vendor: Atlassian
+vendorCountry: AU
+category: project-management
+description: >
+  Jira is a project management and issue tracking tool by Atlassian (Australia).
+  The cloud version stores data outside the EU with limited data residency options.
+reasons:
+  - Cloud data stored outside the EU by default
+  - Complex pricing with vendor lock-in
+  - Proprietary data formats limit portability
+  - No self-hosting option for cloud version
+alternatives:
+  - openproject
+  - taiga

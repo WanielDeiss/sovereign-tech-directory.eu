@@ -1,0 +1,15 @@
+slug: youtube
+name: YouTube
+vendor: Google
+vendorCountry: US
+category: social-media
+description: >
+  YouTube is the dominant video hosting platform worldwide, owned by Google.
+  Content creators and viewers are subject to extensive tracking and US data jurisdiction.
+reasons:
+  - Extensive user tracking and profiling
+  - Data stored and processed in the US
+  - Algorithmic content curation lacks transparency
+  - No self-hosting or federation support
+alternatives:
+  - peertube

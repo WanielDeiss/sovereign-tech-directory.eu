@@ -1,0 +1,18 @@
+slug: microsoft-teams
+name: Microsoft Teams
+vendor: Microsoft
+vendorCountry: US
+category: communication
+description: >
+  Microsoft Teams is a collaboration platform bundled with Microsoft 365.
+  Data is processed through Microsoft's global infrastructure with limited EU data residency guarantees.
+reasons:
+  - Deep integration into Microsoft ecosystem increases lock-in
+  - Data processed through US-controlled infrastructure
+  - No self-hosting option
+  - Closed protocol, no federation support
+alternatives:
+  - element
+  - rocketchat
+  - wire
+  - jitsi-meet

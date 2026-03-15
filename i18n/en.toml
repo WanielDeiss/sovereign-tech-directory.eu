@@ -242,6 +242,34 @@ other = "None"
 [data_portability_unknown]
 other = "Unknown"
 
+# Alternatives
+[nav_alternatives]
+other = "Alternatives"
+
+[alternatives_intro]
+other = "Find sovereign, EU-friendly alternatives to the tools you use today."
+
+[alternatives_to_prefix]
+other = "Sovereign Alternatives to"
+
+[alternatives_why_switch]
+other = "Why switch?"
+
+[alternatives_count]
+other = "sovereign alternatives"
+
+[alternatives_sorted_by_score]
+other = "Sorted by Sovereignty Score"
+
+[alternatives_see_category]
+other = "See all %s tools"
+
+[label_replaces]
+other = "Replaces"
+
+[label_vendor]
+other = "by"
+
 # Other
 [tools_in_category]
 other = "Tools in this category."

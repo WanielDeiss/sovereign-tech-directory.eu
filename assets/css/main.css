@@ -366,6 +366,47 @@
     @apply list-none p-0 mt-2 space-y-1 text-muted;
   }
 
+  /* Alternatives pages */
+  .alternatives-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 mt-4;
+  }
+  .alternatives-category-group {
+    @apply mt-8;
+  }
+  .alternatives-hero {
+    @apply mb-8;
+  }
+  .alternatives-hero-content {
+    @apply space-y-2;
+  }
+  .alternatives-icon {
+    @apply text-muted;
+  }
+  .alternatives-icon-hero {
+    @apply text-muted mb-2 inline-block;
+  }
+  .alternatives-count-label {
+    @apply text-small text-muted m-0;
+  }
+  .alternatives-header {
+    @apply flex flex-wrap items-baseline gap-3 mb-2;
+  }
+  .alternatives-header .section-title {
+    @apply mb-0;
+  }
+  .alternatives-category-link {
+    @apply mt-8;
+  }
+  .why-switch-list {
+    @apply list-disc pl-6 space-y-1 text-muted;
+  }
+  .replaces-list {
+    @apply flex flex-wrap gap-2;
+  }
+  .replaces-badge {
+    @apply no-underline hover:opacity-80;
+  }
+
   /* CTA & Footer */
   .cta {
     @apply mt-8 flex flex-wrap gap-4;

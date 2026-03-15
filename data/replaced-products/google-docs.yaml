@@ -1,0 +1,17 @@
+slug: google-docs
+name: Google Docs
+vendor: Google
+vendorCountry: US
+category: office
+description: >
+  Google Docs is a cloud-based document editing suite within Google Workspace.
+  Documents are stored and processed on Google's US infrastructure.
+reasons:
+  - Data stored and processed on US infrastructure
+  - No self-hosting option
+  - Closed format with limited export options
+  - Vendor lock-in through Google Workspace ecosystem
+alternatives:
+  - cryptpad
+  - collabora-online
+  - onlyoffice
