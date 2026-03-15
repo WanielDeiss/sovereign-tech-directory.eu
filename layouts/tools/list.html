@@ -22,13 +22,67 @@
   {{ end }}
   {{ $tools = sort $tools "name" }}
 
+<<<<<<< HEAD
   <p class="tools-count">{{ len $tools }} Tools</p>
 
   <ul class="tools-grid" role="list">
+=======
+  {{/* Filter bar */}}
+  <div id="tool-filters" class="filter-bar" role="group" aria-label="Filter tools">
+    <fieldset class="filter-group">
+      <legend>{{ i18n "filter_category" }}</legend>
+      <button type="button" class="filter-chip" data-filter="category" data-value="" aria-pressed="true">{{ i18n "filter_all" }}</button>
+      {{ range .Site.Data.categories.categories }}
+      <button type="button" class="filter-chip" data-filter="category" data-value="{{ .id }}" aria-pressed="false">{{ .label }}</button>
+      {{ end }}
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>{{ i18n "filter_features" }}</legend>
+      <button type="button" class="filter-chip" data-filter="open-source" data-value="true" aria-pressed="false">{{ i18n "label_open_source" }}</button>
+      <button type="button" class="filter-chip" data-filter="self-hostable" data-value="true" aria-pressed="false">{{ i18n "label_self_hostable" }}</button>
+      <button type="button" class="filter-chip" data-filter="eu-company" data-value="true" aria-pressed="false">{{ i18n "label_eu_company" }}</button>
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>{{ i18n "filter_data_residency" }}</legend>
+      <button type="button" class="filter-chip" data-filter="data-residency" data-value="EU" aria-pressed="false">{{ i18n "data_residency_eu" }}</button>
+      <button type="button" class="filter-chip" data-filter="data-residency" data-value="EEA" aria-pressed="false">{{ i18n "data_residency_eea" }}</button>
+      <button type="button" class="filter-chip" data-filter="data-residency" data-value="NON_EU" aria-pressed="false">{{ i18n "data_residency_non_eu" }}</button>
+      <button type="button" class="filter-chip" data-filter="data-residency" data-value="UNKNOWN" aria-pressed="false">{{ i18n "data_residency_unknown" }}</button>
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>{{ i18n "filter_data_portability" }}</legend>
+      <button type="button" class="filter-chip" data-filter="data-portability" data-value="full" aria-pressed="false">{{ i18n "data_portability_full" }}</button>
+      <button type="button" class="filter-chip" data-filter="data-portability" data-value="partial" aria-pressed="false">{{ i18n "data_portability_partial" }}</button>
+      <button type="button" class="filter-chip" data-filter="data-portability" data-value="none" aria-pressed="false">{{ i18n "data_portability_none" }}</button>
+      <button type="button" class="filter-chip" data-filter="data-portability" data-value="unknown" aria-pressed="false">{{ i18n "data_portability_unknown" }}</button>
+    </fieldset>
+
+    <a href="#" id="filter-clear" class="filter-clear" hidden>{{ i18n "filter_clear" }}</a>
+  </div>
+
+  <div id="filter-announce" class="sr-only" aria-live="polite"></div>
+  <div id="filter-no-results" class="filter-no-results" hidden>{{ i18n "filter_no_results" }}</div>
+
+  <ul id="tools-grid" class="tools-grid" role="list">
+>>>>>>> 08be818 (feat: add client-side filters to tools listing page)
     {{ $scores := index (index .Site.Data "generated" | default dict) "scores" | default dict }}
     {{ range $tools }}
     {{ partial "tool-card.html" (dict "tool" . "categories" $categories "score" (index $scores .id) "logos" $logos) }}
     {{ end }}
   </ul>
 </article>
+
+<script>
+window.FILTER_I18N = {
+  noResults: {{ i18n "filter_no_results" | jsonify }},
+  showing: {{ i18n "filter_showing" | jsonify }}
+};
+</script>
+{{ $filterJs := resources.Get "js/filters.js" }}
+{{ if hugo.IsProduction }}{{ $filterJs = $filterJs | minify }}{{ end }}
+{{ $filterJs = $filterJs | fingerprint }}
+<script src="{{ $filterJs.RelPermalink }}" integrity="{{ $filterJs.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ end }}

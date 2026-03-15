@@ -174,6 +174,33 @@
     @apply text-small text-muted bg-gray-100 px-2.5 py-0.5 rounded-full whitespace-nowrap;
   }
 
+  /* Filter bar */
+  .filter-bar {
+    @apply flex flex-wrap gap-4 pb-4 border-b border-border mt-6;
+  }
+  .filter-group {
+    @apply flex flex-wrap items-center gap-2 border-none p-0 m-0;
+  }
+  .filter-group legend {
+    @apply text-small text-muted uppercase tracking-wide font-medium mb-1 w-full;
+  }
+  .filter-chip {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-small text-muted bg-gray-100 border border-transparent cursor-pointer transition-colors hover:border-primary/40 hover:text-gray-700;
+    font: inherit;
+  }
+  .filter-chip[aria-pressed="true"] {
+    @apply bg-primary/10 text-primary border-primary/30 font-medium;
+  }
+  .filter-clear {
+    @apply text-small text-primary no-underline hover:underline self-end ml-auto;
+  }
+  .filter-clear[hidden] {
+    display: none;
+  }
+  .filter-no-results {
+    @apply text-muted text-center py-12;
+  }
+
   /* Tools grid */
   .tools-grid {
     @apply grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 mt-6;

@@ -1,4 +1,10 @@
-<li class="card">
+<li class="card"
+    data-category="{{ .tool.category }}"
+    data-open-source="{{ .tool.open_source | default false }}"
+    data-self-hostable="{{ .tool.self_hostable | default false }}"
+    data-eu-company="{{ .tool.eu_company | default false }}"
+    data-data-residency="{{ .tool.data_residency | default "UNKNOWN" }}"
+    data-data-portability="{{ .tool.data_portability | default "unknown" }}">
   <a href="{{ (path.Join "tools" .tool.id) | relURL }}/" class="card-link" aria-label="{{ .tool.name }} – {{ i18n "label_view_details" }}">
     <header>
       <div class="card-header-with-logo">

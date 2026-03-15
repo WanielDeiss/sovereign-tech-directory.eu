@@ -195,6 +195,7 @@ other = "Slovakia"
 [country_uy]
 other = "Uruguay"
 
+<<<<<<< HEAD
 # Governance Type Values
 [governance_type_community]
 other = "Community"
@@ -204,6 +205,44 @@ other = "Company"
 
 [governance_type_nonprofit]
 other = "Nonprofit"
+=======
+# Filters
+[filter_category]
+other = "Category"
+
+[filter_features]
+other = "Features"
+
+[filter_data_residency]
+other = "Data Residency"
+
+[filter_data_portability]
+other = "Data Portability"
+
+[filter_all]
+other = "All"
+
+[filter_clear]
+other = "Clear filters"
+
+[filter_no_results]
+other = "No tools match the selected filters."
+
+[filter_showing]
+other = "Showing %d of %d tools"
+
+[data_portability_full]
+other = "Full"
+
+[data_portability_partial]
+other = "Partial"
+
+[data_portability_none]
+other = "None"
+
+[data_portability_unknown]
+other = "Unknown"
+>>>>>>> 08be818 (feat: add client-side filters to tools listing page)
 
 # Other
 [tools_in_category]
