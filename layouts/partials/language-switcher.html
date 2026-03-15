@@ -1,15 +1,15 @@
-{{ if gt (len site.Languages) 1 }}
+{{ if gt (len .Site.Home.AllTranslations) 1 }}
 <nav class="language-switcher" aria-label="Language">
-  <span class="lang-link lang-link-active" aria-current="true">{{ site.Language.LanguageName }}</span>
+  <span class="lang-link lang-link-active" aria-current="true">{{ .Language.LanguageName }}</span>
   {{ if .IsTranslated }}
   {{ range .Translations }}
   <a href="{{ .RelPermalink }}" class="lang-link" lang="{{ .Language.Lang }}">{{ .Language.LanguageName }}</a>
   {{ end }}
   {{ else }}
   {{/* Fallback: link to other language homepage */}}
-  {{ range site.Languages }}
-  {{ if ne .Lang site.Language.Lang }}
-  <a href="{{ printf "/%s/" .Lang }}" class="lang-link" lang="{{ .Lang }}">{{ .LanguageName }}</a>
+  {{ range .Site.Home.AllTranslations }}
+  {{ if ne .Language.Lang $.Language.Lang }}
+  <a href="{{ .RelPermalink }}" class="lang-link" lang="{{ .Language.Lang }}">{{ .Language.LanguageName }}</a>
   {{ end }}
   {{ end }}
   {{ end }}
