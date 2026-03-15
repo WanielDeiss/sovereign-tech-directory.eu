@@ -1,0 +1,15 @@
+slug: instagram
+name: Instagram
+vendor: Meta
+vendorCountry: US
+category: social-media
+description: >
+  Instagram is a photo and video sharing platform owned by Meta (USA).
+  User data is extensively collected and used for targeted advertising.
+reasons:
+  - Owned by Meta with extensive data collection
+  - Data stored and processed in the US
+  - No self-hosting or federation support
+  - Closed platform with limited data portability
+alternatives:
+  - pixelfed

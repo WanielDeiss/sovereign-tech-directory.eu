@@ -1,0 +1,16 @@
+slug: zoom
+name: Zoom
+vendor: Zoom Video Communications
+vendorCountry: US
+category: communication
+description: >
+  Zoom is a widely used video conferencing platform based in the US.
+  Despite its popularity, it has faced criticism for security issues and data routing through China.
+reasons:
+  - Data processed through US infrastructure
+  - History of security and privacy incidents
+  - No self-hosting option
+  - Closed protocol with no federation support
+alternatives:
+  - jitsi-meet
+  - element

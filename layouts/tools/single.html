@@ -52,6 +52,27 @@
       </section>
       {{ end }}
 
+      {{/* Replaces section: show replaced products this tool is an alternative to */}}
+      {{ $replacedProducts := slice }}
+      {{ range $slug, $rp := (index .Site.Data "replaced-products") }}
+        {{ $toolId := $tool.id }}
+        {{ range $rp.alternatives }}
+          {{ if eq . $toolId }}
+            {{ $replacedProducts = $replacedProducts | append $rp }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if $replacedProducts }}
+      <section>
+        <h2 class="section-title">{{ i18n "label_replaces" }}</h2>
+        <div class="replaces-list">
+          {{ range $replacedProducts }}
+          <a href="{{ (path.Join "alternatives" .slug) | relURL }}/" class="badge badge-highlight replaces-badge">{{ .name }}</a>
+          {{ end }}
+        </div>
+      </section>
+      {{ end }}
+
       <section>
         <h2 class="section-title">{{ i18n "label_links" }}</h2>
         <a href="{{ $tool.website }}" target="_blank" rel="noopener" class="link">{{ i18n "label_website" }}</a>

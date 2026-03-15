@@ -1,0 +1,16 @@
+slug: trello
+name: Trello
+vendor: Atlassian
+vendorCountry: AU
+category: project-management
+description: >
+  Trello is a kanban-style project management tool by Atlassian (Australia).
+  Data is stored on US infrastructure with no EU-only hosting option.
+reasons:
+  - Data stored on US infrastructure
+  - No self-hosting option
+  - Limited data export capabilities
+  - Part of Atlassian ecosystem with vendor lock-in
+alternatives:
+  - wekan
+  - taiga

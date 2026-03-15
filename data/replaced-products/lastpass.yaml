@@ -1,0 +1,15 @@
+slug: lastpass
+name: LastPass / 1Password
+vendor: Various
+vendorCountry: US
+category: security
+description: >
+  LastPass and 1Password are popular password managers based in the US and Canada.
+  LastPass has suffered multiple security breaches exposing encrypted vault data.
+reasons:
+  - Data stored on US/Canadian infrastructure
+  - LastPass suffered major security breaches in 2022
+  - Closed source with no independent audit access
+  - No self-hosting option
+alternatives:
+  - bitwarden

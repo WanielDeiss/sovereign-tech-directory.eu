@@ -1,0 +1,17 @@
+slug: google-analytics
+name: Google Analytics
+vendor: Google
+vendorCountry: US
+category: analytics
+description: >
+  Google Analytics is the dominant web analytics platform, used on millions of websites.
+  Multiple EU data protection authorities have ruled its use non-compliant with GDPR.
+reasons:
+  - Ruled non-GDPR-compliant by multiple EU DPAs
+  - Data transferred to and processed in the US
+  - Extensive cross-site tracking and profiling
+  - No self-hosting option
+alternatives:
+  - matomo
+  - plausible
+  - umami

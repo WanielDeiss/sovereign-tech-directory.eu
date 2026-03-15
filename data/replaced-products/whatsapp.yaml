@@ -1,0 +1,17 @@
+slug: whatsapp
+name: WhatsApp
+vendor: Meta
+vendorCountry: US
+category: communication
+description: >
+  WhatsApp is the most popular messaging app globally, owned by Meta (USA).
+  Despite end-to-end encryption, metadata is collected and shared within the Meta ecosystem.
+reasons:
+  - Owned by Meta with extensive metadata collection
+  - No self-hosting option
+  - Closed protocol, no federation
+  - Data shared within Meta ecosystem for advertising purposes
+alternatives:
+  - threema
+  - element
+  - wire

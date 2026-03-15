@@ -1,0 +1,63 @@
+{{ define "main" }}
+{{/* Build category lookup */}}
+{{ $categories := dict }}
+{{ range .Site.Data.categories.categories }}
+  {{ $categories = merge $categories (dict .id .label) }}
+{{ end }}
+
+{{/* Collect all replaced products */}}
+{{ $allProducts := slice }}
+{{ range $slug, $rp := (index .Site.Data "replaced-products") }}
+  {{ $rp = merge $rp (dict "_slug" $slug) }}
+  {{ $allProducts = $allProducts | append $rp }}
+{{ end }}
+{{ $allProducts = sort $allProducts "name" }}
+
+{{/* Group by category */}}
+{{ $grouped := dict }}
+{{ range $allProducts }}
+  {{ $cat := .category }}
+  {{ $existing := index $grouped $cat | default slice }}
+  {{ $grouped = merge $grouped (dict $cat ($existing | append .)) }}
+{{ end }}
+
+{{/* Sort categories by label */}}
+{{ $catOrder := slice }}
+{{ range .Site.Data.categories.categories }}
+  {{ if index $grouped .id }}
+    {{ $catOrder = $catOrder | append . }}
+  {{ end }}
+{{ end }}
+
+<article class="page-content">
+  <h1 class="page-title">{{ .Title }}</h1>
+  <p>{{ i18n "alternatives_intro" }}</p>
+
+  {{ range $catOrder }}
+  {{ $catProducts := index $grouped .id }}
+  <section class="alternatives-category-group">
+    <h2 class="section-title">{{ .label }}</h2>
+    <ul class="alternatives-grid" role="list">
+      {{ range $catProducts }}
+      {{ $altCount := len .alternatives }}
+      <li class="card">
+        <a href="{{ (path.Join "alternatives" .slug) | relURL }}/" class="card-link" aria-label="{{ .name }} – {{ $altCount }} {{ i18n "alternatives_count" }}">
+          <header>
+            <div class="card-header-with-logo">
+              <span class="alternatives-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "arrows-right-left" "style" "outline" "size" 24 "class" "meta-icon-svg") }}</span>
+              <h3 class="section-title">{{ .name }}</h3>
+            </div>
+            <div class="card-header-badges">
+              <span class="badge badge-neutral">{{ .vendor }} ({{ .vendorCountry }})</span>
+            </div>
+          </header>
+          <p class="tool-card-description">{{ .description }}</p>
+          <p class="alternatives-count-label"><strong>{{ $altCount }}</strong> {{ i18n "alternatives_count" }}</p>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+</article>
+{{ end }}

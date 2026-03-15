@@ -1,0 +1,15 @@
+slug: twitter
+name: Twitter / X
+vendor: X Corp.
+vendorCountry: US
+category: social-media
+description: >
+  Twitter (now X) is a microblogging platform owned by X Corp. (USA).
+  The platform has faced criticism for opaque content moderation and US data jurisdiction.
+reasons:
+  - Data stored and processed in the US
+  - Opaque algorithmic content curation
+  - No self-hosting or federation support
+  - Closed protocol with no interoperability
+alternatives:
+  - mastodon

@@ -43,6 +43,18 @@
   {{ if not $description }}
     {{ $description = $siteDesc }}
   {{ end }}
+{{ else if and (eq .Section "alternatives") .IsPage }}
+  {{ $rp := index (index .Site.Data "replaced-products") .File.BaseFileName }}
+  {{ if $rp }}
+    {{ $title = printf "Sovereign Alternatives to %s — Rated by Sovereignty Score" $rp.name }}
+    {{ $description = printf "Find EU-friendly, open source alternatives to %s, ranked by data sovereignty, self-hosting, and openness." $rp.name }}
+  {{ else }}
+    {{ $title = printf "%s%s" .Title $suffixShort }}
+    {{ $description = .Description | default $siteDesc }}
+  {{ end }}
+{{ else if eq .Section "alternatives" }}
+  {{ $title = "Sovereign Alternatives to Popular Tools | Sovereign Tech Directory" }}
+  {{ $description = "Find sovereign, EU-friendly alternatives to popular tools like Slack, Google Analytics, and GitHub — rated by Sovereignty Score." }}
 {{ else }}
   {{ if .Title }}
     {{ if eq .Title "Sovereignty Score" }}

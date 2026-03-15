@@ -1,0 +1,17 @@
+slug: slack
+name: Slack
+vendor: Salesforce
+vendorCountry: US
+category: communication
+description: >
+  Slack is one of the most widely used team communication platforms worldwide.
+  Owned by Salesforce (USA) since 2021, data is stored primarily in the US.
+reasons:
+  - Data stored primarily in the US
+  - No self-hosting option
+  - Proprietary protocol without federation
+  - Vendor lock-in through closed ecosystem
+alternatives:
+  - element
+  - rocketchat
+  - wire

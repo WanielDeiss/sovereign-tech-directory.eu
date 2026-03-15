@@ -1,0 +1,83 @@
+{{ define "main" }}
+{{ $rp := index (index .Site.Data "replaced-products") .File.BaseFileName }}
+{{ if not $rp }}
+  <p>Product not found.</p>
+  {{ return }}
+{{ end }}
+
+{{/* Build category lookup */}}
+{{ $categories := dict }}
+{{ range .Site.Data.categories.categories }}
+  {{ $categories = merge $categories (dict .id .label) }}
+{{ end }}
+
+{{/* Build logo map */}}
+{{ $logos := dict }}
+{{ range resources.Match "tools/*" }}
+  {{ $logos = merge $logos (dict (path.BaseName .Name) .RelPermalink) }}
+{{ end }}
+
+{{/* Load scores */}}
+{{ $scores := index (index .Site.Data "generated" | default dict) "scores" | default dict }}
+
+{{/* Collect alternative tools with scores, sort by score descending */}}
+{{ $toolsWithScore := slice }}
+{{ range $rp.alternatives }}
+  {{ $toolId := . }}
+  {{ $tool := index $.Site.Data.tools $toolId }}
+  {{ if $tool }}
+    {{ $score := index $scores $toolId }}
+    {{ $sv := 0.0 }}
+    {{ with $score }}{{ $sv = .sovereignty_score }}{{ end }}
+    {{ $toolsWithScore = $toolsWithScore | append (dict "tool" $tool "score" $score "sort_score" $sv) }}
+  {{ end }}
+{{ end }}
+{{ $toolsWithScore = sort $toolsWithScore "sort_score" "desc" }}
+
+{{ $categoryLabel := index $categories $rp.category }}
+
+<article class="page-content">
+  {{/* Hero */}}
+  <header class="alternatives-hero">
+    <div class="alternatives-hero-content">
+      <span class="alternatives-icon-hero" aria-hidden="true">{{ partial "icon.html" (dict "name" "arrows-right-left" "style" "outline" "size" 24 "class" "meta-icon-svg") }}</span>
+      <h1 class="page-title">{{ i18n "alternatives_to_prefix" }} {{ $rp.name }}</h1>
+      <p class="text-muted">{{ i18n "label_vendor" }} {{ $rp.vendor }} ({{ $rp.vendorCountry }})</p>
+      <p>{{ $rp.description }}</p>
+    </div>
+  </header>
+
+  {{/* Why switch? */}}
+  {{ with $rp.reasons }}
+  <section>
+    <h2 class="section-title">{{ i18n "alternatives_why_switch" }}</h2>
+    <ul class="why-switch-list">
+      {{ range . }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{/* Alternatives */}}
+  <section>
+    <div class="alternatives-header">
+      <h2 class="section-title">{{ len $toolsWithScore }} {{ i18n "alternatives_count" }}</h2>
+      <p class="text-muted text-small">{{ i18n "alternatives_sorted_by_score" }}</p>
+    </div>
+
+    <ul class="tools-grid" role="list">
+      {{ range $toolsWithScore }}
+      {{ partial "tool-card.html" (dict "tool" .tool "score" .score "categories" $categories "logos" $logos) }}
+      {{ end }}
+    </ul>
+  </section>
+
+  {{/* Link to category */}}
+  {{ with $categoryLabel }}
+  <p class="alternatives-category-link">
+    <a href="{{ (path.Join "categories" $rp.category) | relURL }}/" class="link">{{ printf (i18n "alternatives_see_category") . }} &rarr;</a>
+  </p>
+  {{ end }}
+</article>
+{{ end }}

@@ -1,0 +1,17 @@
+slug: github
+name: GitHub
+vendor: Microsoft
+vendorCountry: US
+category: development
+description: >
+  GitHub is the world's largest source code hosting platform, owned by Microsoft since 2018.
+  All data is stored on US infrastructure with no EU-only hosting option.
+reasons:
+  - Owned by Microsoft, data stored in the US
+  - No self-hosting option for github.com
+  - Proprietary platform with limited data portability
+  - AI training on public repositories raises IP concerns
+alternatives:
+  - codeberg
+  - forgejo
+  - gitlab

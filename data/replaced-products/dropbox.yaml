@@ -1,0 +1,17 @@
+slug: dropbox
+name: Dropbox
+vendor: Dropbox Inc.
+vendorCountry: US
+category: cloud-storage
+description: >
+  Dropbox is a widely used cloud storage and file synchronisation service based in the US.
+  Files are stored on US infrastructure with no EU-only storage option.
+reasons:
+  - Data stored on US infrastructure
+  - No self-hosting option
+  - No end-to-end encryption by default
+  - Limited data sovereignty controls
+alternatives:
+  - nextcloud
+  - owncloud
+  - tresorit

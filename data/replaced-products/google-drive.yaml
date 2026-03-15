@@ -1,0 +1,18 @@
+slug: google-drive
+name: Google Drive
+vendor: Google
+vendorCountry: US
+category: cloud-storage
+description: >
+  Google Drive is a cloud storage service integrated into Google Workspace.
+  Data is stored across Google's global infrastructure with limited EU residency controls.
+reasons:
+  - Data stored on US-controlled infrastructure
+  - Deep integration into Google ecosystem increases lock-in
+  - No self-hosting option
+  - Extensive data collection and cross-service profiling
+alternatives:
+  - nextcloud
+  - owncloud
+  - tresorit
+  - cryptpad

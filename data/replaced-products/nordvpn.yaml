@@ -1,0 +1,15 @@
+slug: nordvpn
+name: NordVPN
+vendor: Nord Security
+vendorCountry: US
+category: security
+description: >
+  NordVPN is one of the most popular VPN services, operated by Nord Security.
+  Despite being incorporated in Panama, the parent company is US-based.
+reasons:
+  - Parent company based in the US
+  - Closed source client applications
+  - History of security incidents
+  - No independent infrastructure audit
+alternatives:
+  - mullvad-vpn
